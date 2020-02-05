@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@components": ["components"],
+      "@pages": ["pages"],
+      "@ui": ["ui"],
+      "@ui/*": ["ui/*"]
+    },
+    "allowJs": true,
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["es6", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext"
+  },
+  "include": [
+    "src"
+  ]
+}

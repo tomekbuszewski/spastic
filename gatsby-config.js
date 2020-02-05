@@ -1,3 +1,5 @@
+const { resolve } = require("path");
+
 module.exports = {
   siteMetadata: {
     title: "buszewski.com – 2020",
@@ -28,10 +30,20 @@ module.exports = {
         name: "gatsby-starter-default",
         short_name: "starter",
         start_url: "/",
-        background_color: "#663399",
-        theme_color: "#663399",
+        background_color: "#FDFDFD",
+        theme_color: "#F1C40F",
         display: "minimal-ui",
         icon: "src/images/gatsby-icon.png", // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-plugin-alias-imports",
+      options: {
+        alias: {
+          "@ui": resolve(__dirname, "src", "ui"),
+          "@components": resolve(__dirname, "src", "components"),
+          "@pages": resolve(__dirname, "src", "pages"),
+        },
       },
     },
   ],
