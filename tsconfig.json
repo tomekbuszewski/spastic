@@ -2,6 +2,8 @@
   "compilerOptions": {
     "paths": {
       "@components": ["components"],
+      "@components/*": ["components/*"],
+      "@sections": ["components/sections"],
       "@pages": ["pages"],
       "@ui": ["ui"],
       "@ui/*": ["ui/*"]
@@ -20,6 +22,7 @@
     "target": "esnext"
   },
   "include": [
-    "src"
+    "src",
+    "@types"
   ]
 }

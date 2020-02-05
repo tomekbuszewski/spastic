@@ -2,6 +2,9 @@ export interface ITheme {
   colors: {
     [k: string]: string;
   };
+  breakpoints: {
+    [k: string]: string;
+  };
   fonts: {
     sizes: {
       [k: string]: number;
@@ -16,7 +19,11 @@ export const BASE_SIZE = 8;
 
 export const theme: ITheme = {
   colors: {
-    base: "red",
+    brand: "var(--section-hero-background)",
+  },
+  breakpoints: {
+    tablet: "@media (min-width: 768px)",
+    desktop: "@media (min-width: 1200px)",
   },
   fonts: {
     sizes: {

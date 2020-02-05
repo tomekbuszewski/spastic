@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-styled-components",
       options: {
-        displayName: false,
+        displayName: process.env.NODE_ENV !== "production",
       },
     },
     "gatsby-transformer-sharp",
@@ -40,11 +40,20 @@ module.exports = {
       resolve: "gatsby-plugin-alias-imports",
       options: {
         alias: {
+          "@sections": resolve(__dirname, "src", "components", "sections"),
           "@ui": resolve(__dirname, "src", "ui"),
           "@components": resolve(__dirname, "src", "components"),
           "@pages": resolve(__dirname, "src", "pages"),
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/,
+        },
+      },
+    }
   ],
 };
