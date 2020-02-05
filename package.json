@@ -5,17 +5,6 @@
   "version": "0.1.0",
   "author": "Tomek Buszewski <tomek.buszewski@gmail.com>",
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "styled-components": "^5.0.1",
-    "styled-reboot": "^4.0.3"
-  },
-  "devDependencies": {
-    "@types/node": "^13.7.0",
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
-    "@types/styled-components": "^4.4.2",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
@@ -28,9 +17,19 @@
     "gatsby-plugin-typescript": "^2.1.27",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-sharp": "^2.3.13",
-    "prettier": "^1.19.1",
     "prop-types": "^15.7.2",
-    "webpack": "^4.41.5"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "styled-components": "^5.0.1",
+    "styled-reboot": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@types/styled-components": "^4.4.2",
+    "prettier": "^1.19.1"
   },
   "keywords": [
     "gatsby"
