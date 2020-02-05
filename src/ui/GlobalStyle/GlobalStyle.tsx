@@ -4,7 +4,9 @@ import reboot from "styled-reboot";
 import { theme, BASE_SIZE } from "@ui/theme";
 import { light, dark, IColorScheme } from "@ui/colors";
 
+// @ts-ignore
 import ManropeMedium from "@ui/fonts/Manrope-Medium.woff2";
+// @ts-ignore
 import ManropeExtraBold from "@ui/fonts/Manrope-ExtraBold.woff2";
 
 function mapColors(scheme: IColorScheme, _prefix?: string): string {
