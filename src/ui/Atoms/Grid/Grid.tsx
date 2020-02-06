@@ -7,11 +7,6 @@ import * as React from "react";
 import styled from "styled-components";
 import { ITheme } from "@ui/theme";
 
-interface Props {
-  children?: React.ReactNode;
-  theme: ITheme;
-}
-
 const Grid = styled.div`
   display: grid;
   

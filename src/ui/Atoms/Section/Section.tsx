@@ -16,8 +16,10 @@ interface Props {
 const Section = styled.section<Props>`
   width: calc(100vw - 2rem);
   min-height: calc(100vh - 2rem);
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin: 1rem;
-  
+
   background: var(--section-${props => props.sectionName}-background);
   color: var(--section-${props => props.sectionName}-lead);
 
@@ -25,6 +27,8 @@ const Section = styled.section<Props>`
     width: calc(100vw - 4rem);
     min-height: calc(100vh - 4rem);
     margin: 2rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   ${props => props.theme.breakpoints.desktop} {

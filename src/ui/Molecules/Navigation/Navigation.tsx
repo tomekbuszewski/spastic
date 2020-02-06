@@ -7,6 +7,8 @@ import * as React from "react";
 import styled from "styled-components";
 import { ITheme } from "@ui/theme";
 
+import { gridElement } from "@ui/helpers";
+
 interface Props {
   active: boolean;
   children?: React.ReactNode;
@@ -14,18 +16,27 @@ interface Props {
 }
 
 const NavigationItem = styled.li`
-  text-align: center;
   font-weight: 800;
   line-height: 2.5;
   font-size: 2rem;
   color: var(--section-hero-text);
+  ${gridElement};
   
   > * {
     color: var(--section-hero-text);
   }
+  
+  ${props => props.theme.breakpoints.tablet} {
+    font-size: 1.5rem;
+  }
+  
+  ${props => props.theme.breakpoints.desktop} {
+    font-size: 2rem;
+  }
 `;
 
 const NavigationWrapper = styled.ul<Props>`
+  text-align: center;
   margin: 0;
   padding: 0;
   position: fixed;
@@ -38,9 +49,21 @@ const NavigationWrapper = styled.ul<Props>`
   align-items: center;
   align-content: center;
   display: grid;
+  list-style: none;
   transition: ${props => props.theme.animations.med} opacity
     ${props => props.theme.animations.easing};
   opacity: ${props => (props.active ? 1 : 0)};
+  pointer-events: ${props => (props.active ? "all" : "none")};;
+  
+  ${props => props.theme.breakpoints.tablet} {
+    opacity: 1;
+    width: auto;
+    height: auto;
+    position: static;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: right;
+    pointer-events: all;
+  }
 `;
 
 const Navigation = ({ active }: { active: boolean }) => (
