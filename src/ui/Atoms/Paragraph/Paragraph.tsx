@@ -60,6 +60,11 @@ const Paragraph = styled.p<Props>`
   &:last-of-type {
     margin-bottom: 0;
   }
+  
+  ${props => props.theme.breakpoints.tablet} {
+    font-size: 3rem;
+    line-height: 1.75;
+  }
 `;
 
 Paragraph.defaultProps = {

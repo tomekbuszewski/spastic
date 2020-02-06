@@ -13,7 +13,7 @@ import { getViewport, VIEWPORTS } from "@hooks";
 import { gridElement } from "@ui/helpers";
 
 const HeaderWrapper = styled(Grid)`
-  position: fixed;
+  position: absolute;
   top: 1rem;
   left: 50%;
   transform: translateX(-50%);

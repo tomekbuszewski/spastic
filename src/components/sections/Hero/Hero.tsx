@@ -10,7 +10,9 @@ import { Section as Base, Grid, Heading as BaseHeading, Paragraph as BaseParagra
 import { gridElement } from "@ui/helpers";
 
 const Section = styled(Base)`
-  padding-top: 50vh;
+  padding-bottom: 8rem;
+  display: grid;
+  align-content: end;
 `;
 
 const Heading = styled(BaseHeading)`
