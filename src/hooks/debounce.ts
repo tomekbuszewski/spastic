@@ -1,9 +1,8 @@
 export function debounce(fn: Function, wait: number) {
   let timeout: number;
 
-  return function() {
+  return function(this: any, ...args: any[]) {
     clearTimeout(timeout);
-    // @ts-ignore
-    timeout = setTimeout(() => fn.apply(this as any, arguments), wait);
+    timeout = setTimeout(() => fn.apply(this, args), wait);
   }
 }
