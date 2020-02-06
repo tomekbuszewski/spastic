@@ -6,6 +6,7 @@
       "@sections": ["components/sections"],
       "@pages": ["pages"],
       "@ui": ["ui"],
+      "@hooks": ["hooks"],
       "@ui/*": ["ui/*"]
     },
     "allowJs": true,

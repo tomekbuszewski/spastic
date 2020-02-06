@@ -42,6 +42,7 @@ module.exports = {
         alias: {
           "@sections": resolve(__dirname, "src", "components", "sections"),
           "@ui": resolve(__dirname, "src", "ui"),
+          "@hooks": resolve(__dirname, "src", "hooks"),
           "@components": resolve(__dirname, "src", "components"),
           "@pages": resolve(__dirname, "src", "pages"),
         },
