@@ -5,24 +5,18 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import { ITheme } from "@ui/theme";
 
 import { Grid, Logo, NavButton } from "@ui/Atoms";
 
 import { getViewport, VIEWPORTS } from "@hooks";
 import { gridElement } from "@ui/helpers";
 
-interface Props {
-  children?: React.ReactNode;
-  theme: ITheme;
-}
-
 const HeaderWrapper = styled(Grid)`
   position: fixed;
   top: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  height: 5rem;
+  height: 7.5rem;
   display: grid;
   grid-template-columns: 1fr 3fr;
   align-items: center;
@@ -55,7 +49,7 @@ const Header = () => {
         {viewport === VIEWPORTS.MOBILE ? (
           <NavButton
             active={isNavActive}
-            onClick={() => setNavActive(!isNavActive)}
+            onClick={() => setNavActive(state => !state)}
           />
         ) : null}
       </NavContainer>
