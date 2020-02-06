@@ -7,7 +7,9 @@ import * as React from "react";
 import styled from "styled-components";
 import { ITheme } from "@ui/theme";
 
-import { Logo, Grid } from "@ui/Atoms";
+import { Grid, Logo, NavButton } from "@ui/Atoms";
+
+import { getViewport, VIEWPORTS } from "../../../hooks/getViewport";
 
 interface Props {
   children?: React.ReactNode;
@@ -20,7 +22,8 @@ const HeaderWrapper = styled(Grid)`
   left: 50%;
   transform: translateX(-50%);
   height: 5rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   align-items: center;
 
   ${props => props.theme.breakpoints.tablet} {
@@ -33,10 +36,21 @@ const HeaderWrapper = styled(Grid)`
   }
 `;
 
-const Header = () => (
-  <HeaderWrapper as="header">
-    <Logo />
-  </HeaderWrapper>
-);
+const Header = () => {
+  const [isNavActive, setNavActive] = React.useState<boolean>(false);
+  const viewport = getViewport();
+
+  return (
+    <HeaderWrapper as="header">
+      <Logo />
+      {viewport === VIEWPORTS.MOBILE ? (
+        <NavButton
+          active={isNavActive}
+          onClick={() => setNavActive(!isNavActive)}
+        />
+      ) : null}
+    </HeaderWrapper>
+  );
+};
 
 export { Header };

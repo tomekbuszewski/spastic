@@ -1,4 +1,9 @@
 export interface ITheme {
+  animations: {
+    easing: string;
+    long: string;
+    short: string;
+  };
   colors: {
     [k: string]: string;
   };
@@ -18,6 +23,11 @@ export interface ITheme {
 export const BASE_SIZE = 8;
 
 export const theme: ITheme = {
+  animations: {
+    easing: "ease-in",
+    long: "500ms",
+    short: "150ms",
+  },
   colors: {
     brand: "var(--section-hero-background)",
   },

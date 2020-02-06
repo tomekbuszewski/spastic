@@ -71,6 +71,18 @@ const Grid = styled(Base)`
   transform: translateX(-50%);
   grid-auto-flow: column;
   justify-content: space-between;
+  padding-left: 0;
+  padding-right: 0;
+  
+  ${props => props.theme.breakpoints.tablet} {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  ${props => props.theme.breakpoints.desktop} {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 const Logo = styled(LogoBase as any)`
