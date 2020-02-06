@@ -9,7 +9,8 @@ import { ITheme } from "@ui/theme";
 
 import { Grid, Logo, NavButton } from "@ui/Atoms";
 
-import { getViewport, VIEWPORTS } from "../../../hooks/getViewport";
+import { getViewport, VIEWPORTS } from "@hooks";
+import { gridElement } from "@ui/helpers";
 
 interface Props {
   children?: React.ReactNode;
@@ -25,6 +26,7 @@ const HeaderWrapper = styled(Grid)`
   display: grid;
   grid-template-columns: 1fr 3fr;
   align-items: center;
+  width: calc(100vw - 4rem);
 
   ${props => props.theme.breakpoints.tablet} {
     top: 2rem;
@@ -33,7 +35,13 @@ const HeaderWrapper = styled(Grid)`
 
   ${props => props.theme.breakpoints.desktop} {
     top: 3rem;
+    width: calc(100vw - 6rem);
   }
+`;
+
+const NavContainer = styled.nav`
+  display: grid;
+  ${gridElement};
 `;
 
 const Header = () => {
@@ -43,12 +51,14 @@ const Header = () => {
   return (
     <HeaderWrapper as="header">
       <Logo />
-      {viewport === VIEWPORTS.MOBILE ? (
-        <NavButton
-          active={isNavActive}
-          onClick={() => setNavActive(!isNavActive)}
-        />
-      ) : null}
+      <NavContainer>
+        {viewport === VIEWPORTS.MOBILE ? (
+          <NavButton
+            active={isNavActive}
+            onClick={() => setNavActive(!isNavActive)}
+          />
+        ) : null}
+      </NavContainer>
     </HeaderWrapper>
   );
 };
