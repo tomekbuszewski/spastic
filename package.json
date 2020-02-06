@@ -46,7 +46,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "~~~~~ DEV COMMANDS ~~~~~": "",
-    "plop": "plop"
+    "plop": "plop",
+    "create": "npm run plop"
   },
   "repository": {
     "type": "git",

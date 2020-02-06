@@ -37,7 +37,6 @@ const HeaderWrapper = styled(Grid)`
 
 const NavContainer = styled.nav`
   display: grid;
-  ${gridElement};
 `;
 
 const Header = () => {

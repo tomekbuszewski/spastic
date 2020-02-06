@@ -14,7 +14,7 @@ const Logo = styled(LogoImage as any)`
   ${gridElement};
   box-sizing: content-box;
   width: 10rem;
-  fill: ${props => props.theme.colors.brand};
+  fill: var(--section-hero-lead);
   z-index: 12;
 `;
 

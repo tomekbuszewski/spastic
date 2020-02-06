@@ -13,11 +13,6 @@ module.exports = plop => {
     description: "Create a component",
     prompts: [
       {
-        type: "input",
-        name: "name",
-        message: "What is your component's name?",
-      },
-      {
         type: "list",
         name: "type",
         message: "What kind of component?",
@@ -26,6 +21,11 @@ module.exports = plop => {
           { name: "molecule", value: "Molecules" },
           { name: "organism", value: "Organisms" },
         ],
+      },
+      {
+        type: "input",
+        name: "name",
+        message: "What is your component's name?",
       },
     ],
     actions: [

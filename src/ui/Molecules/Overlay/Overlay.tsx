@@ -34,7 +34,7 @@ const VerticalLine = styled.span`
   display: block;
   height: 100%;
   width: 1px;
-  background: rgba(45, 35, 46, 0.1);
+  background: var(--overlay);
   position: relative;
   
   &:before, &:after {
