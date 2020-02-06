@@ -21,6 +21,7 @@ const NavButton = styled.button<Props>`
   border: 0;
   margin-left: auto;
   position: relative;
+  z-index: 12;
   
   &:before, &:after {
     width: 2rem;

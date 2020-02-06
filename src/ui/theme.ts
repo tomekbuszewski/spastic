@@ -2,6 +2,7 @@ export interface ITheme {
   animations: {
     easing: string;
     long: string;
+    med: string;
     short: string;
   };
   colors: {
@@ -26,6 +27,7 @@ export const theme: ITheme = {
   animations: {
     easing: "ease-in",
     long: "500ms",
+    med: "300ms",
     short: "150ms",
   },
   colors: {

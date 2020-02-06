@@ -47,7 +47,7 @@ const VerticalLine = styled.span`
     top: 0;
     position: absolute;
     background: ${props => props.theme.colors.brand};
-    z-index: 9;
+    z-index: 100;
     animation: 500ms 1000ms ${load} ease-out forwards;
   }
   
@@ -64,7 +64,7 @@ const VerticalLine = styled.span`
 const Grid = styled(Base)`
   height: 100vh;
   position: fixed;
-  z-index: 10;
+  z-index: 99;
   pointer-events: none;
   left: 50%;
   top: 0;
@@ -90,7 +90,7 @@ const Logo = styled(LogoBase as any)`
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 11;
+  z-index: 100;
   transform: translate(-50%, -50%);
   max-width: 10rem;
 `;
