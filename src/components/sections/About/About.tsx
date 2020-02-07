@@ -34,7 +34,7 @@ const Grid = styled(BaseGrid)`
 `;
 
 export const AboutSection = () => (
-  <Section sectionName="blue">
+  <Section sectionName="blue" centered>
     <Grid>
       <Heading full section="blue">About me<u>.</u></Heading>
       <Paragraph section="blue">
