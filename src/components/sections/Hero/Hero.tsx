@@ -17,9 +17,13 @@ import { gridElement } from "@ui/helpers";
 import { BaseSection } from "@components/sections";
 
 const Section = styled(Base)`
-  padding-bottom: 8rem;
+  padding-bottom: 16rem;
   display: grid;
   align-content: end;
+  
+  ${props => props.theme.breakpoints.tablet} {
+    padding-bottom: 8rem;
+  }
 `;
 
 const Heading = styled(BaseHeading)`

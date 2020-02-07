@@ -1,4 +1,7 @@
 export enum SECTIONS {
   HERO = "hero",
-  ABOUT = "blue",
+  ABOUT = "about",
+  EXPERIENCE = "exp",
+  WRITINGS = "writings",
+  CONTACT = "contact",
 }
