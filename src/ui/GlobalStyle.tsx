@@ -35,6 +35,10 @@ const rebootOptions = {
 };
 
 export const GlobalStyle = createGlobalStyle`
+  html {
+    font-size: ${BASE_SIZE}px;
+  }
+  
   :root {
     ${mapColors(light)};
   }
@@ -60,8 +64,4 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ${reboot(rebootOptions)};
-  
-  html {
-    font-size: ${BASE_SIZE}px;
-  }
 `;

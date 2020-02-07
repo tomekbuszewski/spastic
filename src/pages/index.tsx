@@ -1,8 +1,13 @@
 import * as React from "react";
 import { Layout } from "@components";
 
+import { Hero, About } from "@sections";
+
 const IndexPage = () => (
-  <Layout>Hello</Layout>
-)
+  <Layout>
+    <Hero />
+    <About />
+  </Layout>
+);
 
 export default IndexPage;

@@ -8,6 +8,8 @@ interface IColorSection {
 
 export interface IColorScheme {
   [index: string]: any;
+
+  overlay: string;
   body: string;
   text: string;
   sections: {
@@ -16,13 +18,14 @@ export interface IColorScheme {
 }
 
 export const light: IColorScheme = {
+  overlay: "rgba(45, 35, 46, 0.1)",
   body: "#FDFDFD",
   text: "#4B4B4B",
   sections: {
     hero: {
       background: "#F1C40F",
       lead: "#2D232E",
-      text: "#9E8212",
+      text: "#876814",
       highlight: "#F1A30F",
     },
     blue: {
@@ -56,6 +59,22 @@ export const light: IColorScheme = {
 
 export const dark: IColorScheme = {
   ...light,
+  overlay: "rgba(136,98,31,0.25)",
   body: "#000",
   text: "#666",
+  sections: {
+    ...light.sections,
+    hero: {
+      background: "#2D232E",
+      lead: "#9E8212",
+      text: "#88621f",
+      highlight: "#514152",
+    },
+    blue: {
+      background: "#222c37",
+      lead: "#5fa5b5",
+      text: "#3f7f8c",
+      highlight: "#C7DEE3",
+    },
+  },
 };
