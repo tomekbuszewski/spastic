@@ -56,6 +56,7 @@ module.exports = {
           include: /images/,
         },
       },
-    }
+    },
+    "gatsby-plugin-transition-link",
   ],
 };

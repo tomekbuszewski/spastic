@@ -36,29 +36,6 @@ const VerticalLine = styled.span`
   width: 1px;
   background: var(--overlay);
   position: relative;
-  
-  &:before, &:after {
-    transform-origin: right;
-    height: 100%;
-    width: 40rem;
-    content: "";
-    display: block;
-    right: 0;
-    top: 0;
-    position: absolute;
-    background: ${props => props.theme.colors.brand};
-    z-index: 100;
-    animation: 500ms 1000ms ${load} ease-out forwards;
-  }
-  
-  &:after {
-    display: none;
-    left: 0;
-  }
-  
-  &:last-of-type:after {
-    display: block;
-  }
 `;
 
 const Grid = styled(Base)`
@@ -73,12 +50,12 @@ const Grid = styled(Base)`
   justify-content: space-between;
   padding-left: 0;
   padding-right: 0;
-  
+
   ${props => props.theme.breakpoints.tablet} {
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   ${props => props.theme.breakpoints.desktop} {
     padding-left: 0;
     padding-right: 0;
@@ -97,7 +74,6 @@ const Logo = styled(LogoBase as any)`
 
 const Overlay = () => (
   <React.Fragment>
-    <Logo />
     <Grid>
       <VerticalLine />
       <VerticalLine />
@@ -108,6 +84,4 @@ const Overlay = () => (
   </React.Fragment>
 );
 
-export {
-  Overlay,
-}
+export { Overlay };

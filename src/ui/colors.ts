@@ -55,7 +55,7 @@ export const light: IColorScheme = {
       text: "#B497A7",
       extra: "#984672",
       highlight: "#DBBECE",
-    }
+    },
   },
 };
 
@@ -66,17 +66,17 @@ export const dark: IColorScheme = {
   text: "#666",
   sections: {
     ...light.sections,
-    hero: {
+    [SECTIONS.HERO]: {
       background: "#2D232E",
       lead: "#9E8212",
       text: "#88621f",
       highlight: "#514152",
     },
-    blue: {
+    [SECTIONS.ABOUT]: {
       background: "#222c37",
       lead: "#5fa5b5",
       text: "#3f7f8c",
-      highlight: "#C7DEE3",
+      highlight: "#323f4f",
     },
   },
 };

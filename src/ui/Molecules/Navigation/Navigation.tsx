@@ -5,10 +5,9 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import { scroller } from "react-scroll";
 
-import { ITheme, theme } from "@ui/theme";
-import { gridElement } from "@ui/helpers";
+import { ITheme } from "@ui/theme";
+import { gridElement, scrollTo } from "@ui/helpers";
 import { SECTIONS } from "@config/sections";
 
 interface Props {
@@ -24,15 +23,16 @@ const NavigationItem = styled.li`
   color: var(--section-hero-text);
   cursor: pointer;
   ${gridElement};
-  
-  > * {
+
+  > *,
+  > *:hover {
     color: var(--section-hero-text);
   }
-  
+
   ${props => props.theme.breakpoints.tablet} {
     font-size: 1.5rem;
   }
-  
+
   ${props => props.theme.breakpoints.desktop} {
     font-size: 2rem;
   }
@@ -43,10 +43,10 @@ const NavigationWrapper = styled.ul<Props>`
   margin: 0;
   padding: 0;
   position: fixed;
-  top: 0;
-  left: -1rem;
+  top: 6.5rem;
+  left: 0;
   width: calc(100vw - 2rem);
-  height: calc(100vh - 2rem);
+  height: calc(100vh - 7.5rem);
   background: ${props => props.theme.colors.brand};
   z-index: 11;
   align-items: center;
@@ -56,9 +56,10 @@ const NavigationWrapper = styled.ul<Props>`
   transition: ${props => props.theme.animations.med} opacity
     ${props => props.theme.animations.easing};
   opacity: ${props => (props.active ? 1 : 0)};
-  pointer-events: ${props => (props.active ? "all" : "none")};;
-  
+  pointer-events: ${props => (props.active ? "all" : "none")};
+
   ${props => props.theme.breakpoints.tablet} {
+    background: none;
     opacity: 1;
     width: auto;
     height: auto;
@@ -69,18 +70,45 @@ const NavigationWrapper = styled.ul<Props>`
   }
 `;
 
-const scrollTo = (section: SECTIONS) => scroller.scrollTo(section, {
-  duration: parseFloat(theme.animations.long) * 2,
-  delay: 0,
-  smooth: "easeInOutQuart",
-});
+interface NavigationProps {
+  active: boolean;
+  toggler: () => any;
+}
 
-const Navigation = ({ active }: { active: boolean }) => (
-  <NavigationWrapper active={active}>
-    <NavigationItem onClick={() => scrollTo(SECTIONS.ABOUT)}>About and work</NavigationItem>
-    <NavigationItem>Writings</NavigationItem>
-    <NavigationItem>Contact</NavigationItem>
-  </NavigationWrapper>
-);
+const Navigation = (props: NavigationProps) => {
+  const clickHandler = (section: SECTIONS) => {
+    props.toggler();
+    scrollTo(section);
+  };
+
+  return (
+    <NavigationWrapper active={props.active}>
+      <NavigationItem>
+        <a
+          href={`#${SECTIONS.ABOUT}`}
+          onClick={() => clickHandler(SECTIONS.ABOUT)}
+        >
+          About and work
+        </a>
+      </NavigationItem>
+      <NavigationItem>
+        <a
+          href={`#${SECTIONS.WRITINGS}`}
+          onClick={() => clickHandler(SECTIONS.WRITINGS)}
+        >
+          Writings
+        </a>
+      </NavigationItem>
+      <NavigationItem>
+        <a
+          href={`#${SECTIONS.CONTACT}`}
+          onClick={() => clickHandler(SECTIONS.CONTACT)}
+        >
+          Contact
+        </a>
+      </NavigationItem>
+    </NavigationWrapper>
+  );
+};
 
 export { Navigation };

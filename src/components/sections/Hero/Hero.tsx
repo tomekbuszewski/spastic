@@ -5,7 +5,6 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import { Element } from "react-scroll";
 
 import {
   Section as Base,
@@ -13,16 +12,26 @@ import {
   Heading as BaseHeading,
   Paragraph as BaseParagraph,
 } from "@ui/Atoms";
-import { gridElement } from "@ui/helpers";
+import { gridElement, scrollTo } from "@ui/helpers";
 import { BaseSection } from "@components/sections";
+import { SECTIONS } from "@config/sections";
 
 const Section = styled(Base)`
   padding-bottom: 16rem;
+  margin-top: 6.5rem;
   display: grid;
   align-content: end;
-  
+  min-height: calc(100vh - 7.5rem);
+
   ${props => props.theme.breakpoints.tablet} {
     padding-bottom: 8rem;
+    margin-top: 10rem;
+    min-height: calc(100vh - 12rem);
+  }
+
+  ${props => props.theme.breakpoints.desktop} {
+    margin-top: 10rem;
+    min-height: calc(100vh - 13rem);
   }
 `;
 
@@ -62,7 +71,10 @@ export const HeroSection = ({ name }: BaseSection) => (
         <u>Got something</u> interesting in mind?
         <br />
         <u>Or just want to</u> say hi?{" "}
-        <a href={""}>
+        <a
+          href={`#${SECTIONS.CONTACT}`}
+          onClick={() => scrollTo(SECTIONS.CONTACT)}
+        >
           <span>Let’s talk!</span>
         </a>
       </Paragraph>

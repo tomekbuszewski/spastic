@@ -13,24 +13,25 @@ import { getViewport, VIEWPORTS } from "@hooks";
 import { gridElement } from "@ui/helpers";
 
 const HeaderWrapper = styled(Grid)`
-  position: absolute;
-  top: 1rem;
+  position: fixed;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 7.5rem;
+  height: 6.5rem;
   display: grid;
   grid-template-columns: 1fr 3fr;
   align-items: center;
-  width: calc(100vw - 4rem);
+  width: calc(100vw - 2rem);
+  padding: 0 1rem;
   z-index: 12;
+  background: var(--body);
 
   ${props => props.theme.breakpoints.tablet} {
     top: 2rem;
-    height: 10rem;
+    height: 6rem;
   }
 
   ${props => props.theme.breakpoints.desktop} {
-    top: 3rem;
     width: calc(100vw - 6rem);
   }
 `;
@@ -41,6 +42,7 @@ const NavContainer = styled.nav`
 
 const Header = () => {
   const [isNavActive, setNavActive] = React.useState<boolean>(false);
+  const toggleNav = () => setNavActive(state => !state);
   const viewport = getViewport();
 
   return (
@@ -48,12 +50,9 @@ const Header = () => {
       <Logo />
       <NavContainer>
         {viewport === VIEWPORTS.MOBILE && (
-          <NavButton
-            active={isNavActive}
-            onClick={() => setNavActive(state => !state)}
-          />
+          <NavButton active={isNavActive} onClick={toggleNav} />
         )}
-        <Navigation active={isNavActive} />
+        <Navigation active={isNavActive} toggler={toggleNav} />
       </NavContainer>
     </HeaderWrapper>
   );
