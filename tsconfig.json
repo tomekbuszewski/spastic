@@ -7,6 +7,8 @@
       "@pages": ["pages"],
       "@ui": ["ui"],
       "@hooks": ["hooks"],
+      "@config": ["../config"],
+      "@config/*": ["../config/*"],
       "@ui/*": ["ui/*"]
     },
     "allowJs": true,

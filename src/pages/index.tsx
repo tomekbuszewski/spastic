@@ -1,12 +1,13 @@
 import * as React from "react";
 import { Layout } from "@components";
 
-import { Hero, About } from "@sections";
+import { About, Hero } from "@sections";
+import { SECTIONS } from "@config/sections";
 
 const IndexPage = () => (
   <Layout>
-    <Hero />
-    <About />
+    <Hero name={SECTIONS.HERO} />
+    <About name={SECTIONS.ABOUT} />
   </Layout>
 );
 

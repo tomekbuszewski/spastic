@@ -11,7 +11,7 @@ interface Props {
   children?: React.ReactNode;
   centered?: boolean;
   theme: ITheme;
-  sectionName: string;
+  name: string;
 }
 
 const Section = styled.section<Props>`
@@ -20,8 +20,8 @@ const Section = styled.section<Props>`
   padding: 9rem 1rem;
   margin: 1rem;
 
-  background: var(--section-${props => props.sectionName}-background);
-  color: var(--section-${props => props.sectionName}-lead);
+  background: var(--section-${props => props.name}-background);
+  color: var(--section-${props => props.name}-lead);
   
   ${props => props.centered && css`
     display: grid;

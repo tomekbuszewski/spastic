@@ -40,6 +40,7 @@ module.exports = {
       resolve: "gatsby-plugin-alias-imports",
       options: {
         alias: {
+          "@config": resolve(__dirname, "config"),
           "@sections": resolve(__dirname, "src", "components", "sections"),
           "@ui": resolve(__dirname, "src", "ui"),
           "@hooks": resolve(__dirname, "src", "hooks"),
@@ -55,6 +56,7 @@ module.exports = {
           include: /images/,
         },
       },
-    }
+    },
+    "gatsby-plugin-transition-link",
   ],
 };

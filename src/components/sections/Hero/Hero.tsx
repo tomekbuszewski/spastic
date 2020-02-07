@@ -6,13 +6,33 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { Section as Base, Grid, Heading as BaseHeading, Paragraph as BaseParagraph } from "@ui/Atoms";
-import { gridElement } from "@ui/helpers";
+import {
+  Section as Base,
+  Grid,
+  Heading as BaseHeading,
+  Paragraph as BaseParagraph,
+} from "@ui/Atoms";
+import { gridElement, scrollTo } from "@ui/helpers";
+import { BaseSection } from "@components/sections";
+import { SECTIONS } from "@config/sections";
 
 const Section = styled(Base)`
-  padding-bottom: 8rem;
+  padding-bottom: 16rem;
+  margin-top: 6.5rem;
   display: grid;
   align-content: end;
+  min-height: calc(100vh - 7.5rem);
+
+  ${props => props.theme.breakpoints.tablet} {
+    padding-bottom: 8rem;
+    margin-top: 10rem;
+    min-height: calc(100vh - 12rem);
+  }
+
+  ${props => props.theme.breakpoints.desktop} {
+    margin-top: 10rem;
+    min-height: calc(100vh - 13rem);
+  }
 `;
 
 const Heading = styled(BaseHeading)`
@@ -20,11 +40,11 @@ const Heading = styled(BaseHeading)`
   line-height: 1.17;
   ${gridElement};
   margin-bottom: 6rem;
-  
+
   ${props => props.theme.breakpoints.tablet} {
     font-size: 7rem;
   }
-  
+
   ${props => props.theme.breakpoints.desktop} {
     font-size: 9rem;
   }
@@ -36,14 +56,27 @@ const Paragraph = styled(BaseParagraph)`
   line-height: 3.25rem;
 `;
 
-export const HeroSection = () => (
-  <Section sectionName="hero">
+export const HeroSection = ({ name }: BaseSection) => (
+  <Section name={name}>
     <Grid>
-      <Heading section="hero">Hello,<br /><u>my name is</u> Tomek<u>.</u></Heading>
-      <Paragraph section="hero">I am <u>a</u> front-end team leader <u>at</u> TVN.</Paragraph>
-      <Paragraph section="hero">
-        <u>Got something</u> interesting in mind?<br />
-        <u>Or just want to</u> say hi? <a href={""}><span>Let’s talk!</span></a>
+      <Heading section={name}>
+        Hello,
+        <br />
+        <u>my name is</u> Tomek<u>.</u>
+      </Heading>
+      <Paragraph section={name}>
+        I am <u>a</u> front-end team leader <u>at</u> TVN.
+      </Paragraph>
+      <Paragraph section={name}>
+        <u>Got something</u> interesting in mind?
+        <br />
+        <u>Or just want to</u> say hi?{" "}
+        <a
+          href={`#${SECTIONS.CONTACT}`}
+          onClick={() => scrollTo(SECTIONS.CONTACT)}
+        >
+          <span>Let’s talk!</span>
+        </a>
       </Paragraph>
     </Grid>
   </Section>
