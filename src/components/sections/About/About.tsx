@@ -64,7 +64,7 @@ const LinkWrapper = styled(Paragraph)`
 `;
 
 export const AboutSection = ({ name }: BaseSection) => (
-  <Section centered name={name}>
+  <Section centered name={name} id={name}>
     <Grid>
       <Heading full section={name}>
         About me<u>.</u>

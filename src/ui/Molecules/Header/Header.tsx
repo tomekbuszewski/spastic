@@ -10,7 +10,6 @@ import { Grid, Logo, NavButton } from "@ui/Atoms";
 import { Navigation } from "@ui/Molecules";
 
 import { getViewport, VIEWPORTS } from "@hooks";
-import { gridElement } from "@ui/helpers";
 
 const HeaderWrapper = styled(Grid)`
   position: fixed;
@@ -33,6 +32,7 @@ const HeaderWrapper = styled(Grid)`
 
   ${props => props.theme.breakpoints.desktop} {
     width: calc(100vw - 6rem);
+    padding: 0;
   }
 `;
 
@@ -50,7 +50,11 @@ const Header = () => {
       <Logo />
       <NavContainer>
         {viewport === VIEWPORTS.MOBILE && (
-          <NavButton active={isNavActive} onClick={toggleNav} />
+          <NavButton
+            aria-label="Menu toggle"
+            active={isNavActive}
+            onClick={toggleNav}
+          />
         )}
         <Navigation active={isNavActive} toggler={toggleNav} />
       </NavContainer>

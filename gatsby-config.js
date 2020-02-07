@@ -2,9 +2,10 @@ const { resolve } = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: "buszewski.com – 2020",
-    description: "",
+    title: "buszewski.com",
+    description: "Developer, consultant and lead with over 12 years of commercial experience",
     author: "Tomek Buszewski <tomek.buszewski@gmail.com>",
+    siteUrl: "https://buszewski.com"
   },
   plugins: [
     "gatsby-plugin-typescript",
@@ -58,5 +59,12 @@ module.exports = {
       },
     },
     "gatsby-plugin-transition-link",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://buszewski.com",
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 };

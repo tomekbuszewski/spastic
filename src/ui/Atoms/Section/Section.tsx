@@ -20,13 +20,15 @@ const Section = styled.section<Props>`
   padding: 9rem 1rem;
   margin: 1rem;
 
-  background: var(--section-${props => props.name}-background);
-  color: var(--section-${props => props.name}-lead);
-  
-  ${props => props.centered && css`
-    display: grid;
-    align-content: center;
-  `};
+  background: ${props => `var(--section-${props.name}-background)`};
+  color: ${props => `var(--section-${props.name}-lead)`};
+
+  ${props =>
+    props.centered &&
+    css`
+      display: grid;
+      align-content: center;
+    `};
 
   ${props => props.theme.breakpoints.tablet} {
     width: calc(100vw - 4rem);

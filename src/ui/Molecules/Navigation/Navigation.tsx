@@ -5,10 +5,12 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import { navigate } from "gatsby";
 
 import { ITheme } from "@ui/theme";
 import { gridElement, scrollTo } from "@ui/helpers";
 import { SECTIONS } from "@config/sections";
+import { SyntheticEvent } from "react";
 
 interface Props {
   active: boolean;
@@ -76,7 +78,13 @@ interface NavigationProps {
 }
 
 const Navigation = (props: NavigationProps) => {
-  const clickHandler = (section: SECTIONS) => {
+  const clickHandler = (e: SyntheticEvent, section: SECTIONS) => {
+    e.preventDefault();
+
+    if (typeof window !== "undefined" && window.location.pathname !== "/") {
+      return navigate(`/#${section}`);
+    }
+
     props.toggler();
     scrollTo(section);
   };
@@ -86,7 +94,7 @@ const Navigation = (props: NavigationProps) => {
       <NavigationItem>
         <a
           href={`#${SECTIONS.ABOUT}`}
-          onClick={() => clickHandler(SECTIONS.ABOUT)}
+          onClick={e => clickHandler(e, SECTIONS.ABOUT)}
         >
           About and work
         </a>
@@ -94,7 +102,7 @@ const Navigation = (props: NavigationProps) => {
       <NavigationItem>
         <a
           href={`#${SECTIONS.WRITINGS}`}
-          onClick={() => clickHandler(SECTIONS.WRITINGS)}
+          onClick={e => clickHandler(e, SECTIONS.WRITINGS)}
         >
           Writings
         </a>
@@ -102,7 +110,7 @@ const Navigation = (props: NavigationProps) => {
       <NavigationItem>
         <a
           href={`#${SECTIONS.CONTACT}`}
-          onClick={() => clickHandler(SECTIONS.CONTACT)}
+          onClick={e => clickHandler(e, SECTIONS.CONTACT)}
         >
           Contact
         </a>

@@ -57,7 +57,7 @@ const Paragraph = styled(BaseParagraph)`
 `;
 
 export const HeroSection = ({ name }: BaseSection) => (
-  <Section name={name}>
+  <Section name={name} id={name}>
     <Grid>
       <Heading section={name}>
         Hello,
