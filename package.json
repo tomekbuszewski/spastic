@@ -22,6 +22,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-scroll": "^1.7.16",
     "styled-components": "^5.0.1",
     "styled-reboot": "^4.0.3"
   },
@@ -29,6 +30,7 @@
     "@types/node": "^13.7.0",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "@types/react-scroll": "^1.5.4",
     "@types/styled-components": "^4.4.2",
     "plop": "^2.5.3",
     "prettier": "^1.19.1"

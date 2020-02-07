@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { Section, Grid as BaseGrid, Heading, Paragraph as BaseParagraph, ListItem } from "@ui/Atoms";
 import { List } from "@ui/Molecules";
 import { gridElement } from "@ui/helpers";
+import { BaseSection } from "@components/sections";
 
 const Paragraph = styled(BaseParagraph)`
   ${gridElement};
@@ -33,18 +34,18 @@ const Grid = styled(BaseGrid)`
   }
 `;
 
-export const AboutSection = () => (
-  <Section sectionName="blue" centered>
+export const AboutSection = ({ name }: BaseSection) => (
+  <Section centered name={name}>
     <Grid>
-      <Heading full section="blue">About me<u>.</u></Heading>
-      <Paragraph section="blue">
+      <Heading full section={name}>About me<u>.</u></Heading>
+      <Paragraph section={name}>
         Developer, consultant <u>and</u> lead <u>with over</u> 12 years
         of commercial experience. <u>Capable of managing projects
         from start</u> (writing concepts, choosing technology,
         creating boilerplate and style guides) <u>to finish</u>
         (active development with strong understanding of agile methodology).
       </Paragraph>
-      <List section="blue">
+      <List section={name}>
         <ListItem>Clean <u>and</u> documented code <u>fanatic</u>;</ListItem>
         <ListItem><u>Able to</u> create scalable project architecture <u>from scratch</u>;</ListItem>
         <ListItem>Functional <u>and</u> object-oriented programming <u>user</u>;</ListItem>

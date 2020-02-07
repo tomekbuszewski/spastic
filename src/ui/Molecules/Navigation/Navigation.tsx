@@ -5,9 +5,11 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import { ITheme } from "@ui/theme";
+import { scroller } from "react-scroll";
 
+import { ITheme, theme } from "@ui/theme";
 import { gridElement } from "@ui/helpers";
+import { SECTIONS } from "@config/sections";
 
 interface Props {
   active: boolean;
@@ -20,6 +22,7 @@ const NavigationItem = styled.li`
   line-height: 2.5;
   font-size: 2rem;
   color: var(--section-hero-text);
+  cursor: pointer;
   ${gridElement};
   
   > * {
@@ -66,9 +69,15 @@ const NavigationWrapper = styled.ul<Props>`
   }
 `;
 
+const scrollTo = (section: SECTIONS) => scroller.scrollTo(section, {
+  duration: parseFloat(theme.animations.long) * 2,
+  delay: 0,
+  smooth: "easeInOutQuart",
+});
+
 const Navigation = ({ active }: { active: boolean }) => (
   <NavigationWrapper active={active}>
-    <NavigationItem>About and work</NavigationItem>
+    <NavigationItem onClick={() => scrollTo(SECTIONS.ABOUT)}>About and work</NavigationItem>
     <NavigationItem>Writings</NavigationItem>
     <NavigationItem>Contact</NavigationItem>
   </NavigationWrapper>
