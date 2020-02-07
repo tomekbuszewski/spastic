@@ -16,7 +16,7 @@ export interface IColorScheme {
   text: string;
   sections: {
     [k: string]: IColorSection;
-  }
+  };
 }
 
 export const light: IColorScheme = {
@@ -27,13 +27,13 @@ export const light: IColorScheme = {
     [SECTIONS.HERO]: {
       background: "#F1C40F",
       lead: "#2D232E",
-      text: "#876814",
+      text: "#714701",
       highlight: "#F1A30F",
     },
     [SECTIONS.ABOUT]: {
       background: "#F4FDFF",
       lead: "#0E2F37",
-      text: "#53909E",
+      text: "#446b80",
       highlight: "#C7DEE3",
     },
     [SECTIONS.EXPERIENCE]: {

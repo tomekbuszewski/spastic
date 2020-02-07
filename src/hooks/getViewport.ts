@@ -8,7 +8,7 @@ export enum VIEWPORTS {
 }
 
 export function getViewport() {
-  const [viewport, setViewport] = useState<VIEWPORTS>(VIEWPORTS.MOBILE);
+  const [viewport, setViewport] = useState<VIEWPORTS>(VIEWPORTS.DESKTOP);
 
   const detectResize = debounce(function() {
     const { innerWidth } = window;
