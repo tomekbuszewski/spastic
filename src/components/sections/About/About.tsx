@@ -5,7 +5,6 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import {
   Section,
@@ -16,8 +15,9 @@ import {
 } from "@ui/Atoms";
 import { List } from "@ui/Molecules";
 import { gridElement } from "@ui/helpers";
+
+import { LinkWrapper } from "@components";
 import { BaseSection } from "@components/sections";
-import { theme } from "@ui";
 
 const Paragraph = styled(BaseParagraph)`
   ${gridElement};
@@ -42,7 +42,7 @@ const Grid = styled(BaseGrid)`
   }
 `;
 
-const LinkWrapper = styled(Paragraph)`
+const LinkHolder = styled(Paragraph)`
   grid-column-start: 1;
   grid-column-end: 12;
 
@@ -111,11 +111,11 @@ export const AboutSection = ({ name }: BaseSection) => (
           <u>Good</u> team player.
         </ListItem>
       </List>
-      <LinkWrapper section={name}>
-        <AniLink cover to="/about" bg={theme.colors.brand} duration={1}>
+      <LinkHolder section={name}>
+        <LinkWrapper to="/about">
           <span>A bit more info please</span>
-        </AniLink>
-      </LinkWrapper>
+        </LinkWrapper>
+      </LinkHolder>
     </Grid>
   </Section>
 );
