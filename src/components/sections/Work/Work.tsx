@@ -6,9 +6,15 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 
-import { Section, Grid as BaseGrid, Heading } from "@ui/Atoms";
+import { Section, Grid as BaseGrid, Heading, Paragraph } from "@ui/Atoms";
 import { BaseSection } from "@components/sections";
 import { gridElement } from "@ui/helpers";
+
+interface IWorkPosition {
+  position: string;
+  place: string;
+  time: string;
+}
 
 const Grid = styled(BaseGrid)`
   display: block;
@@ -36,12 +42,12 @@ const WorksWrapper = styled.div`
       position: absolute;
       top: 0;
       z-index: 10;
+      height: 100%;
     }
 
     &:before {
       left: 1150px;
       width: 1150px;
-      height: 100%;
       background: var(--body);
     }
 
@@ -72,6 +78,28 @@ const WorksWrapper = styled.div`
         hsla(0, 0%, 99.2%, 0.987) 91.9%,
         hsl(0, 0%, 99.2%) 100%
       );
+
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(
+          to right,
+          hsla(0, 0%, 0%, 0) 0%,
+          hsla(0, 0%, 0%, 0.013) 8.1%,
+          hsla(0, 0%, 0%, 0.049) 15.5%,
+          hsla(0, 0%, 0%, 0.104) 22.5%,
+          hsla(0, 0%, 0%, 0.175) 29%,
+          hsla(0, 0%, 0%, 0.259) 35.3%,
+          hsla(0, 0%, 0%, 0.352) 41.2%,
+          hsla(0, 0%, 0%, 0.45) 47.1%,
+          hsla(0, 0%, 0%, 0.55) 52.9%,
+          hsla(0, 0%, 0%, 0.648) 58.8%,
+          hsla(0, 0%, 0%, 0.741) 64.7%,
+          hsla(0, 0%, 0%, 0.825) 71%,
+          hsla(0, 0%, 0%, 0.896) 77.5%,
+          hsla(0, 0%, 0%, 0.951) 84.5%,
+          hsla(0, 0%, 0%, 0.987) 91.9%,
+          hsl(0, 0%, 0%) 100%
+        );
+      }
     }
   }
 `;
@@ -80,26 +108,108 @@ const Wrapper = styled.ul`
   padding: 0;
   margin: 0;
   list-style: none;
-  display: grid;
   position: relative;
   overflow: hidden;
   transition: ${props =>
     `${props.theme.animations.med} transform ${props.theme.animations.easing}`};
   grid-template-columns: 1fr 1fr;
 
+  ${props => props.theme.breakpoints.tablet} {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
+
   ${props => props.theme.breakpoints.desktop} {
-    grid-column-start: 2;
-    grid-column-end: 5;
     grid-template-columns: repeat(10, 1fr);
-    min-width: 2876px;
+    width: 2876px;
   }
 `;
 
 const Position = styled.li`
   padding: 0;
-  margin: 0;
+  margin: 0 0 3rem 0;
   ${gridElement};
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  ${props => props.theme.breakpoints.desktop} {
+    margin: 0;
+  }
 `;
+
+const PositionName = styled.h3`
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--section-exp-lead);
+  display: flex;
+  flex-flow: column;
+  align-content: start;
+
+  span {
+    color: var(--section-exp-text);
+  }
+
+  time {
+    color: var(--section-exp-text);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: auto;
+  }
+
+  ${props => props.theme.breakpoints.desktop} {
+    font-size: 3rem;
+    margin-bottom: 0;
+
+    time {
+      font-size: 2rem;
+    }
+  }
+
+  ${props => props.theme.breakpoints.desktop} {
+    min-height: 18rem;
+    text-align: right;
+  }
+`;
+
+const data: IWorkPosition[] = [
+  {
+    position: "React Team Leader",
+    place: "TVN",
+    time: "2020.02 – ongoing",
+  },
+  {
+    position: "Lead Front-end Developer",
+    place: "Batmaid",
+    time: "2019.02 – 2019.12",
+  },
+  {
+    position: "Area Lead / Senior Developer",
+    place: "4finance",
+    time: "2018.05 –2019.02",
+  },
+  {
+    position: "Senior Front-end Developer",
+    place: "zety / interviewme",
+    time: "2017.08 – 2018.05",
+  },
+  {
+    position: "Team Leader / Senior Developer",
+    place: "parkiet.com / rp.pl",
+    time: "2016.06 – 2017.08",
+  },
+  {
+    position: "Front-end Developer",
+    place: "Ars Thanea / syzygy",
+    time: "2015.09 – 2016.06",
+  },
+  {
+    position: "Front-end Developer",
+    place: "radiozet.pl",
+    time: "2014.09 – 2015.09",
+  },
+];
 
 const Nav = styled.div`
   display: none;
@@ -107,6 +217,7 @@ const Nav = styled.div`
 
   ${props => props.theme.breakpoints.desktop} {
     display: block;
+    min-width: 287.5px;
   }
 `;
 
@@ -118,7 +229,7 @@ const NavButton = styled.button<{ active: boolean }>`
   border: 0;
   padding: 0;
   color: var(--section-exp-extra);
-  cursor: pointer;
+  cursor: ${props => (props.active ? "pointer" : "not-allowed")};
   transition: ${props =>
     `${props.theme.animations.short} opacity ${props.theme.animations.easing}`};
   opacity: ${props => (props.active ? 1 : 0.5)};
@@ -133,6 +244,27 @@ const NavButton = styled.button<{ active: boolean }>`
   }
 `;
 
+const LinkHolder = styled(Paragraph)`
+  grid-column-start: 1;
+  grid-column-end: 12;
+
+  &:last-of-type {
+    margin: 4rem 0 0;
+  }
+
+  ${props => props.theme.breakpoints.tablet} {
+    &:last-of-type {
+      margin: 4rem 0 0;
+    }
+  }
+
+  ${props => props.theme.breakpoints.desktop} {
+    &:last-of-type {
+      margin: 9rem 0 0;
+    }
+  }
+`;
+
 export const WorkSection = ({ name }: BaseSection) => {
   const [position, setPosition] = React.useState<number>(0);
 
@@ -144,13 +276,15 @@ export const WorkSection = ({ name }: BaseSection) => {
         </Heading>
         <Nav>
           <NavButton
-            active={position < 7}
-            onClick={() => position < 7 && setPosition(pos => pos + 1)}
+            active={position < 4}
+            disabled={position === 4}
+            onClick={() => position < 4 && setPosition(pos => pos + 1)}
           >
             prev
           </NavButton>
           <NavButton
             active={position > 0}
+            disabled={position === 0}
             onClick={() => position > 0 && setPosition(pos => pos - 1)}
           >
             next
@@ -158,18 +292,20 @@ export const WorkSection = ({ name }: BaseSection) => {
         </Nav>
         <WorksWrapper>
           <Wrapper style={{ transform: `translateX(-${position * 287.5}px)` }}>
-            <Position>1</Position>
-            <Position>2</Position>
-            <Position>3</Position>
-            <Position>4</Position>
-            <Position>5</Position>
-            <Position>6</Position>
-            <Position>7</Position>
-            <Position>8</Position>
-            <Position>9</Position>
-            <Position>10</Position>
+            {data.map(item => (
+              <Position key={item.place}>
+                <PositionName>
+                  {item.position}
+                  <span>at {item.place}</span>
+                  <time>{item.time}</time>
+                </PositionName>
+              </Position>
+            ))}
           </Wrapper>
         </WorksWrapper>
+        <LinkHolder section={name}>
+          <a href="" download><span>Get my .pdf résumé</span></a>
+        </LinkHolder>
       </Grid>
     </Section>
   );

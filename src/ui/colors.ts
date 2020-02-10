@@ -78,5 +78,12 @@ export const dark: IColorScheme = {
       text: "#3f7f8c",
       highlight: "#323f4f",
     },
+    [SECTIONS.EXPERIENCE]: {
+      background: "#000",
+      lead: "#726c70",
+      text: "#4e4b49",
+      extra: "#7E7E7E",
+      highlight: "#272727",
+    },
   },
 };
