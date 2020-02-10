@@ -22,8 +22,9 @@ const NavButton = styled.button<Props>`
   margin-left: auto;
   position: relative;
   z-index: 12;
-  
-  &:before, &:after {
+
+  &:before,
+  &:after {
     width: 2rem;
     height: 1px;
     background: var(--section-hero-text);
@@ -31,32 +32,38 @@ const NavButton = styled.button<Props>`
     content: "";
     position: absolute;
     right: 0;
-    transition: ${props => props.theme.animations.short} transform ${props => props.theme.animations.easing};
+    transition: ${props => props.theme.animations.short} transform
+      ${props => props.theme.animations.easing};
   }
-  
+
   &:before {
     top: calc(50% - 2px);
   }
-  
+
   &:after {
     top: calc(50% + 2px);
   }
-  
-  &:focus, &:active {
+
+  &:focus,
+  &:active {
     outline: 0;
   }
-  
-  ${props => props.active && css`
-    &:before {
-      transform: translateY(2px) rotate(45deg)
-    }
-    
-    &:after {
-      transform: translateY(-2px) rotate(-45deg)
-    }
-  `};
+
+  ${props =>
+    props.active &&
+    css`
+      &:before {
+        transform: translateY(2px) rotate(45deg);
+      }
+
+      &:after {
+        transform: translateY(-2px) rotate(-45deg);
+      }
+    `};
+
+  ${props => props.theme.breakpoints.tablet} {
+    display: none;
+  }
 `;
 
-export {
-  NavButton,
-}
+export { NavButton };
