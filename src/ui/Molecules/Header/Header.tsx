@@ -40,6 +40,11 @@ const NavContainer = styled.nav`
   display: grid;
 `;
 
+const LogoHolder = styled.h1`
+  margin: 0;
+  padding: 0;
+`;
+
 const Header = () => {
   const [isNavActive, setNavActive] = React.useState<boolean>(false);
   const toggleNav = () => setNavActive(state => !state);
@@ -47,7 +52,9 @@ const Header = () => {
   return (
     <HeaderWrapper as="header">
       <LinkWrapper to="/">
-        <Logo />
+        <LogoHolder>
+          <Logo />
+        </LogoHolder>
       </LinkWrapper>
       <NavContainer>
         <NavButton
