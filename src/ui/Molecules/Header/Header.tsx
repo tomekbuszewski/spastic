@@ -5,11 +5,11 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import { Grid, Logo, NavButton } from "@ui/Atoms";
 import { Navigation } from "@ui/Molecules";
-
-import { getViewport, VIEWPORTS } from "@hooks";
+import { theme } from "@ui";
 
 const HeaderWrapper = styled(Grid)`
   position: fixed;
@@ -43,19 +43,24 @@ const NavContainer = styled.nav`
 const Header = () => {
   const [isNavActive, setNavActive] = React.useState<boolean>(false);
   const toggleNav = () => setNavActive(state => !state);
-  const viewport = getViewport();
 
   return (
     <HeaderWrapper as="header">
-      <Logo />
+      <AniLink
+        cover
+        direction="left"
+        to="/"
+        duration={1}
+        bg={theme.colors.brand}
+      >
+        <Logo />
+      </AniLink>
       <NavContainer>
-        {viewport === VIEWPORTS.MOBILE && (
-          <NavButton
-            aria-label="Menu toggle"
-            active={isNavActive}
-            onClick={toggleNav}
-          />
-        )}
+        <NavButton
+          aria-label="Menu toggle"
+          active={isNavActive}
+          onClick={toggleNav}
+        />
         <Navigation active={isNavActive} toggler={toggleNav} />
       </NavContainer>
     </HeaderWrapper>
