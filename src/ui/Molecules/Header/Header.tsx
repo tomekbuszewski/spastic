@@ -5,11 +5,11 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import { Grid, Logo, NavButton } from "@ui/Atoms";
 import { Navigation } from "@ui/Molecules";
-import { theme } from "@ui";
+
+import { LinkWrapper } from "@components";
 
 const HeaderWrapper = styled(Grid)`
   position: fixed;
@@ -46,15 +46,9 @@ const Header = () => {
 
   return (
     <HeaderWrapper as="header">
-      <AniLink
-        cover
-        direction="left"
-        to="/"
-        duration={1}
-        bg={theme.colors.brand}
-      >
+      <LinkWrapper to="/">
         <Logo />
-      </AniLink>
+      </LinkWrapper>
       <NavContainer>
         <NavButton
           aria-label="Menu toggle"
