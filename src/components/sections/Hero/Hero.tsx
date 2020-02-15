@@ -15,6 +15,7 @@ import {
 import { gridElement, scrollTo } from "@ui/helpers";
 import { BaseSection } from "@components/sections";
 import { SECTIONS } from "@config/sections";
+import { theme } from "@ui";
 
 const Section = styled(Base)`
   padding-bottom: 16rem;
@@ -23,13 +24,13 @@ const Section = styled(Base)`
   align-content: end;
   min-height: calc(100vh - 7.5rem);
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     padding-bottom: 8rem;
     margin-top: 10rem;
     min-height: calc(100vh - 12rem);
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     margin-top: 10rem;
     min-height: calc(100vh - 13rem);
   }
@@ -41,11 +42,11 @@ const Heading = styled(BaseHeading)`
   ${gridElement};
   margin-bottom: 6rem;
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     font-size: 7rem;
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     font-size: 9rem;
   }
 `;

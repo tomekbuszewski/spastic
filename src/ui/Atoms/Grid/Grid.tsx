@@ -5,7 +5,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import { ITheme } from "@ui/theme";
+import { theme } from "@ui/theme";
 
 const Grid = styled.div`
   display: grid;
@@ -13,11 +13,11 @@ const Grid = styled.div`
   margin: auto;
   width: 100%;
   
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     max-width: 93rem;
   }
   
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     max-width: 144rem;
   }
 `;

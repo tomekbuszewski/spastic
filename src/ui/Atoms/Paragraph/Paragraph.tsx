@@ -5,7 +5,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import { ITheme } from "@ui/theme";
+import { ITheme, theme } from "@ui/theme";
 
 interface Props {
   section: string;
@@ -45,7 +45,7 @@ const Paragraph = styled.p<Props>`
       z-index: 1;
       transform: scaleY(0.5);
       transform-origin: bottom;
-      transition: ${props => props.theme.animations.short} transform ${props => props.theme.animations.easing}, ${props => props.theme.animations.short} opacity ${props => props.theme.animations.easing};
+      transition: ${theme.animations.short} transform ${theme.animations.easing}, ${theme.animations.short} opacity ${theme.animations.easing};
     }
   }
   
@@ -61,7 +61,7 @@ const Paragraph = styled.p<Props>`
     margin-bottom: 0;
   }
   
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     font-size: 3rem;
     line-height: 1.75;
   }

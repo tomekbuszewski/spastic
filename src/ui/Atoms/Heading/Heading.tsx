@@ -5,13 +5,12 @@
 
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { ITheme } from "@ui/theme";
+import { theme } from "@ui/theme";
 import { gridElement } from "@ui/helpers";
 
 interface Props {
   section: string;
   children?: React.ReactNode;
-  theme: ITheme;
   full?: boolean;
 }
 
@@ -33,7 +32,7 @@ const Heading = styled.h2<Props>`
     text-decoration: none;
   }
   
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     font-size: 6rem;
     margin-bottom: 9rem;
   }

@@ -10,6 +10,7 @@ import { Grid, Logo, NavButton } from "@ui/Atoms";
 import { Navigation } from "@ui/Molecules";
 
 import { LinkWrapper } from "@components";
+import { theme } from "@ui";
 
 const HeaderWrapper = styled(Grid)`
   position: fixed;
@@ -25,12 +26,12 @@ const HeaderWrapper = styled(Grid)`
   z-index: 12;
   background: var(--body);
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     top: 2rem;
     height: 6rem;
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     width: calc(100vw - 6rem);
     padding: 0;
   }

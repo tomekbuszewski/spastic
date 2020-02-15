@@ -7,7 +7,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { navigate } from "gatsby";
 
-import { ITheme } from "@ui/theme";
+import { ITheme, theme } from "@ui/theme";
 import { gridElement, scrollTo } from "@ui/helpers";
 import { SECTIONS } from "@config/sections";
 import { SyntheticEvent } from "react";
@@ -31,11 +31,11 @@ const NavigationItem = styled.li`
     color: var(--section-hero-text);
   }
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     font-size: 1.5rem;
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     font-size: 2rem;
   }
 `;
@@ -49,18 +49,18 @@ const NavigationWrapper = styled.ul<Props>`
   left: 0;
   width: calc(100vw - 2rem);
   height: calc(100vh - 7.5rem);
-  background: ${props => props.theme.colors.brand};
+  background: ${theme.colors.brand};
   z-index: 11;
   align-items: center;
   align-content: center;
   display: grid;
   list-style: none;
-  transition: ${props => props.theme.animations.med} opacity
-    ${props => props.theme.animations.easing};
+  transition: ${theme.animations.med} opacity
+    ${theme.animations.easing};
   opacity: ${props => (props.active ? 1 : 0)};
   pointer-events: ${props => (props.active ? "all" : "none")};
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     background: none;
     opacity: 1;
     width: auto;

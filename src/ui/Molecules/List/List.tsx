@@ -5,13 +5,11 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import { ITheme } from "@ui/theme";
 import { gridElement } from "@ui/helpers";
 
 interface Props {
   section: string;
   children?: React.ReactNode;
-  theme: ITheme;
 }
 
 const List = styled.ul<Props>`
