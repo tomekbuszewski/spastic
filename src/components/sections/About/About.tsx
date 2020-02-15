@@ -18,6 +18,7 @@ import { gridElement } from "@ui/helpers";
 
 import { LinkWrapper } from "@components";
 import { BaseSection } from "@components/sections";
+import { theme } from "@ui";
 
 const Paragraph = styled(BaseParagraph)`
   ${gridElement};
@@ -26,7 +27,7 @@ const Paragraph = styled(BaseParagraph)`
     margin-bottom: 4rem;
   }
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     &:last-of-type {
       margin-bottom: 9rem;
     }
@@ -36,7 +37,7 @@ const Paragraph = styled(BaseParagraph)`
 const Grid = styled(BaseGrid)`
   display: block;
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -50,13 +51,13 @@ const LinkHolder = styled(Paragraph)`
     margin: 4rem 0 0;
   }
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     &:last-of-type {
       margin: 4rem 0 0;
     }
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     &:last-of-type {
       margin: 9rem 0 0;
     }

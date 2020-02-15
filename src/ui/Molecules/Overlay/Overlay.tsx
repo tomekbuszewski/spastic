@@ -5,9 +5,8 @@
 
 import * as React from "react";
 import styled, { keyframes } from "styled-components";
-import { ITheme } from "@ui/theme";
+import { theme } from "@ui/theme";
 
-import LogoBase from "../../../images/Logo.svg";
 import { Grid as Base } from "@ui/Atoms";
 
 const load = keyframes`
@@ -51,25 +50,15 @@ const Grid = styled(Base)`
   padding-left: 0;
   padding-right: 0;
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     padding-left: 0;
     padding-right: 0;
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     padding-left: 0;
     padding-right: 0;
   }
-`;
-
-const Logo = styled(LogoBase as any)`
-  animation: 500ms 500ms ${loadLogo} ease-out forwards;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 100;
-  transform: translate(-50%, -50%);
-  max-width: 10rem;
 `;
 
 const Overlay = () => (

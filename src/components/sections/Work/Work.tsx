@@ -9,6 +9,7 @@ import styled, { css } from "styled-components";
 import { Section, Grid as BaseGrid, Heading, Paragraph } from "@ui/Atoms";
 import { BaseSection } from "@components/sections";
 import { gridElement } from "@ui/helpers";
+import { theme } from "@ui";
 
 interface IWorkPosition {
   position: string;
@@ -19,7 +20,7 @@ interface IWorkPosition {
 const Grid = styled(BaseGrid)`
   display: block;
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
@@ -29,7 +30,7 @@ const WorksWrapper = styled.div`
   overflow: hidden;
   position: relative;
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     grid-column-start: 2;
     grid-column-end: 5;
     grid-template-columns: repeat(10, 1fr);
@@ -110,16 +111,15 @@ const Wrapper = styled.ul`
   list-style: none;
   position: relative;
   overflow: hidden;
-  transition: ${props =>
-    `${props.theme.animations.med} transform ${props.theme.animations.easing}`};
+  transition: ${theme.animations.med} transform ${theme.animations.easing};
   grid-template-columns: 1fr 1fr;
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     grid-template-columns: 1fr 1fr;
     display: grid;
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     grid-template-columns: repeat(10, 1fr);
     width: 2876px;
   }
@@ -134,7 +134,7 @@ const Position = styled.li`
     margin-bottom: 0;
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     margin: 0;
   }
 `;
@@ -158,7 +158,7 @@ const PositionName = styled.h3`
     margin-top: auto;
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     font-size: 3rem;
     margin-bottom: 0;
 
@@ -167,7 +167,7 @@ const PositionName = styled.h3`
     }
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     min-height: 18rem;
     text-align: right;
   }
@@ -215,7 +215,7 @@ const Nav = styled.div`
   display: none;
   ${gridElement};
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     display: block;
     min-width: 287.5px;
   }
@@ -230,8 +230,7 @@ const NavButton = styled.button<{ active: boolean }>`
   padding: 0;
   color: var(--section-exp-extra);
   cursor: ${props => (props.active ? "pointer" : "not-allowed")};
-  transition: ${props =>
-    `${props.theme.animations.short} opacity ${props.theme.animations.easing}`};
+  transition: ${theme.animations.short} opacity ${theme.animations.easing};
   opacity: ${props => (props.active ? 1 : 0.5)};
 
   &:first-of-type {
@@ -252,13 +251,13 @@ const LinkHolder = styled(Paragraph)`
     margin: 4rem 0 0;
   }
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     &:last-of-type {
       margin: 4rem 0 0;
     }
   }
 
-  ${props => props.theme.breakpoints.desktop} {
+  ${theme.breakpoints.desktop} {
     &:last-of-type {
       margin: 9rem 0 0;
     }

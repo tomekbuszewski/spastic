@@ -5,12 +5,11 @@
 
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { ITheme } from "@ui/theme";
+import { theme } from "@ui/theme";
 
 interface Props {
   active: boolean;
   children?: React.ReactNode;
-  theme: ITheme;
 }
 
 const NavButton = styled.button<Props>`
@@ -32,8 +31,8 @@ const NavButton = styled.button<Props>`
     content: "";
     position: absolute;
     right: 0;
-    transition: ${props => props.theme.animations.short} transform
-      ${props => props.theme.animations.easing};
+    transition: ${theme.animations.short} transform
+      ${theme.animations.easing};
   }
 
   &:before {
@@ -61,7 +60,7 @@ const NavButton = styled.button<Props>`
       }
     `};
 
-  ${props => props.theme.breakpoints.tablet} {
+  ${theme.breakpoints.tablet} {
     display: none;
   }
 `;

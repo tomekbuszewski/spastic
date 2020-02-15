@@ -5,7 +5,6 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import { ITheme } from "@ui/theme";
 
 const ListItem = styled.li`
   font-weight: 400;
