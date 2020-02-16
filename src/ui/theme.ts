@@ -13,7 +13,10 @@ export interface ITheme {
   };
   fonts: {
     sizes: {
-      [k: string]: number;
+      [k: string]: string;
+    };
+    spacings: {
+      [k: string]: string | number;
     };
     faces: {
       [k: string]: string;
@@ -22,6 +25,8 @@ export interface ITheme {
 }
 
 export const BASE_SIZE = 8;
+
+const rem = (input: number, base: number = BASE_SIZE): string => `${input / base}rem`;
 
 export const theme: ITheme = {
   animations: {
@@ -39,7 +44,19 @@ export const theme: ITheme = {
   },
   fonts: {
     sizes: {
-      small: 1.5,
+      small: rem(12),
+      smallDesktop: rem(16),
+      medium: rem(20),
+      mediumDesktop: rem(24),
+      large: rem(36),
+      largeDesktop: rem(42),
+      huge: rem(42),
+      hugeDesktop: rem(72),
+    },
+    spacings: {
+      small: rem(26),
+      medium: rem(32),
+      mediumDesktop: rem(38),
     },
     faces: {
       normal: "Manrope",

@@ -12,6 +12,7 @@
       "@ui/*": ["ui/*"]
     },
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -20,12 +21,14 @@
     "lib": ["es6", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "noEmit": true,
+    "noEmit": false,
+    "sourceMap": true,
     "strict": true,
     "target": "esnext"
   },
   "include": [
     "src",
     "@types"
-  ]
+  ],
+  "exclude": ["node_modules"]
 }

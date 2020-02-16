@@ -38,6 +38,13 @@ module.exports = plop => {
       },
       {
         type: "add",
+        path:
+          "./src/ui/{{pascalCase type}}/{{pascalCase name}}/{{pascalCase name}}.stories.tsx",
+        templateFile: "./config/plop-templates/Component.stories.tsx.hbs",
+        data: newFileInfo,
+      },
+      {
+        type: "add",
         path: "./src/ui/{{pascalCase type}}/{{pascalCase name}}/index.ts",
         templateFile: "./config/plop-templates/index.ts.hbs",
       },

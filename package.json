@@ -30,6 +30,9 @@
     "styled-reboot": "^4.0.3"
   },
   "devDependencies": {
+    "@storybook/addon-knobs": "^5.3.13",
+    "@storybook/cli": "^5.3.13",
+    "@storybook/react": "^5.3.13",
     "@types/node": "^13.7.0",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
@@ -44,6 +47,7 @@
     "eslint-plugin-react": "^7.18.3",
     "plop": "^2.5.3",
     "prettier": "^1.19.1",
+    "ts-loader": "^6.2.1",
     "typescript": "^3.7.5"
   },
   "keywords": [
@@ -60,6 +64,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "~~~~~ DEV COMMANDS ~~~~~": "",
     "plop": "plop",
+    "storybook": "start-storybook -p 9001 -c ./config/storybook",
     "create": "npm run plop"
   },
   "repository": {
