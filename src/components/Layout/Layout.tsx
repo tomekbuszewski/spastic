@@ -7,6 +7,7 @@ import SEO from "../seo";
 
 import { scrollTo } from "@ui/helpers";
 import { SECTIONS } from "@config/sections";
+import { debounce } from "@helpers/debounce";
 
 interface Props {
   children: React.ReactNode;
@@ -27,17 +28,33 @@ const items = [
   },
 ];
 
-export const Layout = (props: Props) => (
-  <React.Fragment>
-    <PageHeader items={items} />
-    <SEO />
-    <main>
-      <GlobalStyle />
-      {props.children}
-    </main>
-    <Overlay />
-    <PageFooter>
-      All rights reserved. This site probably harvests your cookies.
-    </PageFooter>
-  </React.Fragment>
-);
+export const Layout = (props: Props) => {
+  const [scrollTop, setScrollTop] = React.useState<number>(0);
+
+  const getScroll = debounce(function() {
+    setScrollTop(window.pageYOffset);
+  }, 250);
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", getScroll);
+
+    return () => {
+      window.removeEventListener("scroll", getScroll);
+    };
+  });
+
+  return (
+    <React.Fragment>
+      <PageHeader items={items} fromTop={scrollTop} />
+      <SEO />
+      <main>
+        <GlobalStyle />
+        {props.children}
+      </main>
+      <Overlay />
+      <PageFooter>
+        All rights reserved. This site probably harvests your cookies.
+      </PageFooter>
+    </React.Fragment>
+  );
+};

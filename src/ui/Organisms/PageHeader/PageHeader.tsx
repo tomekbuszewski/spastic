@@ -10,8 +10,10 @@ import { Logo, Grid, NavButton } from "@ui/Atoms";
 import { Menu } from "@ui/Molecules";
 
 import { theme } from "@ui";
+import { withTransitions } from "@ui/helpers";
 
 interface Props {
+  fromTop?: number;
   items: any[];
   className?: string;
 }
@@ -32,6 +34,8 @@ const PageHeader = styled((props: Props) => {
     </header>
   );
 })`
+  ${withTransitions("height")};
+
   height: 5rem;
   display: grid;
   align-items: center;
@@ -43,7 +47,7 @@ const PageHeader = styled((props: Props) => {
   background: var(--body);
 
   ${theme.breakpoints.tablet} {
-    height: 10rem;
+    height: ${props => ((props.fromTop || 0) < 1000 ? "10rem" : "5rem")};
     padding-left: 2rem;
     padding-right: 2rem;
   }
@@ -53,5 +57,9 @@ const PageHeader = styled((props: Props) => {
     padding-right: 0;
   }
 `;
+
+PageHeader.defaultProps = {
+  fromTop: 0,
+};
 
 export { PageHeader };

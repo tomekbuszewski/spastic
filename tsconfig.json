@@ -6,7 +6,7 @@
       "@sections": ["src/components/sections"],
       "@pages": ["src/pages"],
       "@ui": ["src/ui"],
-      "@hooks": ["src/hooks"],
+      "@helpers/*": ["src/helpers/*"],
       "@config": ["config"],
       "@config/*": ["config/*"],
       "@ui/*": ["src/ui/*"]
