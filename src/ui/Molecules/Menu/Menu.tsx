@@ -12,7 +12,7 @@ import { theme } from "@ui";
 
 export interface IMenuItem {
   onClick?: any;
-  text: string;
+  children: string;
 }
 
 interface Props {
@@ -24,7 +24,7 @@ interface Props {
 const Menu = styled((props: Props) => (
   <ul className={props.className}>
     {props.items.map(item => (
-      <MenuItem key={item.text}>{item.text}</MenuItem>
+      <MenuItem {...item} key={String(item.children).toLowerCase()} />
     ))}
   </ul>
 ))`

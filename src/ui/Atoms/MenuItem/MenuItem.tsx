@@ -18,9 +18,7 @@ const MenuItem = styled.li`
 
   color: var(--text);
 
-  a {
-    color: var(--text);
-  }
+  cursor: pointer;
 
   ${theme.breakpoints.tablet} {
     text-align: left;

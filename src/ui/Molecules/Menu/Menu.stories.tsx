@@ -5,9 +5,9 @@ import { storiesOf } from "@storybook/react";
 import { Menu } from "./";
 
 export const MENU_CHILDREN = [
-  { text: "About me" },
-  { text: "Writings" },
-  { text: "Contact" },
+  { children: "About me" },
+  { children: "Writings" },
+  { children: "Contact" },
 ];
 
 storiesOf("Molecules/Menu", module).add("Normal", () => (

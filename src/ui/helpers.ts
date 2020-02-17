@@ -1,17 +1,17 @@
-import { ITheme, theme } from "@ui/theme";
+import { theme } from "@ui/theme";
 import { css } from "styled-components";
 import { SECTIONS } from "@config/sections";
 import { scroller } from "react-scroll";
 
-export const gridElement = (props: { theme: ITheme }) => css`
+export const gridElement = () => css`
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  
+
   ${theme.breakpoints.tablet} {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   ${theme.breakpoints.desktop} {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -24,9 +24,15 @@ export const scrollTo = (section: SECTIONS) =>
     smooth: "easeInOutQuart",
   });
 
-export const withTransitions = (prop: string|string[], time: string = theme.animations.med, easing = theme.animations.easing) => {
+export const withTransitions = (
+  prop: string | string[],
+  time: string = theme.animations.med,
+  easing = theme.animations.easing
+) => {
   if (Array.isArray(prop)) {
-    return `transition: ${prop.map(item => `${time} ${item} ${easing}`).join(", ")}`;
+    return `transition: ${prop
+      .map(item => `${time} ${item} ${easing}`)
+      .join(", ")}`;
   }
 
   return `transition: ${prop} ${time} ${easing}`;

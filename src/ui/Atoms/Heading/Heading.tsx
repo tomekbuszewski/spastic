@@ -19,13 +19,14 @@ interface Props {
   children?: React.ReactNode;
   full?: boolean;
   size?: HEADING_SIZES;
+  padded?: boolean;
 }
 
 const Heading = styled.h2<Props>`
   font-weight: 800;
   margin-bottom: 4rem;
   color: ${props => `var(--section-${props.section}-lead)`};
-  ${gridElement};
+  ${props => props.padded && gridElement};
 
   ${props =>
     props.size === HEADING_SIZES.SMALL &&
@@ -44,7 +45,9 @@ const Heading = styled.h2<Props>`
   ${props =>
     props.size === HEADING_SIZES.LARGE &&
     css`
+      margin-top: 20vh;
       font-size: ${theme.fonts.sizes.huge};
+      line-height: 1.33;
       letter-spacing: -0.02em;
     `};
 
@@ -76,7 +79,10 @@ const Heading = styled.h2<Props>`
     ${props =>
       props.size === HEADING_SIZES.LARGE &&
       css`
+        margin-top: 20vh;
         font-size: ${theme.fonts.sizes.hugeDesktop};
+        line-height: 1.13;
+        margin-bottom: 7.5rem;
         letter-spacing: -0.035em;
       `};
   }

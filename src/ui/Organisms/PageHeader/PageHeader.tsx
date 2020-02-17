@@ -21,8 +21,8 @@ const PageHeader = styled((props: Props) => {
 
   return (
     <header className={props.className}>
-      <Grid padded gridColumnsMobile="1fr 1fr" gridColumnsTablet="1fr 3fr">
-        <Logo />
+      <Grid as="nav" gridColumnsMobile="1fr 1fr" gridColumnsTablet="1fr 3fr">
+        <Logo asMain />
         <NavButton
           active={isActive}
           onClick={() => setActive(active => !active)}
@@ -37,11 +37,20 @@ const PageHeader = styled((props: Props) => {
   align-items: center;
   position: sticky;
   top: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   background: var(--body);
 
   ${theme.breakpoints.tablet} {
     height: 10rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  ${theme.breakpoints.desktop} {
+    padding-left: 0;
+    padding-right: 0;
   }
 `;
 
