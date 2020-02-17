@@ -15,4 +15,7 @@ addParameters({
   viewport: {
     viewports: INITIAL_VIEWPORTS,
   },
+  options: {
+    showRoots: true,
+  },
 });

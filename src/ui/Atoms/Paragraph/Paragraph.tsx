@@ -9,6 +9,7 @@ import { ITheme, theme } from "@ui/theme";
 import { SECTIONS } from "@config/sections";
 
 export enum PARAGRAPH_VARIANTS {
+  SMALL = "small",
   NORMAL = "normal",
   LARGE = "large",
   BOLD = "bold",
@@ -71,6 +72,12 @@ const Paragraph = styled.p<Props>`
   &:last-of-type {
     margin-bottom: 0;
   }
+
+  ${({ variant }) =>
+    variant === PARAGRAPH_VARIANTS.SMALL &&
+    css`
+      font-size: ${theme.fonts.sizes.small};
+    `};
 
   ${({ variant }) =>
     variant === PARAGRAPH_VARIANTS.NORMAL &&

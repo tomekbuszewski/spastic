@@ -8,7 +8,7 @@ import { SECTIONS } from "@config/sections";
 const sections = Object.keys(SECTIONS).map(s => String(s).toLowerCase());
 const sizes = Object.keys(HEADING_SIZES).map(s => String(s).toLowerCase());
 
-storiesOf("Atoms|Heading", module).add("Basic", () => (
+storiesOf("Atoms/Heading", module).add("Basic", () => (
   <Heading
     section={select("Section", sections, sections[0])}
     size={select("Size", sizes, sizes[0]) as HEADING_SIZES}

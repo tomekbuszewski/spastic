@@ -5,6 +5,6 @@ import { storiesOf } from "@storybook/react";
 
 import { MenuItem } from "./";
 
-storiesOf("Atoms|MenuItem", module).add("Normal", () => (
+storiesOf("Atoms/MenuItem", module).add("Normal", () => (
   <MenuItem>{text("Example text", "Hello")}</MenuItem>
 ));

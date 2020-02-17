@@ -10,7 +10,7 @@ const variants = Object.keys(PARAGRAPH_VARIANTS).map(s =>
   String(s).toLowerCase()
 );
 
-storiesOf("Atoms|Paragraph", module).add("Basic", () => (
+storiesOf("Atoms/Paragraph", module).add("Basic", () => (
   <Paragraph
     variant={select("Variant", variants, variants[0]) as PARAGRAPH_VARIANTS}
     section={select("Section", sections, sections[0]) as SECTIONS}

@@ -5,6 +5,6 @@ import { storiesOf } from "@storybook/react";
 
 import { Logo } from "./";
 
-storiesOf("Atoms|Logo", module).add("Normal", () => (
+storiesOf("Atoms/Logo", module).add("Normal", () => (
   <Logo>{text("Example text", "Hello")}</Logo>
 ));

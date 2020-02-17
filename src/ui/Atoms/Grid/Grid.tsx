@@ -19,6 +19,7 @@ const Grid = styled.div<Props>`
 
   margin: auto;
   width: 100%;
+  max-width: 94vw;
 
   ${props => props.padded && gridElement};
   grid-template-columns: ${props =>

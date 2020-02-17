@@ -10,6 +10,6 @@ export const MENU_CHILDREN = [
   { text: "Contact" },
 ];
 
-storiesOf("Molecules|Menu", module).add("Normal", () => (
+storiesOf("Molecules/Menu", module).add("Normal", () => (
   <Menu active={boolean("Menu active", true)} items={MENU_CHILDREN} />
 ));
