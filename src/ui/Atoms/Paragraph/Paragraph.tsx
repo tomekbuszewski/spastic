@@ -6,6 +6,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { ITheme, theme } from "@ui/theme";
+import { SECTIONS } from "@config/sections";
 
 export enum PARAGRAPH_VARIANTS {
   NORMAL = "normal",
@@ -16,7 +17,7 @@ export enum PARAGRAPH_VARIANTS {
 }
 
 interface Props {
-  section: string;
+  section?: SECTIONS;
   children?: React.ReactNode;
   theme: ITheme;
   variant?: PARAGRAPH_VARIANTS;
@@ -129,7 +130,7 @@ const Paragraph = styled.p<Props>`
 `;
 
 Paragraph.defaultProps = {
-  section: "hero",
+  section: SECTIONS.HERO,
   variant: PARAGRAPH_VARIANTS.NORMAL,
 };
 

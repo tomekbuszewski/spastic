@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { text, select } from "@storybook/addon-knobs";
+import { select } from "@storybook/addon-knobs";
 
 import { Paragraph, PARAGRAPH_VARIANTS } from "./";
 import { SECTIONS } from "@config/sections";
@@ -13,8 +13,8 @@ const variants = Object.keys(PARAGRAPH_VARIANTS).map(s =>
 storiesOf("Atoms|Paragraph", module).add("Basic", () => (
   <Paragraph
     variant={select("Variant", variants, variants[0]) as PARAGRAPH_VARIANTS}
-    section={select("Section", sections, sections[0])}
+    section={select("Section", sections, sections[0]) as SECTIONS}
   >
-    {text("Text", "Hello there")}
+    Hello <u>from</u> Paragraph
   </Paragraph>
 ));
