@@ -23,3 +23,11 @@ export const scrollTo = (section: SECTIONS) =>
     delay: 0,
     smooth: "easeInOutQuart",
   });
+
+export const withTransitions = (prop: string|string[], time: string = theme.animations.med, easing = theme.animations.easing) => {
+  if (Array.isArray(prop)) {
+    return `transition: ${prop.map(item => `${time} ${item} ${easing}`).join(", ")}`;
+  }
+
+  return `transition: ${prop} ${time} ${easing}`;
+};

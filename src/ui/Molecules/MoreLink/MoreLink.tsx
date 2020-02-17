@@ -11,20 +11,26 @@ import { SECTIONS } from "@config/sections";
 import { gridElement } from "@ui/helpers";
 
 interface Props {
+  component?: React.ReactNode;
   children?: React.ReactNode;
+  to?: string;
+  hrefProps?: any;
   section?: SECTIONS;
 }
 
-const MoreLink = styled((props: Props) => (
-  <Paragraph
-    variant={PARAGRAPH_VARIANTS.BOLD}
-    section={props.section as SECTIONS}
-  >
-    <a href={""}>
-      <span>{props.children}</span>
-    </a>
-  </Paragraph>
-))`
+const MoreLink = styled((props: Props) => {
+  const Component: any = props.component ? props.component : "a";
+  return (
+    <Paragraph
+      variant={PARAGRAPH_VARIANTS.BOLD}
+      section={props.section as SECTIONS}
+    >
+      <Component to={props.to || ""} {...props.hrefProps}>
+        <span>{props.children}</span>
+      </Component>
+    </Paragraph>
+  );
+})`
   grid-column-start: 1;
   grid-column-end: 12;
   ${gridElement};

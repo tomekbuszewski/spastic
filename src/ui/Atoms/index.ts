@@ -5,3 +5,4 @@ export * from "./NavButton";
 export * from "./Heading";
 export * from "./Paragraph";
 export * from "./ListItem";
+export * from "./MenuItem";

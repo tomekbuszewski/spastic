@@ -3,22 +3,38 @@
  * @since 2020-02-05 13:04:13
  */
 
-import * as React from "react";
 import styled from "styled-components";
 import { theme } from "@ui/theme";
+import { gridElement } from "@ui/helpers";
 
-const Grid = styled.div`
+interface Props {
+  padded?: boolean;
+  gridColumnsMobile?: string;
+  gridColumnsTablet?: string;
+  gridColumnsDesktop?: string;
+}
+
+const Grid = styled.div<Props>`
   display: grid;
 
   margin: auto;
   width: 100%;
 
+  ${props => props.padded && gridElement};
+  grid-template-columns: ${props =>
+    props.gridColumnsMobile && props.gridColumnsMobile};
+
   ${theme.breakpoints.tablet} {
     max-width: 93rem;
+  grid-template-columns: ${props =>
+    props.gridColumnsTablet && props.gridColumnsTablet};
   }
 
   ${theme.breakpoints.desktop} {
     max-width: 144rem;
+  grid-template-columns: ${props =>
+    props.gridColumnsDesktop && props.gridColumnsDesktop};
+  }
   }
 `;
 

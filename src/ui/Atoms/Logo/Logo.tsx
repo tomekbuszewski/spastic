@@ -1,23 +1,23 @@
 /**
- * @author tomekbuszewski
- * @since 2020-02-05 14:27:25
+ * @author tomek
+ * @since 2020-02-17 11:08:01
  */
 
-import * as React from "react";
 import styled from "styled-components";
 
-import LogoImage from "../../../images/Logo.svg";
+import LogoImg from "../../../images/Logo.svg";
+import { theme } from "@ui";
 
-import { gridElement } from "@ui/helpers";
-
-const Logo = styled(LogoImage as any)`
-  ${gridElement};
-  box-sizing: content-box;
+const Logo = styled(LogoImg as any)`
   width: 10rem;
-  fill: var(--section-hero-lead);
-  z-index: 12;
+  align-self: center;
+  position: relative;
+  z-index: 120;
+
+  ${theme.breakpoints.tablet} {
+    width: auto;
+    height: 3rem;
+  }
 `;
 
-export {
-  Logo,
-}
+export { Logo };
