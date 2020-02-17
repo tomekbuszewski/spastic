@@ -9,19 +9,17 @@ import { theme } from "@ui/theme";
 
 const Grid = styled.div`
   display: grid;
-  
+
   margin: auto;
   width: 100%;
-  
+
   ${theme.breakpoints.tablet} {
     max-width: 93rem;
   }
-  
+
   ${theme.breakpoints.desktop} {
     max-width: 144rem;
   }
 `;
 
-export {
-  Grid,
-}
+export { Grid };

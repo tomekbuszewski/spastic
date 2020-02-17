@@ -4,35 +4,44 @@
  */
 
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ITheme, theme } from "@ui/theme";
+
+export enum PARAGRAPH_VARIANTS {
+  NORMAL = "normal",
+  LARGE = "large",
+  BOLD = "bold",
+  TEXT = "text",
+  TEXT_FIRST = "text_first",
+}
 
 interface Props {
   section: string;
   children?: React.ReactNode;
   theme: ITheme;
+  variant?: PARAGRAPH_VARIANTS;
 }
 
 const Paragraph = styled.p<Props>`
-  font-weight: 800;
-  font-size: 2.5rem;
   color: ${props => `var(--section-${props.section}-lead)`};
+  line-height: 1.75;
+  font-weight: 500;
   margin-bottom: 3rem;
-  
+
   u {
     color: ${props => `var(--section-${props.section}-text)`};
     text-decoration: none;
   }
-  
+
   a {
     color: ${props => `var(--section-${props.section}-lead)`};
     position: relative;
-    
+
     span {
       position: relative;
       z-index: 2;
     }
-    
+
     &:before {
       position: absolute;
       bottom: -10%;
@@ -45,32 +54,83 @@ const Paragraph = styled.p<Props>`
       z-index: 1;
       transform: scaleY(0.5);
       transform-origin: bottom;
-      transition: ${theme.animations.short} transform ${theme.animations.easing}, ${theme.animations.short} opacity ${theme.animations.easing};
+      transition: ${theme.animations.short} transform ${theme.animations.easing},
+        ${theme.animations.short} opacity ${theme.animations.easing};
     }
   }
-  
+
   a:hover {
     color: ${props => `var(--section-${props.section}-lead)`};
-    
+
     &:before {
       transform: scaleY(1);
     }
   }
-  
+
   &:last-of-type {
     margin-bottom: 0;
   }
-  
+
+  ${({ variant }) =>
+    variant === PARAGRAPH_VARIANTS.NORMAL &&
+    css`
+      font-size: ${theme.fonts.sizes.smallDesktop};
+    `};
+
+  ${({ variant }) =>
+    variant === PARAGRAPH_VARIANTS.BOLD &&
+    css`
+      font-size: ${theme.fonts.sizes.smallDesktop};
+      font-weight: 800;
+    `};
+
+  ${({ variant }) =>
+    variant === PARAGRAPH_VARIANTS.LARGE &&
+    css`
+      font-size: ${theme.fonts.sizes.medium};
+      font-weight: 800;
+      line-height: 1.6;
+    `};
+
+  ${({ variant }) =>
+    variant === PARAGRAPH_VARIANTS.TEXT &&
+    css`
+      font-family: ${theme.fonts.faces.serif};
+      font-size: ${theme.fonts.sizes.smallDesktop};
+      font-weight: 400;
+      line-height: 1.5;
+    `};
+
+  ${({ variant }) =>
+    variant === PARAGRAPH_VARIANTS.TEXT_FIRST &&
+    css`
+      font-family: ${theme.fonts.faces.serif};
+      font-size: ${theme.fonts.sizes.medium};
+      font-weight: 400;
+      line-height: 1.5;
+    `};
+
   ${theme.breakpoints.tablet} {
-    font-size: 3rem;
-    line-height: 1.75;
+    ${({ variant }) =>
+      variant === PARAGRAPH_VARIANTS.LARGE &&
+      css`
+        font-size: ${theme.fonts.sizes.mediumDesktop};
+        line-height: 1.6;
+      `};
+
+    ${({ variant }) =>
+      variant === PARAGRAPH_VARIANTS.TEXT_FIRST &&
+      css`
+        font-size: ${theme.fonts.sizes.mediumDesktop};
+        font-weight: 400;
+        line-height: 1.6;
+      `};
   }
 `;
 
 Paragraph.defaultProps = {
   section: "hero",
+  variant: PARAGRAPH_VARIANTS.NORMAL,
 };
 
-export {
-  Paragraph,
-}
+export { Paragraph };

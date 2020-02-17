@@ -30,7 +30,9 @@
     "styled-reboot": "^4.0.3"
   },
   "devDependencies": {
+    "@storybook/addon-backgrounds": "^5.3.13",
     "@storybook/addon-knobs": "^5.3.13",
+    "@storybook/addon-viewport": "^5.3.13",
     "@storybook/cli": "^5.3.13",
     "@storybook/react": "^5.3.13",
     "@types/node": "^13.7.0",

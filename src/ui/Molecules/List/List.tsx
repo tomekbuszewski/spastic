@@ -18,13 +18,11 @@ const List = styled.ul<Props>`
   margin: 0;
   padding: 0;
   ${gridElement};
-  
+
   u {
     color: ${props => `var(--section-${props.section}-text)`};
     text-decoration: none;
   }
 `;
 
-export {
-  List,
-};
+export { List };

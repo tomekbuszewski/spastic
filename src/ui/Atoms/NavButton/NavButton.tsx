@@ -31,8 +31,7 @@ const NavButton = styled.button<Props>`
     content: "";
     position: absolute;
     right: 0;
-    transition: ${theme.animations.short} transform
-      ${theme.animations.easing};
+    transition: ${theme.animations.short} transform ${theme.animations.easing};
   }
 
   &:before {

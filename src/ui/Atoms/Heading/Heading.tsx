@@ -31,18 +31,21 @@ const Heading = styled.h2<Props>`
     props.size === HEADING_SIZES.SMALL &&
     css`
       font-size: ${theme.fonts.sizes.medium};
+      letter-spacing: -0.01em;
     `};
 
   ${props =>
     props.size === HEADING_SIZES.NORMAL &&
     css`
       font-size: ${theme.fonts.sizes.large};
+      letter-spacing: -0.015em;
     `};
 
   ${props =>
     props.size === HEADING_SIZES.LARGE &&
     css`
       font-size: ${theme.fonts.sizes.huge};
+      letter-spacing: -0.02em;
     `};
 
   ${props =>
@@ -55,6 +58,27 @@ const Heading = styled.h2<Props>`
   u {
     color: ${props => `var(--section-${props.section}-text)`};
     text-decoration: none;
+  }
+
+  ${theme.breakpoints.desktop} {
+    ${props =>
+      props.size === HEADING_SIZES.SMALL &&
+      css`
+        font-size: ${theme.fonts.sizes.mediumDesktop};
+      `};
+
+    ${props =>
+      props.size === HEADING_SIZES.NORMAL &&
+      css`
+        font-size: ${theme.fonts.sizes.largeDesktop};
+      `};
+
+    ${props =>
+      props.size === HEADING_SIZES.LARGE &&
+      css`
+        font-size: ${theme.fonts.sizes.hugeDesktop};
+        letter-spacing: -0.035em;
+      `};
   }
 `;
 

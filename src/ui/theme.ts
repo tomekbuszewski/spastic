@@ -62,6 +62,7 @@ export const theme: ITheme = {
       normal: "Manrope",
       bold: "Manrope ExtraBold",
       primary: "'Manrope', Helvetica, sans-serif",
+      serif: "Domine, Georgia, serif",
       secondary:
         "'JetBrains Mono', 'Roboto Mono', Monaco, Consolas, monospaced",
     },

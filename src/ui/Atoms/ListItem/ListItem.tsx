@@ -11,12 +11,10 @@ const ListItem = styled.li`
   font-size: 2rem;
   line-height: 3.5rem;
   margin-bottom: 0.25rem;
-  
+
   &:last-of-type {
     margin-bottom: 0;
   }
 `;
 
-export {
-  ListItem,
-};
+export { ListItem };

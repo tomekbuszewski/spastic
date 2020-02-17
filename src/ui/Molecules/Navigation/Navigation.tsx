@@ -55,8 +55,7 @@ const NavigationWrapper = styled.ul<Props>`
   align-content: center;
   display: grid;
   list-style: none;
-  transition: ${theme.animations.med} opacity
-    ${theme.animations.easing};
+  transition: ${theme.animations.med} opacity ${theme.animations.easing};
   opacity: ${props => (props.active ? 1 : 0)};
   pointer-events: ${props => (props.active ? "all" : "none")};
 
