@@ -5,8 +5,10 @@
 
 import * as React from "react";
 import styled, { css } from "styled-components";
+
 import { theme } from "@ui/theme";
-import { gridElement } from "@ui/helpers";
+import { gridElement, gridHelper, IGridHelper } from "@ui/helpers";
+import { SECTIONS } from "@config/sections";
 
 export enum HEADING_SIZES {
   SMALL = "small",
@@ -14,19 +16,22 @@ export enum HEADING_SIZES {
   LARGE = "large",
 }
 
-interface Props {
-  section: string;
+interface Props extends IGridHelper {
+  section?: SECTIONS;
   children?: React.ReactNode;
   full?: boolean;
   size?: HEADING_SIZES;
   padded?: boolean;
 }
 
+import { ColorContext } from "@ui/Atoms/Section/Section";
+
 const Heading = styled.h2<Props>`
   font-weight: 800;
   margin-bottom: 4rem;
-  color: ${props => `var(--section-${props.section}-lead)`};
+  color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
   ${props => props.padded && gridElement};
+  ${props => (props.mobile || props.desktop || props.tablet) && gridHelper};
 
   ${props =>
     props.size === HEADING_SIZES.SMALL &&
@@ -59,7 +64,7 @@ const Heading = styled.h2<Props>`
     `};
 
   u {
-    color: ${props => `var(--section-${props.section}-text)`};
+    color: ${() => `var(--section-${React.useContext(ColorContext)}-text)`};
     text-decoration: none;
   }
 
@@ -74,6 +79,7 @@ const Heading = styled.h2<Props>`
       props.size === HEADING_SIZES.NORMAL &&
       css`
         font-size: ${theme.fonts.sizes.largeDesktop};
+        margin-bottom: 9rem;
       `};
 
     ${props =>
@@ -89,7 +95,6 @@ const Heading = styled.h2<Props>`
 `;
 
 Heading.defaultProps = {
-  section: "hero",
   size: HEADING_SIZES.NORMAL,
 };
 

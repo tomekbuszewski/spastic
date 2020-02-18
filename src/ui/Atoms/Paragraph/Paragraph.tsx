@@ -7,6 +7,8 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import { ITheme, theme } from "@ui/theme";
 import { SECTIONS } from "@config/sections";
+import { gridElement, gridHelper, IGridHelper } from "@ui/helpers";
+import { ColorContext } from "@ui/Atoms/Section/Section";
 
 export enum PARAGRAPH_VARIANTS {
   SMALL = "small",
@@ -17,26 +19,29 @@ export enum PARAGRAPH_VARIANTS {
   TEXT_FIRST = "text_first",
 }
 
-interface Props {
+interface Props extends IGridHelper {
   section?: SECTIONS;
   children?: React.ReactNode;
   theme: ITheme;
+  padded?: boolean;
   variant?: PARAGRAPH_VARIANTS;
 }
 
 const Paragraph = styled.p<Props>`
-  color: ${props => `var(--section-${props.section}-lead)`};
+  color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
   line-height: 1.75;
   font-weight: 500;
   margin-bottom: 3rem;
+  ${props => props.padded && gridElement};
+  ${props => (props.mobile || props.desktop || props.tablet) && gridHelper};
 
   u {
-    color: ${props => `var(--section-${props.section}-text)`};
+    color: ${() => `var(--section-${React.useContext(ColorContext)}-text)`};
     text-decoration: none;
   }
 
   a {
-    color: ${props => `var(--section-${props.section}-lead)`};
+    color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
     position: relative;
 
     span {
@@ -50,7 +55,8 @@ const Paragraph = styled.p<Props>`
       left: -6.25%;
       width: 112.5%;
       height: 120%;
-      background: ${props => `var(--section-${props.section}-highlight)`};
+      background: ${() =>
+        `var(--section-${React.useContext(ColorContext)}-highlight)`};
       display: block;
       content: "";
       z-index: 1;
@@ -62,7 +68,7 @@ const Paragraph = styled.p<Props>`
   }
 
   a:hover {
-    color: ${props => `var(--section-${props.section}-lead)`};
+    color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
 
     &:before {
       transform: scaleY(1);

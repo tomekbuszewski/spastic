@@ -9,11 +9,20 @@ import { theme } from "@ui/theme";
 import { SECTIONS } from "@config/sections";
 
 interface Props {
+  className?: string;
   children?: React.ReactNode;
-  name: string;
+  name: SECTIONS;
 }
 
-const Section = styled.section<Props>`
+export const ColorContext = React.createContext(SECTIONS.ABOUT);
+
+const Section = styled((props: Props) => {
+  return (
+    <ColorContext.Provider value={props.name}>
+      <section className={props.className} {...props} />
+    </ColorContext.Provider>
+  );
+})`
   padding: 9rem 0;
   margin: 1rem;
 

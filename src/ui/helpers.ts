@@ -37,3 +37,35 @@ export const withTransitions = (
 
   return `transition: ${prop} ${time} ${easing}`;
 };
+
+export interface IGridHelper {
+  mobile?: [number, number];
+  tablet?: [number, number];
+  desktop?: [number, number];
+}
+
+export const gridHelper = () => (props: IGridHelper) => `
+  ${props.mobile &&
+`
+      grid-column-start: ${props.mobile && props.mobile[0]};
+      grid-column-end: ${props.mobile && props.mobile[1]};
+    `};
+
+${theme.breakpoints.tablet} {
+  ${props.tablet &&
+`
+      grid-column-start: ${props.tablet && props.tablet[0]};
+      grid-column-end: ${props.tablet && props.tablet[1]};
+    `};
+}
+
+${theme.breakpoints.desktop} {
+  ${props.desktop &&
+`
+      grid-column-start: ${(props: IGridHelper) =>
+  props.desktop && props.desktop[0]};
+      grid-column-end: ${(props: IGridHelper) =>
+  props.desktop && props.desktop[1]};
+    `};
+}
+`;

@@ -5,9 +5,9 @@
 
 import styled from "styled-components";
 import { theme } from "@ui/theme";
-import { gridElement } from "@ui/helpers";
+import { gridElement, gridHelper, IGridHelper } from "@ui/helpers";
 
-interface Props {
+interface Props extends IGridHelper {
   padded?: boolean;
   gridColumnsMobile?: string;
   gridColumnsTablet?: string;
@@ -20,6 +20,8 @@ const Grid = styled.div<Props>`
   margin: auto;
   width: 100%;
   max-width: 94vw;
+  
+  ${props => (props.mobile || props.desktop || props.tablet) && gridHelper};
 
   ${props => props.padded && gridElement};
   grid-template-columns: ${props =>

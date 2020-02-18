@@ -7,24 +7,21 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { Paragraph, PARAGRAPH_VARIANTS } from "@ui/Atoms";
-import { SECTIONS } from "@config/sections";
 import { gridElement } from "@ui/helpers";
+import { theme } from "@ui";
 
 interface Props {
   component?: React.ReactNode;
+  className?: string;
   children?: React.ReactNode;
   to?: string;
   hrefProps?: any;
-  section?: SECTIONS;
 }
 
 const MoreLink = styled((props: Props) => {
   const Component: any = props.component ? props.component : "a";
   return (
-    <Paragraph
-      variant={PARAGRAPH_VARIANTS.BOLD}
-      section={props.section as SECTIONS}
-    >
+    <Paragraph variant={PARAGRAPH_VARIANTS.BOLD} className={props.className}>
       <Component to={props.to || ""} {...props.hrefProps}>
         <span>{props.children}</span>
       </Component>
@@ -34,10 +31,16 @@ const MoreLink = styled((props: Props) => {
   grid-column-start: 1;
   grid-column-end: 12;
   ${gridElement};
-`;
 
-MoreLink.defaultProps = {
-  section: SECTIONS.HERO,
-};
+  &:last-of-type {
+    margin-top: 3rem;
+  }
+
+  ${theme.breakpoints.tablet} {
+    &:last-of-type {
+      margin-top: 8rem;
+    }
+  }
+`;
 
 export { MoreLink };

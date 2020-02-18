@@ -22,7 +22,7 @@ storiesOf("Demos/Sections", module).add("Hero", () => (
     {boolean("With header", true) && <PageHeader items={MENU_CHILDREN} />}
     <Section name={SECTIONS.HERO}>
       <Grid padded>
-        <Heading size={HEADING_SIZES.LARGE} section={SECTIONS.HERO}>
+        <Heading size={HEADING_SIZES.LARGE}>
           Hello, <br />
           <u>my name is</u> Tomek.
         </Heading>
