@@ -19,12 +19,7 @@ storiesOf("Demos/Sections", module).add("About", () => (
   <React.Fragment>
     {boolean("With overlay", true) && <Overlay />}
     <Section name={SECTIONS.ABOUT}>
-      <Grid
-        padded
-        gridColumnsMobile="1fr"
-        gridColumnsTablet="1fr 1fr"
-        as="article"
-      >
+      <Grid gridColumnsMobile="1fr" gridColumnsTablet="1fr 1fr" as="article">
         <Heading
           padded
           full
