@@ -8,7 +8,6 @@ import styled from "styled-components";
 
 import { Grid, Paragraph, PARAGRAPH_VARIANTS } from "@ui/Atoms";
 import { theme } from "@ui";
-import { SECTIONS } from "@config/sections";
 
 interface Props {
   className?: string;
@@ -18,7 +17,7 @@ interface Props {
 const PageFooter = styled((props: Props) => (
   <footer className={props.className}>
     <Grid padded>
-      <Paragraph variant={PARAGRAPH_VARIANTS.SMALL} section={SECTIONS.WRITINGS}>
+      <Paragraph variant={PARAGRAPH_VARIANTS.SMALL}>
         (c) {new Date().getFullYear()} buszewski.com — {props.children}
       </Paragraph>
     </Grid>

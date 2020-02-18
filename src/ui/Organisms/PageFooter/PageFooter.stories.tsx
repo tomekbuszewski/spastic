@@ -6,7 +6,7 @@ import { storiesOf } from "@storybook/react";
 import { PageFooter } from "./";
 import { Overlay } from "@ui/Molecules";
 
-storiesOf("Organisms/PageFooter", module).add("Normal", () => (
+storiesOf("Organisms/Page Footer", module).add("Normal", () => (
   <React.Fragment>
     {boolean("With overlay", true) && <Overlay />}
     <PageFooter>
