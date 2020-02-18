@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     --section-${SECTIONS.ABOUT}-lead: #0E2F37;
     --section-${SECTIONS.ABOUT}-text: #446b80;
     --section-${SECTIONS.ABOUT}-highlight: #C7DEE3;
-    --section-${SECTIONS.EXPERIENCE}-background: #FDFDFD;
+    --section-${SECTIONS.EXPERIENCE}-background: #f6f6f6;
     --section-${SECTIONS.EXPERIENCE}-lead: #353535;
     --section-${SECTIONS.EXPERIENCE}-text: #7E7E7E;
     --section-${SECTIONS.EXPERIENCE}-extra: #7E7E7E;
@@ -65,9 +65,9 @@ export const GlobalStyle = createGlobalStyle`
       --section-${SECTIONS.ABOUT}-lead: #5fa5b5;
       --section-${SECTIONS.ABOUT}-text: #3f7f8c;
       --section-${SECTIONS.ABOUT}-highlight: #323f4f;
-      --section-${SECTIONS.EXPERIENCE}-background: #010101;
-      --section-${SECTIONS.EXPERIENCE}-lead: #726c70;
-      --section-${SECTIONS.EXPERIENCE}-text: #4e4b49;
+      --section-${SECTIONS.EXPERIENCE}-background: #100e0d;
+      --section-${SECTIONS.EXPERIENCE}-lead: #726566;
+      --section-${SECTIONS.EXPERIENCE}-text: #574b48;
       --section-${SECTIONS.EXPERIENCE}-extra: #7E7E7E;
       --section-${SECTIONS.EXPERIENCE}-highlight: #272727;
       --section-${SECTIONS.WRITINGS}-background: #FAF7ED;

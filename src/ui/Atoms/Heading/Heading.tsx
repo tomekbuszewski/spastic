@@ -22,6 +22,7 @@ interface Props extends IGridHelper {
   full?: boolean;
   size?: HEADING_SIZES;
   padded?: boolean;
+  right?: boolean;
 }
 
 import { ColorContext } from "@ui/Atoms/Section/Section";
@@ -66,6 +67,10 @@ const Heading = styled.h2<Props>`
   u {
     color: ${() => `var(--section-${React.useContext(ColorContext)}-text)`};
     text-decoration: none;
+  }
+
+  ${theme.breakpoints.tablet} {
+    ${props => props.right && "text-align: right"};
   }
 
   ${theme.breakpoints.desktop} {

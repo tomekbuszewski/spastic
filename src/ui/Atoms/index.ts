@@ -6,3 +6,4 @@ export * from "./Heading";
 export * from "./Paragraph";
 export * from "./MenuItem";
 export * from "./ListItem";
+export * from "./NavHolder";

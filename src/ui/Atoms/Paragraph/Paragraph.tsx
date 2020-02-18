@@ -24,6 +24,7 @@ interface Props extends IGridHelper {
   children?: React.ReactNode;
   theme: ITheme;
   padded?: boolean;
+  right?: boolean;
   variant?: PARAGRAPH_VARIANTS;
 }
 
@@ -34,6 +35,19 @@ const Paragraph = styled.p<Props>`
   margin-bottom: 3rem;
   ${props => props.padded && gridElement};
   ${props => (props.mobile || props.desktop || props.tablet) && gridHelper};
+  ${props => props.right && "text-align: right"};
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+
+  background: none;
+  border: 0;
+
+  &:hover,
+  &:focus {
+    outline: 0;
+  }
 
   u {
     color: ${() => `var(--section-${React.useContext(ColorContext)}-text)`};
