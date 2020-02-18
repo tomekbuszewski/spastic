@@ -44,7 +44,9 @@ export interface IGridHelper {
   desktop?: [number, number];
 }
 
-export const gridHelper = () => (props: IGridHelper) => `
+export const gridHelper = () => (props: IGridHelper) => {
+  /*
+  `
   ${props.mobile &&
 `
       grid-column-start: ${props.mobile && props.mobile[0]};
@@ -69,3 +71,21 @@ ${theme.breakpoints.desktop} {
     `};
 }
 `;
+   */
+
+  let result = "";
+
+  if (props.mobile) {
+    result += `grid-column-start: ${props.mobile[0]}; grid-column-end: ${props.mobile[1]};`;
+  }
+
+  if (props.tablet) {
+    result += `${theme.breakpoints.tablet} { grid-column-start: ${props.tablet[0]}; grid-column-end: ${props.tablet[1]}; }`
+  }
+
+  if (props.desktop) {
+    result += `${theme.breakpoints.desktop} { grid-column-start: ${props.desktop[0]}; grid-column-end: ${props.desktop[1]}; }`
+  }
+
+  return result;
+};

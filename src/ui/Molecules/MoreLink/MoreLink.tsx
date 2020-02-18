@@ -16,12 +16,17 @@ interface Props {
   children?: React.ReactNode;
   to?: string;
   hrefProps?: any;
+  right?: boolean;
 }
 
 const MoreLink = styled((props: Props) => {
   const Component: any = props.component ? props.component : "a";
   return (
-    <Paragraph variant={PARAGRAPH_VARIANTS.BOLD} className={props.className}>
+    <Paragraph
+      right={props.right}
+      variant={PARAGRAPH_VARIANTS.BOLD}
+      className={props.className}
+    >
       <Component to={props.to || ""} {...props.hrefProps}>
         <span>{props.children}</span>
       </Component>

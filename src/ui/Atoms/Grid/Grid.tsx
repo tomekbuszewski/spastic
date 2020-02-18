@@ -18,6 +18,7 @@ const Grid = styled.div<Props>`
   display: grid;
 
   margin: auto;
+  padding: 0;
   width: 100%;
   max-width: 94vw;
   
