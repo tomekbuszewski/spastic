@@ -44,7 +44,7 @@ module.exports = {
           "@config": resolve(__dirname, "config"),
           "@sections": resolve(__dirname, "src", "components", "sections"),
           "@ui": resolve(__dirname, "src", "ui"),
-          "@hooks": resolve(__dirname, "src", "hooks"),
+          "@helpers": resolve(__dirname, "src", "helpers"),
           "@components": resolve(__dirname, "src", "components"),
           "@pages": resolve(__dirname, "src", "pages"),
         },

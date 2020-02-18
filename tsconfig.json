@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
     "paths": {
-      "@components": ["components"],
-      "@components/*": ["components/*"],
-      "@sections": ["components/sections"],
-      "@pages": ["pages"],
-      "@ui": ["ui"],
-      "@hooks": ["hooks"],
-      "@config": ["../config"],
-      "@config/*": ["../config/*"],
-      "@ui/*": ["ui/*"]
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@sections": ["src/components/sections"],
+      "@pages": ["src/pages"],
+      "@ui": ["src/ui"],
+      "@helpers/*": ["src/helpers/*"],
+      "@config": ["config"],
+      "@config/*": ["config/*"],
+      "@ui/*": ["src/ui/*"]
     },
     "allowJs": true,
-    "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "isolatedModules": true,
@@ -20,12 +21,15 @@
     "lib": ["es6", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "noEmit": true,
+    "noEmit": false,
+    "sourceMap": true,
     "strict": true,
     "target": "esnext"
   },
   "include": [
     "src",
+    "demos",
     "@types"
-  ]
+  ],
+  "exclude": ["node_modules"]
 }

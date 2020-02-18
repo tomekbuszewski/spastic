@@ -6,6 +6,7 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "@ui/theme";
+import { withTransitions } from "@ui/helpers";
 
 interface Props {
   active: boolean;
@@ -20,19 +21,18 @@ const NavButton = styled.button<Props>`
   border: 0;
   margin-left: auto;
   position: relative;
-  z-index: 12;
+  z-index: 120;
 
   &:before,
   &:after {
     width: 2rem;
     height: 1px;
-    background: var(--section-hero-text);
+    background: var(--text);
     display: block;
     content: "";
     position: absolute;
     right: 0;
-    transition: ${theme.animations.short} transform
-      ${theme.animations.easing};
+    ${withTransitions("transform")};
   }
 
   &:before {

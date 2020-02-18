@@ -1,1 +1,1 @@
-export { Paragraph } from "./Paragraph";
+export { Paragraph, PARAGRAPH_VARIANTS } from "./Paragraph";

@@ -303,7 +303,9 @@ export const WorkSection = ({ name }: BaseSection) => {
           </Wrapper>
         </WorksWrapper>
         <LinkHolder section={name}>
-          <a href="" download><span>Get my .pdf résumé</span></a>
+          <a href="" download>
+            <span>Get my .pdf résumé</span>
+          </a>
         </LinkHolder>
       </Grid>
     </Section>
