@@ -97,6 +97,10 @@ export const GlobalStyle = createGlobalStyle`
     font-display: fallback;
     src: local("Manrope ExtraBold"), local("Manrope-ExtraBold"), url(${ManropeExtraBold}) format("woff2");
   }
+  
+  .tl-edges {
+    overflow: initial;
+  }
 
   ${reboot(rebootOptions)};
 `;

@@ -13,6 +13,7 @@ interface Props {
   asMain?: boolean;
   className?: string;
   children?: string;
+  onClick?: (event: React.MouseEvent) => void;
 }
 
 const Logo = styled((props: Props) => {
@@ -20,8 +21,10 @@ const Logo = styled((props: Props) => {
 
   return (
     <Component className={props.className}>
-      <LogoImg />
-      {props.asMain && <span>buszewski.com</span>}
+      <a href="/" onClick={props.onClick}>
+        <LogoImg />
+        {props.asMain && <span>buszewski.com</span>}
+      </a>
     </Component>
   );
 })`
@@ -31,6 +34,7 @@ const Logo = styled((props: Props) => {
   margin: 0;
   width: 10rem;
   ${gridElement};
+  cursor: pointer;
 
   span {
     display: none;
@@ -52,7 +56,7 @@ const Logo = styled((props: Props) => {
 
   ${theme.breakpoints.desktop} {
     padding-left: ${props => (props.asMain ? "4.5rem" : "1.5rem")};
-    
+
     svg {
       height: 4rem;
     }

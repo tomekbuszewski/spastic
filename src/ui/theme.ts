@@ -50,7 +50,7 @@ export const theme: ITheme = {
       mediumDesktop: rem(24),
       large: rem(36),
       largeDesktop: rem(42),
-      huge: rem(42),
+      huge: rem(40),
       hugeDesktop: rem(72),
     },
     spacings: {

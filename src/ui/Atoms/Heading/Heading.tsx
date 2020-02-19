@@ -55,7 +55,7 @@ const Heading = styled.h2<Props>`
     css`
       margin-top: 20vh;
       font-size: ${theme.fonts.sizes.huge};
-      line-height: 1.33;
+      line-height: 1.13;
       letter-spacing: -0.02em;
     `};
 

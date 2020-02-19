@@ -1,7 +1,7 @@
 import { theme } from "@ui/theme";
 import { css } from "styled-components";
 import MarkdownComponent from "react-markdown";
-import { scroller } from "react-scroll";
+import { scroller, Events } from "react-scroll";
 
 import { SECTIONS } from "@config/sections";
 import { Heading, ListItem, Paragraph } from "@ui/Atoms";
@@ -9,24 +9,26 @@ import { List } from "@ui/Molecules";
 import * as React from "react";
 
 export const gridElement = () => css`
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-
-  ${theme.breakpoints.tablet} {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   ${theme.breakpoints.desktop} {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 `;
+
+Events.scrollEvent.register("begin", to => {
+  if (typeof window !== "undefined") {
+    window.location.hash = to;
+  }
+});
+
 export const scrollTo = (section: SECTIONS) =>
   scroller.scrollTo(section, {
     duration: parseFloat(theme.animations.long) * 2,
     delay: 0,
-    offset: -24,
+    offset: typeof window !== undefined && window.innerWidth >= 1024 ? -80 : 0,
     smooth: "easeInOutQuart",
   });
 
