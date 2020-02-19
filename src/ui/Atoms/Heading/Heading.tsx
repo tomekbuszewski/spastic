@@ -22,6 +22,7 @@ interface Props extends IGridHelper {
   full?: boolean;
   size?: HEADING_SIZES;
   padded?: boolean;
+  mobileTop?: boolean;
   right?: boolean;
 }
 
@@ -33,6 +34,7 @@ const Heading = styled.h2<Props>`
   color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
   ${props => props.padded && gridElement};
   ${props => (props.mobile || props.desktop || props.tablet) && gridHelper};
+  ${props => props.mobileTop && "margin-top: 10rem"};
 
   ${props =>
     props.size === HEADING_SIZES.SMALL &&
@@ -70,6 +72,7 @@ const Heading = styled.h2<Props>`
   }
 
   ${theme.breakpoints.tablet} {
+    margin-top: 0;
     ${props => props.right && "text-align: right"};
   }
 

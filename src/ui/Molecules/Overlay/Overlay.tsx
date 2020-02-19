@@ -4,30 +4,10 @@
  */
 
 import * as React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { theme } from "@ui/theme";
 
 import { Grid as Base } from "@ui/Atoms";
-
-const load = keyframes`
-  from {
-    transform: scaleX(1) translateX(1px);
-  }
-  
-  to {
-    transform: scaleX(0) translateX(1px);
-  }
-`;
-
-const loadLogo = keyframes`
-  from {
-    opacity: 1;
-  }
-  
-  to {
-    opacity: 0;
-  }
-`;
 
 const VerticalLine = styled.span`
   display: block;
@@ -40,7 +20,7 @@ const VerticalLine = styled.span`
 const Grid = styled(Base)`
   height: 100vh;
   position: fixed;
-  z-index: 99;
+  z-index: 999;
   pointer-events: none;
   left: 50%;
   top: 0;

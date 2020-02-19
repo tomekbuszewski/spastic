@@ -65,10 +65,10 @@ const Paragraph = styled.p<Props>`
 
     &:before {
       position: absolute;
-      bottom: -10%;
-      left: -6.25%;
-      width: 112.5%;
-      height: 120%;
+      bottom: -0.2rem;
+      left: -0.4rem;
+      width: calc(100% + 1rem);
+      height: calc(100% + 0.5rem);
       background: ${() =>
         `var(--section-${React.useContext(ColorContext)}-highlight)`};
       display: block;
@@ -78,6 +78,13 @@ const Paragraph = styled.p<Props>`
       transform-origin: bottom;
       transition: ${theme.animations.short} transform ${theme.animations.easing},
         ${theme.animations.short} opacity ${theme.animations.easing};
+    }
+
+    ${theme.breakpoints.desktop} {
+      &:before {
+        left: -0.8rem;
+        width: calc(100% + 1.6rem);
+      }
     }
   }
 
