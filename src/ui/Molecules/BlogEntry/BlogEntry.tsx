@@ -15,30 +15,34 @@ import {
 import { gridElement, withTransitions } from "@ui/helpers";
 import { theme } from "@ui";
 
-interface Props {
-  className?: string;
-  children?: React.ReactNode;
+export interface IBlogEntry {
   title: string;
   pubdate: string;
   summary: string;
+  link?: string;
+}
+
+interface Props extends IBlogEntry {
+  className?: string;
+  children?: React.ReactNode;
 }
 
 const BlogEntry = styled((props: Props) => (
-  <a href={""}>
+  <a href={props.link}>
     <li className={props.className}>
       <Heading size={HEADING_SIZES.SMALL}>
         {props.title}
 
         <time>{props.pubdate}</time>
       </Heading>
-      <Paragraph variant={PARAGRAPH_VARIANTS.NORMAL}>{props.summary}</Paragraph>
+      <Paragraph variant={PARAGRAPH_VARIANTS.NORMAL}><strong>{props.summary}</strong></Paragraph>
     </li>
   </a>
 ))`
   ${withTransitions("transform", theme.animations.long)};
   list-style: none;
   ${gridElement};
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 
   > * {
     margin: 0;
