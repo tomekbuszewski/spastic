@@ -44,47 +44,21 @@ export interface IGridHelper {
   desktop?: [number, number];
 }
 
+const generateGrid = (input: [number, number]) => `grid-column-start: ${input[0]}; grid-column-end: ${input[1]};`;
+
 export const gridHelper = () => (props: IGridHelper) => {
-  /*
-  `
-  ${props.mobile &&
-`
-      grid-column-start: ${props.mobile && props.mobile[0]};
-      grid-column-end: ${props.mobile && props.mobile[1]};
-    `};
-
-${theme.breakpoints.tablet} {
-  ${props.tablet &&
-`
-      grid-column-start: ${props.tablet && props.tablet[0]};
-      grid-column-end: ${props.tablet && props.tablet[1]};
-    `};
-}
-
-${theme.breakpoints.desktop} {
-  ${props.desktop &&
-`
-      grid-column-start: ${(props: IGridHelper) =>
-  props.desktop && props.desktop[0]};
-      grid-column-end: ${(props: IGridHelper) =>
-  props.desktop && props.desktop[1]};
-    `};
-}
-`;
-   */
-
   let result = "";
 
   if (props.mobile) {
-    result += `grid-column-start: ${props.mobile[0]}; grid-column-end: ${props.mobile[1]};`;
+    result += generateGrid(props.mobile);
   }
 
   if (props.tablet) {
-    result += `${theme.breakpoints.tablet} { grid-column-start: ${props.tablet[0]}; grid-column-end: ${props.tablet[1]}; }`
+    result += `${theme.breakpoints.tablet} { ${generateGrid(props.tablet)} }`
   }
 
   if (props.desktop) {
-    result += `${theme.breakpoints.desktop} { grid-column-start: ${props.desktop[0]}; grid-column-end: ${props.desktop[1]}; }`
+    result += `${theme.breakpoints.desktop} { ${generateGrid(props.desktop) }`
   }
 
   return result;
