@@ -6,3 +6,4 @@ export * from "./MoreLink";
 export * from "./Menu";
 export * from "./List";
 export * from "./WorkItem";
+export * from "./BlogEntry";

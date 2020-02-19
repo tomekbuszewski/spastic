@@ -61,7 +61,7 @@ const Heading = styled.h2<Props>`
     props.full &&
     css`
       grid-column-start: 1;
-      grid-column-end: 12;
+      grid-column-end: 5;
     `};
 
   u {
