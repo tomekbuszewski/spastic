@@ -1,6 +1,6 @@
 ---
-titleId: About me – list
-title: About me
+group: aboutMe
+title: list
 ---
 - Clean **and** documented code **fanatic**;
 - **Able to** create scalable project architecture **from scratch**;

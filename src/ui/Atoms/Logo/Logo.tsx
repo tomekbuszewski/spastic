@@ -45,12 +45,17 @@ const Logo = styled((props: Props) => {
     height: 3rem;
 
     svg {
+      width: auto;
       height: 3rem;
     }
   }
 
   ${theme.breakpoints.desktop} {
     padding-left: ${props => (props.asMain ? "4.5rem" : "1.5rem")};
+    
+    svg {
+      height: 4rem;
+    }
   }
 
   @media (min-width: 1190px) {

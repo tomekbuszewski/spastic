@@ -10,10 +10,14 @@ import { graphql, useStaticQuery } from "gatsby";
 const Hero = () => {
   const { head, text } = useStaticQuery(graphql`
     {
-      head: markdownRemark(id: { eq: "f1835b8c-8544-5f16-8cdc-f83978573798" }) {
+      head: markdownRemark(
+        frontmatter: { group: { eq: "hero" }, title: { eq: "intro" } }
+      ) {
         body: rawMarkdownBody
       }
-      text: markdownRemark(id: { eq: "a8f7c5f6-03ac-5823-8dcb-7e7e4ef26302" }) {
+      text: markdownRemark(
+        frontmatter: { group: { eq: "hero" }, title: { eq: "description" } }
+      ) {
         body: rawMarkdownBody
       }
     }

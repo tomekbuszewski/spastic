@@ -13,13 +13,19 @@ import { theme } from "@ui";
 import { withTransitions } from "@ui/helpers";
 
 interface Props {
-  fromTop?: number;
   items: any[];
   className?: string;
 }
 
 const PageHeader = styled((props: Props) => {
   const [isActive, setActive] = React.useState<boolean>(false);
+  const enhancedItems = props.items.map(item => ({
+    ...item,
+    onClick: () => {
+      item.onClick();
+      setActive(active => !active);
+    },
+  }));
 
   return (
     <header className={props.className}>
@@ -29,7 +35,7 @@ const PageHeader = styled((props: Props) => {
           active={isActive}
           onClick={() => setActive(active => !active)}
         />
-        <Menu items={props.items} active={isActive} />
+        <Menu items={enhancedItems} active={isActive} />
       </Grid>
     </header>
   );
@@ -48,7 +54,7 @@ const PageHeader = styled((props: Props) => {
   background: var(--body);
 
   ${theme.breakpoints.tablet} {
-    height: ${props => ((props.fromTop || 0) < 1000 ? "10rem" : "5rem")};
+    height: 10rem;
     padding-left: 2rem;
     padding-right: 2rem;
   }
@@ -58,9 +64,5 @@ const PageHeader = styled((props: Props) => {
     padding-right: 0;
   }
 `;
-
-PageHeader.defaultProps = {
-  fromTop: 0,
-};
 
 export { PageHeader };

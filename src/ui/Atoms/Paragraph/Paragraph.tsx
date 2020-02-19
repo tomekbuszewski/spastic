@@ -161,7 +161,6 @@ const Paragraph = styled.p<Props>`
 `;
 
 Paragraph.defaultProps = {
-  section: SECTIONS.HERO,
   variant: PARAGRAPH_VARIANTS.NORMAL,
 };
 

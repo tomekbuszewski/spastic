@@ -16,13 +16,13 @@ const About = () => {
   const { list, description } = useStaticQuery(graphql`
     {
       list: markdownRemark(
-        frontmatter: { titleId: { eq: "About me – list" } }
+        frontmatter: { group: { eq: "aboutMe" }, title: { eq: "list" } }
       ) {
         body: rawMarkdownBody
       }
 
       description: markdownRemark(
-        frontmatter: { titleId: { eq: "About me – description" } }
+        frontmatter: { group: { eq: "aboutMe" }, title: { eq: "description" } }
       ) {
         body: rawMarkdownBody
       }

@@ -25,13 +25,21 @@ const PageFooter = styled((props: Props) => (
 ))`
   text-align: center;
   background: var(--body);
+  padding-top: 2rem;
+  padding-bottom: 3rem;
 
   ${theme.breakpoints.tablet} {
     display: grid;
 
     text-align: right;
-    height: 10rem;
     align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+  
+  ${theme.breakpoints.desktop} {
+    padding-top: 1rem;
+    padding-bottom: 4rem;
   }
 `;
 

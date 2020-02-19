@@ -26,6 +26,7 @@ export const scrollTo = (section: SECTIONS) =>
   scroller.scrollTo(section, {
     duration: parseFloat(theme.animations.long) * 2,
     delay: 0,
+    offset: -24,
     smooth: "easeInOutQuart",
   });
 

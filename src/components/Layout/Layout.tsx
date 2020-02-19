@@ -31,7 +31,7 @@ const items = [
 export const Layout = (props: Props) => {
   return (
     <React.Fragment>
-      <PageHeader items={items} fromTop={0} />
+      <PageHeader items={items} />
       <SEO />
       <main>
         <GlobalStyle />
