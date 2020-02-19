@@ -3,9 +3,10 @@ const { resolve } = require("path");
 module.exports = {
   siteMetadata: {
     title: "buszewski.com",
-    description: "Developer, consultant and lead with over 12 years of commercial experience",
+    description:
+      "Developer, consultant and lead with over 12 years of commercial experience",
     author: "Tomek Buszewski <tomek.buszewski@gmail.com>",
-    siteUrl: "https://buszewski.com"
+    siteUrl: "https://buszewski.com",
   },
   plugins: [
     "gatsby-plugin-typescript",
@@ -42,10 +43,10 @@ module.exports = {
       options: {
         alias: {
           "@config": resolve(__dirname, "config"),
-          "@sections": resolve(__dirname, "src", "components", "sections"),
           "@ui": resolve(__dirname, "src", "ui"),
           "@helpers": resolve(__dirname, "src", "helpers"),
           "@components": resolve(__dirname, "src", "components"),
+          "@sections": resolve(__dirname, "src", "sections"),
           "@pages": resolve(__dirname, "src", "pages"),
         },
       },
@@ -63,8 +64,16 @@ module.exports = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://buszewski.com",
-        policy: [{ userAgent: '*', allow: '/' }],
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "markdown-pages",
+        path: `${__dirname}/content`,
+      },
+    },
+    "gatsby-transformer-remark",
   ],
 };

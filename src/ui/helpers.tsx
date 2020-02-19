@@ -1,7 +1,12 @@
 import { theme } from "@ui/theme";
 import { css } from "styled-components";
-import { SECTIONS } from "@config/sections";
+import MarkdownComponent from "react-markdown";
 import { scroller } from "react-scroll";
+
+import { SECTIONS } from "@config/sections";
+import { Heading, ListItem, Paragraph } from "@ui/Atoms";
+import { List } from "@ui/Molecules";
+import * as React from "react";
 
 export const gridElement = () => css`
   padding-left: 0.5rem;
@@ -44,7 +49,8 @@ export interface IGridHelper {
   desktop?: [number, number];
 }
 
-const generateGrid = (input: [number, number]) => `grid-column-start: ${input[0]}; grid-column-end: ${input[1]};`;
+const generateGrid = (input: [number, number]) =>
+  `grid-column-start: ${input[0]}; grid-column-end: ${input[1]};`;
 
 export const gridHelper = () => (props: IGridHelper) => {
   let result = "";
@@ -54,12 +60,24 @@ export const gridHelper = () => (props: IGridHelper) => {
   }
 
   if (props.tablet) {
-    result += `${theme.breakpoints.tablet} { ${generateGrid(props.tablet)} }`
+    result += `${theme.breakpoints.tablet} { ${generateGrid(props.tablet)} }`;
   }
 
   if (props.desktop) {
-    result += `${theme.breakpoints.desktop} { ${generateGrid(props.desktop) }`
+    result += `${theme.breakpoints.desktop} { ${generateGrid(props.desktop)}`;
   }
 
   return result;
 };
+export const Markdown = (props: any) => (
+  <MarkdownComponent
+    escapeHtml={false}
+    {...props}
+    renderers={{
+      paragraph: (innerProps: any) => <Paragraph {...innerProps} {...props} />,
+      heading: (innerProps: any) => <Heading {...innerProps} {...props} />,
+      list: (innerProps: any) => <List {...innerProps} {...props} />,
+      listItem: (innerProps: any) => <ListItem {...innerProps} />,
+    }}
+  />
+);

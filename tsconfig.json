@@ -3,7 +3,7 @@
     "paths": {
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
-      "@sections": ["src/components/sections"],
+      "@sections": ["src/sections"],
       "@pages": ["src/pages"],
       "@ui": ["src/ui"],
       "@helpers/*": ["src/helpers/*"],

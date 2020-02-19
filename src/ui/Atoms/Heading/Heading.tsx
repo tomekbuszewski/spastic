@@ -66,7 +66,7 @@ const Heading = styled.h2<Props>`
       grid-column-end: 5;
     `};
 
-  u {
+  strong {
     color: ${() => `var(--section-${React.useContext(ColorContext)}-text)`};
     text-decoration: none;
   }
