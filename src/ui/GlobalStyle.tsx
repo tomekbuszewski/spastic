@@ -77,7 +77,7 @@ export const GlobalStyle = createGlobalStyle`
       --section-${SECTIONS.CONTACT}-background: #FAEDF4;
       --section-${SECTIONS.CONTACT}-lead: #71043F;
       --section-${SECTIONS.CONTACT}-text: #B497A7;
-      --section-${SECTIONS.CONTACT}-extra: #984672;
+      --section-${SECTIONS.CONTACT}-extra: #b14f87;
       --section-${SECTIONS.CONTACT}-highlight: #DBBECE;
     }
   }
