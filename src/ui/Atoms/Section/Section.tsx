@@ -19,7 +19,7 @@ export const ColorContext = React.createContext(SECTIONS.ABOUT);
 const Section = styled((props: Props) => {
   return (
     <ColorContext.Provider value={props.name}>
-      <section className={props.className} {...props} />
+      <section className={props.className} {...props} id={props.name} />
     </ColorContext.Provider>
   );
 })`

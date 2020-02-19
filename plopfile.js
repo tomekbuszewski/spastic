@@ -55,4 +55,36 @@ module.exports = plop => {
       },
     ],
   });
+  plop.setGenerator("workplace", {
+    description: "Generate work place in MD format",
+    prompts: [
+      {
+        type: "input",
+        name: "work",
+        message: "Company name",
+      },
+      {
+        type: "input",
+        name: "position",
+        message: "Position",
+      },
+      {
+        type: "input",
+        name: "from",
+        message: "Start date",
+      },
+      {
+        type: "input",
+        name: "to",
+        message: "End date",
+      }
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "./content/sections/experience/{{pascalCase work}}.md",
+        templateFile: "./config/plop-templates/workplace.md.hbs",
+      }
+    ]
+  });
 };
