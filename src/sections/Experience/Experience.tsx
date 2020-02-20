@@ -64,7 +64,7 @@ const Experience = () => {
             tablet={[1, 5]}
             gridColumnsTablet="repeat(4, 1fr)"
           >
-            <NavHolder>
+            <NavHolder as="li">
               <Paragraph
                 variant={PARAGRAPH_VARIANTS.BOLD}
                 as={"button"}

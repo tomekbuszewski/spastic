@@ -28,8 +28,8 @@ interface Props extends IBlogEntry {
 }
 
 const BlogEntry = styled((props: Props) => (
-  <a href={props.link}>
-    <li className={props.className}>
+  <li className={props.className}>
+    <a href={props.link}>
       <Heading size={HEADING_SIZES.SMALL}>
         {props.title}
 
@@ -38,15 +38,17 @@ const BlogEntry = styled((props: Props) => (
       <Paragraph variant={PARAGRAPH_VARIANTS.NORMAL}>
         <strong>{props.summary}</strong>
       </Paragraph>
-    </li>
-  </a>
+      <Paragraph variant={PARAGRAPH_VARIANTS.SMALL}>Read more →</Paragraph>
+    </a>
+  </li>
 ))`
-  ${withTransitions("transform", theme.animations.long)};
   list-style: none;
   ${gridElement};
   margin-bottom: 6rem;
+  transform: translateY(1rem);
+  ${withTransitions(["transform"], theme.animations.long)};
 
-  > * {
+  * {
     margin: 0;
   }
 
@@ -58,8 +60,21 @@ const BlogEntry = styled((props: Props) => (
     font-weight: 400;
   }
 
+  p:last-of-type {
+    ${withTransitions(["opacity", "transform"], theme.animations.long)};
+    transform: translateY(1rem);
+    opacity: 0;
+    margin-top: 2rem;
+    text-align: right;
+  }
+
   &:hover {
-    transform: translateY(-1rem);
+    transform: none;
+
+    p:last-of-type {
+      transform: none;
+      opacity: 1;
+    }
   }
 `;
 

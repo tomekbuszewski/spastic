@@ -66,19 +66,19 @@ export const GlobalStyle = createGlobalStyle`
       --section-${SECTIONS.ABOUT}-text: #3f7f8c;
       --section-${SECTIONS.ABOUT}-highlight: #323f4f;
       --section-${SECTIONS.EXPERIENCE}-background: #100e0d;
-      --section-${SECTIONS.EXPERIENCE}-lead: #726566;
-      --section-${SECTIONS.EXPERIENCE}-text: #574b48;
+      --section-${SECTIONS.EXPERIENCE}-lead: #7a6c6d;
+      --section-${SECTIONS.EXPERIENCE}-text: #615450;
       --section-${SECTIONS.EXPERIENCE}-extra: #7E7E7E;
       --section-${SECTIONS.EXPERIENCE}-highlight: #272727;
-      --section-${SECTIONS.WRITINGS}-background: #27221f;
+      --section-${SECTIONS.WRITINGS}-background: #211d1a;
       --section-${SECTIONS.WRITINGS}-lead: #bfb599;
       --section-${SECTIONS.WRITINGS}-text: #807c70;
       --section-${SECTIONS.WRITINGS}-highlight: #382b1c;
-      --section-${SECTIONS.CONTACT}-background: #FAEDF4;
-      --section-${SECTIONS.CONTACT}-lead: #71043F;
-      --section-${SECTIONS.CONTACT}-text: #B497A7;
+      --section-${SECTIONS.CONTACT}-background: #230815;
+      --section-${SECTIONS.CONTACT}-lead: #b47197;
+      --section-${SECTIONS.CONTACT}-text: #4e2129;
       --section-${SECTIONS.CONTACT}-extra: #b14f87;
-      --section-${SECTIONS.CONTACT}-highlight: #DBBECE;
+      --section-${SECTIONS.CONTACT}-highlight: #402336;
     }
   }
   

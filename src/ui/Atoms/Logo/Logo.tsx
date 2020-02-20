@@ -37,7 +37,8 @@ const Logo = styled((props: Props) => {
   cursor: pointer;
 
   span {
-    display: none;
+    opacity: 0;
+    font-size: 1px;
   }
 
   svg {
