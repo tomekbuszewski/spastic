@@ -70,10 +70,10 @@ export const GlobalStyle = createGlobalStyle`
       --section-${SECTIONS.EXPERIENCE}-text: #574b48;
       --section-${SECTIONS.EXPERIENCE}-extra: #7E7E7E;
       --section-${SECTIONS.EXPERIENCE}-highlight: #272727;
-      --section-${SECTIONS.WRITINGS}-background: #FAF7ED;
-      --section-${SECTIONS.WRITINGS}-lead: #373326;
-      --section-${SECTIONS.WRITINGS}-text: #938F83;
-      --section-${SECTIONS.WRITINGS}-highlight: #E4DFD1;
+      --section-${SECTIONS.WRITINGS}-background: #27221f;
+      --section-${SECTIONS.WRITINGS}-lead: #bfb599;
+      --section-${SECTIONS.WRITINGS}-text: #807c70;
+      --section-${SECTIONS.WRITINGS}-highlight: #382b1c;
       --section-${SECTIONS.CONTACT}-background: #FAEDF4;
       --section-${SECTIONS.CONTACT}-lead: #71043F;
       --section-${SECTIONS.CONTACT}-text: #B497A7;
@@ -96,6 +96,10 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 800;
     font-display: fallback;
     src: local("Manrope ExtraBold"), local("Manrope-ExtraBold"), url(${ManropeExtraBold}) format("woff2");
+  }
+  
+  .tl-edges {
+    overflow: initial;
   }
 
   ${reboot(rebootOptions)};

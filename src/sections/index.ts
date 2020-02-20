@@ -1,0 +1,5 @@
+export * from "./Hero";
+export * from "./About";
+export * from "./Experience";
+export * from "./Writings";
+export * from "./Contact";

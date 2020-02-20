@@ -10,12 +10,15 @@ import { Heading, HEADING_SIZES, Paragraph } from "@ui/Atoms";
 import { gridElement } from "@ui/helpers";
 import { theme } from "@ui";
 
-interface Props {
-  className?: string;
+export interface IWorkItem {
   work: string;
   position: string;
-  from: string | number;
-  to: string | number;
+  from: string;
+  to?: string;
+}
+
+interface Props extends IWorkItem {
+  className?: string;
   visible?: boolean;
 }
 
@@ -36,12 +39,12 @@ const WorkItem = styled((props: Props) => {
         {props.position}
       </Heading>
       <Heading as="p" size={HEADING_SIZES.SMALL}>
-        <u>at {props.work}</u>
+        <strong>at {props.work}</strong>
       </Heading>
       <Paragraph>
-        <u>
-          {props.from} – {props.to}
-        </u>
+        <strong>
+          {props.from} – {props.to || "ongoing"}
+        </strong>
       </Paragraph>
     </li>
   );
@@ -66,7 +69,7 @@ const WorkItem = styled((props: Props) => {
 
   ${theme.breakpoints.tablet} {
     text-align: right;
-    min-height: 16rem;
+    min-height: 22rem;
 
     ${props =>
       props.visible &&

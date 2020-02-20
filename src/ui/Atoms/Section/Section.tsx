@@ -14,12 +14,12 @@ interface Props {
   name: SECTIONS;
 }
 
-export const ColorContext = React.createContext(SECTIONS.ABOUT);
+export const ColorContext = React.createContext(SECTIONS.WRITINGS);
 
 const Section = styled((props: Props) => {
   return (
     <ColorContext.Provider value={props.name}>
-      <section className={props.className} {...props} />
+      <section className={props.className} {...props} id={props.name} />
     </ColorContext.Provider>
   );
 })`

@@ -7,7 +7,12 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import { ITheme, theme } from "@ui/theme";
 import { SECTIONS } from "@config/sections";
-import { gridElement, gridHelper, IGridHelper } from "@ui/helpers";
+import {
+  gridElement,
+  gridHelper,
+  IGridHelper,
+  withTransitions,
+} from "@ui/helpers";
 import { ColorContext } from "@ui/Atoms/Section/Section";
 
 export enum PARAGRAPH_VARIANTS {
@@ -49,47 +54,34 @@ const Paragraph = styled.p<Props>`
     outline: 0;
   }
 
-  u {
+  strong {
     color: ${() => `var(--section-${React.useContext(ColorContext)}-text)`};
     text-decoration: none;
+    font-weight: inherit;
   }
 
   a {
+    ${withTransitions("background", theme.animations.long)};
     color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
     position: relative;
+    background: linear-gradient(
+        to bottom,
+        ${() => `var(--section-${React.useContext(ColorContext)}-highlight)`} 0%,
+        ${() => `var(--section-${React.useContext(ColorContext)}-highlight)`}
+          100%
+      )
+      repeat-x 0 100%;
+    background-size: 0.5rem 1rem;
 
     span {
       position: relative;
       z-index: 2;
     }
-
-    &:before {
-      position: absolute;
-      bottom: -0.2rem;
-      left: -0.4rem;
-      width: calc(100% + 1rem);
-      height: calc(100% + 0.5rem);
-      background: ${() =>
-        `var(--section-${React.useContext(ColorContext)}-highlight)`};
-      display: block;
-      content: "";
-      z-index: 1;
-      transform: scaleY(0.5);
-      transform-origin: bottom;
-      transition: ${theme.animations.short} transform ${theme.animations.easing},
-        ${theme.animations.short} opacity ${theme.animations.easing};
-    }
-
-    ${theme.breakpoints.desktop} {
-      &:before {
-        left: -0.8rem;
-        width: calc(100% + 1.6rem);
-      }
-    }
   }
 
   a:hover {
     color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
+    background-size: 0.5rem 3rem;
 
     &:before {
       transform: scaleY(1);
@@ -134,6 +126,11 @@ const Paragraph = styled.p<Props>`
       font-size: ${theme.fonts.sizes.smallDesktop};
       font-weight: 400;
       line-height: 1.5;
+
+      strong {
+        color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
+        font-weight: 900;
+      }
     `};
 
   ${({ variant }) =>
@@ -164,7 +161,6 @@ const Paragraph = styled.p<Props>`
 `;
 
 Paragraph.defaultProps = {
-  section: SECTIONS.HERO,
   variant: PARAGRAPH_VARIANTS.NORMAL,
 };
 

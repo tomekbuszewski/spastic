@@ -30,7 +30,7 @@ const rem = (input: number, base: number = BASE_SIZE): string => `${input / base
 
 export const theme: ITheme = {
   animations: {
-    easing: "cubic-bezier(.06,.23,.42,1)",
+    easing: "cubic-bezier(.79,.03,.23,.94)",
     long: "500ms",
     med: "300ms",
     short: "150ms",
@@ -50,7 +50,7 @@ export const theme: ITheme = {
       mediumDesktop: rem(24),
       large: rem(36),
       largeDesktop: rem(42),
-      huge: rem(42),
+      huge: rem(40),
       hugeDesktop: rem(72),
     },
     spacings: {

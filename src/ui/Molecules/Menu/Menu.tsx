@@ -40,11 +40,12 @@ const Menu = styled((props: Props) => (
   width: 100vw;
   height: 100vh;
   position: fixed;
+  transform: ${props => (props.active ? "none" : "translateX(25%)")};
+  pointer-events: ${props => (props.active ? "all" : "none")};
 
   margin: 0;
   padding: 0;
 
-  transform: ${props => (props.active ? "none" : "translateX(25%)")};
   opacity: ${props => (props.active ? 1 : 0)};
   background: var(--body);
 
@@ -52,6 +53,7 @@ const Menu = styled((props: Props) => (
     opacity: 1;
     transform: none;
     grid-template-columns: repeat(3, 1fr);
+    pointer-events: all;
 
     position: static;
     height: auto;

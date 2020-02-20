@@ -29,23 +29,9 @@ const items = [
 ];
 
 export const Layout = (props: Props) => {
-  const [scrollTop, setScrollTop] = React.useState<number>(0);
-
-  const getScroll = debounce(function() {
-    setScrollTop(window.pageYOffset);
-  }, 250);
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", getScroll);
-
-    return () => {
-      window.removeEventListener("scroll", getScroll);
-    };
-  });
-
   return (
     <React.Fragment>
-      <PageHeader items={items} fromTop={scrollTop} />
+      <PageHeader items={items} />
       <SEO />
       <main>
         <GlobalStyle />
