@@ -15,7 +15,7 @@ interface IBlogNode {
 
 const Writings = () => {
   const {
-    data: { entries, totalCount, },
+    data: { entries, totalCount },
   } = useStaticQuery(graphql`
     {
       data: allMarkdownRemark(

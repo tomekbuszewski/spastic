@@ -31,7 +31,13 @@ const PageHeader = styled((props: Props) => {
   return (
     <header className={props.className}>
       <Grid as="nav" gridColumnsMobile="1fr 1fr" gridColumnsTablet="1fr 3fr">
-        <Logo asMain onClick={(e: React.MouseEvent) => { e.preventDefault(); scrollTo(SECTIONS.HERO); }} />
+        <Logo
+          asMain
+          onClick={(e: React.MouseEvent) => {
+            e.preventDefault();
+            scrollTo(SECTIONS.HERO);
+          }}
+        />
         <NavButton
           active={isActive}
           onClick={() => setActive(active => !active)}

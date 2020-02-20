@@ -26,13 +26,14 @@ const MenuItem = styled(props => (
   color: var(--text);
 
   cursor: pointer;
-  
+
   button {
     background: none;
     border: 0;
     color: inherit;
-    
-    &:active, &:focus {
+
+    &:active,
+    &:focus {
       outline: 0;
     }
   }

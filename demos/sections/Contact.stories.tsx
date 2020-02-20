@@ -33,8 +33,8 @@ storiesOf("Demos/Sections", module).add("Contact", () => (
             </a>
           </Paragraph>
         </GridElement>
-        <GridElement tablet={[3, 5]} desktop={[3, 5]}>
-          <Heading mobileTop padded as="h3" size={HEADING_SIZES.NORMAL}>
+        <GridElement mobileTop tablet={[3, 5]} desktop={[3, 5]}>
+          <Heading padded as="h3" size={HEADING_SIZES.NORMAL}>
             Or social media, if that’s your thing<u>.</u>
           </Heading>
           <Paragraph padded variant={PARAGRAPH_VARIANTS.BOLD}>

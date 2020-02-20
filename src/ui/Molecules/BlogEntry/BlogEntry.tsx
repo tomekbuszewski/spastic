@@ -35,7 +35,9 @@ const BlogEntry = styled((props: Props) => (
 
         <time>{props.pubdate}</time>
       </Heading>
-      <Paragraph variant={PARAGRAPH_VARIANTS.NORMAL}><strong>{props.summary}</strong></Paragraph>
+      <Paragraph variant={PARAGRAPH_VARIANTS.NORMAL}>
+        <strong>{props.summary}</strong>
+      </Paragraph>
     </li>
   </a>
 ))`

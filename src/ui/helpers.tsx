@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import { theme } from "@ui/theme";
 import { css } from "styled-components";
 import MarkdownComponent from "react-markdown";

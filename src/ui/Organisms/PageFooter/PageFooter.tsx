@@ -36,7 +36,7 @@ const PageFooter = styled((props: Props) => (
     padding-top: 1rem;
     padding-bottom: 3rem;
   }
-  
+
   ${theme.breakpoints.desktop} {
     padding-top: 1rem;
     padding-bottom: 4rem;
