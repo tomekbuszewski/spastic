@@ -50,6 +50,7 @@ const Menu = styled((props: Props) => (
   background: var(--body);
 
   ${theme.breakpoints.tablet} {
+    transition: none;
     opacity: 1;
     transform: none;
     grid-template-columns: repeat(3, 1fr);

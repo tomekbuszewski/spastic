@@ -68,7 +68,7 @@ export const gridHelper = () => (props: IGridHelper) => {
   }
 
   if (props.desktop) {
-    result += `${theme.breakpoints.desktop} { ${generateGrid(props.desktop)}`;
+    result += `${theme.breakpoints.desktop} { ${generateGrid(props.desktop)} }`;
   }
 
   return result;
@@ -78,6 +78,8 @@ export const Markdown = (props: any) => (
     escapeHtml={false}
     {...props}
     renderers={{
+      // link: (innerProps: any) => { console.log(props, innerProps); return <a {...innerProps} {...props} />},
+      linkReference: (innerProps: any) => <a href={innerProps.href} onClick={() => scrollTo(innerProps.href.replace("#", ""))} {...innerProps} />,
       paragraph: (innerProps: any) => <Paragraph {...innerProps} {...props} />,
       heading: (innerProps: any) => <Heading {...innerProps} {...props} />,
       list: (innerProps: any) => <List {...innerProps} {...props} />,

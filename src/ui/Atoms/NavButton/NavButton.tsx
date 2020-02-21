@@ -31,7 +31,7 @@ const NavButton = styled.button<Props>`
     display: block;
     content: "";
     position: absolute;
-    right: 0;
+    right: 1rem;
     ${withTransitions("transform")};
   }
 

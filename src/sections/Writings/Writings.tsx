@@ -1,8 +1,9 @@
 import * as React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+
 import { SECTIONS } from "@config/sections";
 import { Grid, Heading, HEADING_SIZES, Section } from "@ui/Atoms";
 import { BlogEntry, MoreLink } from "@ui/Molecules";
-import { graphql, useStaticQuery } from "gatsby";
 
 import { IBlogEntry } from "@ui/Molecules/BlogEntry/BlogEntry";
 
@@ -48,7 +49,8 @@ const Writings = () => {
           as="ul"
           mobile={[1, 5]}
           gridColumnsMobile="1fr"
-          gridColumnsTablet="repeat(4, 1fr)"
+          gridColumnsTablet="repeat(2, 1fr)"
+          gridColumnsDesktop="repeat(4, 1fr)"
         >
           {entries.map(({ entry }: IBlogNode) => (
             <BlogEntry key={entry.id} {...entry.entry} />

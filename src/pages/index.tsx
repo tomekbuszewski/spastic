@@ -4,7 +4,7 @@ import { Layout } from "@components";
 import { Hero, About, Experience, Writings, Contact } from "@sections";
 
 const IndexPage = () => (
-  <Layout>
+  <Layout isFrontPage={true}>
     <Hero />
     <About />
     <Experience />

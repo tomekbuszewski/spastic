@@ -60,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
       --section-${SECTIONS.HERO}-background: #2D232E;
       --section-${SECTIONS.HERO}-lead: #9E8212;
       --section-${SECTIONS.HERO}-text: #88621f;
-      --section-${SECTIONS.HERO}-highlight: #514152;
+      --section-${SECTIONS.HERO}-highlight: #463609;
       --section-${SECTIONS.ABOUT}-background: #222c37;
       --section-${SECTIONS.ABOUT}-lead: #5fa5b5;
       --section-${SECTIONS.ABOUT}-text: #3f7f8c;

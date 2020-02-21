@@ -5,12 +5,15 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import LogoImg from "../../../images/Logo.svg";
 import { theme } from "@ui";
 import { gridElement } from "@ui/helpers";
+import { LinkWrapper } from "@components";
+
+import LogoImg from "../../../images/Logo.svg";
 
 interface Props {
   asMain?: boolean;
+  isFrontPage: boolean;
   className?: string;
   children?: string;
   onClick?: (event: React.MouseEvent) => void;
@@ -18,13 +21,20 @@ interface Props {
 
 const Logo = styled((props: Props) => {
   const Component = props.asMain ? "h1" : "div";
+  const Link = props.isFrontPage ? "a" : LinkWrapper;
+  const linkProps = props.isFrontPage ? {
+    href: "/",
+    onClick: props.onClick,
+  } : {
+    to: "/",
+  };
 
   return (
     <Component className={props.className}>
-      <a href="/" onClick={props.onClick}>
+      <Link {...linkProps}>
         <LogoImg />
         {props.asMain && <span>buszewski.com</span>}
-      </a>
+      </Link>
     </Component>
   );
 })`
@@ -37,8 +47,8 @@ const Logo = styled((props: Props) => {
   cursor: pointer;
 
   span {
+    position: absolute;
     opacity: 0;
-    font-size: 1px;
   }
 
   svg {
