@@ -5,7 +5,7 @@ import { Paragraph, Grid } from "@ui/Atoms";
 import { SECTIONS } from "@config/sections";
 
 const AboutPage = () => (
-  <Layout>
+  <Layout isFrontPage={false}>
     <Grid>
       <Paragraph section={SECTIONS.ABOUT}>
         Lorem Ipsum is simply dummy text of the printing and typesetting

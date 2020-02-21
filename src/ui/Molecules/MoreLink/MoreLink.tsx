@@ -36,6 +36,7 @@ const MoreLink = styled((props: Props) => {
   grid-column-start: 1;
   grid-column-end: 12;
   ${gridElement};
+  text-align: right;
 
   &:last-of-type {
     margin-top: 3rem;
@@ -45,6 +46,10 @@ const MoreLink = styled((props: Props) => {
     &:last-of-type {
       margin-top: 8rem;
     }
+  }
+  
+  ${theme.breakpoints.desktop} {
+    text-align: inherit;
   }
 `;
 

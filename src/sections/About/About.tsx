@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { LinkWrapper as AniLink } from "@components";
 
 import { SECTIONS } from "@config/sections";
 import {
@@ -48,7 +49,7 @@ const About = () => {
           variant={PARAGRAPH_VARIANTS.LARGE}
         />
         <Markdown padded source={list.body} />
-        <MoreLink>
+        <MoreLink to="/about" component={AniLink}>
           A bit more info please<u>.</u>
         </MoreLink>
       </Grid>

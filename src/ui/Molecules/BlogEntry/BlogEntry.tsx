@@ -6,6 +6,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { LinkWrapper } from "@components";
 import {
   Heading,
   HEADING_SIZES,
@@ -29,7 +30,7 @@ interface Props extends IBlogEntry {
 
 const BlogEntry = styled((props: Props) => (
   <li className={props.className}>
-    <a href={props.link}>
+    <LinkWrapper to={props.link || ""}>
       <Heading size={HEADING_SIZES.SMALL}>
         {props.title}
 
@@ -39,7 +40,7 @@ const BlogEntry = styled((props: Props) => (
         <strong>{props.summary}</strong>
       </Paragraph>
       <Paragraph variant={PARAGRAPH_VARIANTS.SMALL}>Read more →</Paragraph>
-    </a>
+    </LinkWrapper>
   </li>
 ))`
   list-style: none;

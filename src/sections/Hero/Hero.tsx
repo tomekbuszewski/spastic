@@ -25,9 +25,9 @@ const Hero = () => {
 
   return (
     <Section name={SECTIONS.HERO}>
-      <Grid padded>
-        <Markdown size={HEADING_SIZES.LARGE} source={head.body} />
-        <Markdown variant={PARAGRAPH_VARIANTS.BOLD} source={text.body} />
+      <Grid padded gridColumnsMobile="repeat(4, 1fr)">
+        <Markdown size={HEADING_SIZES.LARGE} source={head.body} desktop={[1,4]} mobile={[1,4]} />
+        <Markdown variant={PARAGRAPH_VARIANTS.BOLD} source={text.body} desktop={[1,2]} mobile={[1,4]} />
       </Grid>
     </Section>
   );
