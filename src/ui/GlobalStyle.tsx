@@ -50,6 +50,13 @@ export const GlobalStyle = createGlobalStyle`
     --section-${SECTIONS.CONTACT}-text: #B497A7;
     --section-${SECTIONS.CONTACT}-extra: #984672;
     --section-${SECTIONS.CONTACT}-highlight: #DBBECE;
+    --section-${SECTIONS.ARTICLE}-background: #FAF7ED;
+    --section-${SECTIONS.ARTICLE}-heading: #FAF7ED;
+    --section-${SECTIONS.ARTICLE}-heading-no-photo: #373326;
+    --section-${SECTIONS.ARTICLE}-heading-photo: #FAF7ED;
+    --section-${SECTIONS.ARTICLE}-lead: #373326;
+    --section-${SECTIONS.ARTICLE}-text: #938F83;
+    --section-${SECTIONS.ARTICLE}-highlight: #E4DFD1;
   }
   
   @media (prefers-color-scheme: dark) {
@@ -79,6 +86,13 @@ export const GlobalStyle = createGlobalStyle`
       --section-${SECTIONS.CONTACT}-text: #4e2129;
       --section-${SECTIONS.CONTACT}-extra: #b14f87;
       --section-${SECTIONS.CONTACT}-highlight: #402336;
+      --section-${SECTIONS.ARTICLE}-background: #FAF7ED;
+      --section-${SECTIONS.ARTICLE}-heading: #211d1a;
+      --section-${SECTIONS.ARTICLE}-heading-no-photo: #E4DFD1;
+      --section-${SECTIONS.ARTICLE}-heading-photo: #E4DFD1;
+      --section-${SECTIONS.ARTICLE}-lead: #E4DFD1;
+      --section-${SECTIONS.ARTICLE}-text: #938F83;
+      --section-${SECTIONS.ARTICLE}-highlight: #E4DFD1;
     }
   }
   

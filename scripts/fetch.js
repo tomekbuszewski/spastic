@@ -30,7 +30,7 @@ async function main() {
     const date = published_at.split("T")[0];
     const articleContent = composeArticle({ title, slug, pubdate: date, body: body_markdown });
 
-    writeFile(`${__dirname}/${date} - ${title}.md`, articleContent, err => {
+    writeFile(`${__dirname}/../content/writings/${date} - ${title}.md`, articleContent, err => {
       if (err) {
         throw new Error(`Cannot create article with ID ${id} (${title})`);
       }

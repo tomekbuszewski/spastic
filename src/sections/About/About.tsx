@@ -1,6 +1,6 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { LinkWrapper as AniLink } from "@components";
+import { LinkWrapper as AniLink, Markdown } from "@components";
 
 import { SECTIONS } from "@config/sections";
 import {
@@ -11,7 +11,6 @@ import {
   Section,
 } from "@ui/Atoms";
 import { MoreLink } from "@ui/Molecules";
-import { Markdown } from "@ui/helpers";
 
 const About = () => {
   const { list, description } = useStaticQuery(graphql`

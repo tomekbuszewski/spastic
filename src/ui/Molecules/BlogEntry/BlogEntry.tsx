@@ -6,7 +6,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { LinkWrapper } from "@components";
+import { LinkWrapper, Markdown } from "@components";
 import {
   Heading,
   HEADING_SIZES,
@@ -20,7 +20,7 @@ export interface IBlogEntry {
   title: string;
   pubdate: string;
   summary: string;
-  link?: string;
+  slug: string;
 }
 
 interface Props extends IBlogEntry {
@@ -30,15 +30,13 @@ interface Props extends IBlogEntry {
 
 const BlogEntry = styled((props: Props) => (
   <li className={props.className}>
-    <LinkWrapper to={props.link || ""}>
+    <LinkWrapper to={props.slug}>
       <Heading size={HEADING_SIZES.SMALL}>
         {props.title}
 
         <time>{props.pubdate}</time>
       </Heading>
-      <Paragraph variant={PARAGRAPH_VARIANTS.NORMAL}>
-        <strong>{props.summary}</strong>
-      </Paragraph>
+      <Markdown variant={PARAGRAPH_VARIANTS.NORMAL} source={props.summary} />
       <Paragraph variant={PARAGRAPH_VARIANTS.SMALL}>Read more →</Paragraph>
     </LinkWrapper>
   </li>
@@ -61,8 +59,13 @@ const BlogEntry = styled((props: Props) => (
     font-weight: 400;
   }
 
+  p {
+    color: var(--section-writings-text);
+  }
+
   p:last-of-type {
     ${withTransitions(["opacity", "transform"], theme.animations.long)};
+    color: var(--section-writings-lead);
     transform: translateY(1rem);
     opacity: 0;
     margin-top: 2rem;

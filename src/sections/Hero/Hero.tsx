@@ -2,10 +2,10 @@ import * as React from "react";
 
 import { Grid, HEADING_SIZES, PARAGRAPH_VARIANTS, Section } from "@ui/Atoms";
 
-import { Markdown } from "@ui/helpers";
 import { SECTIONS } from "@config/sections";
 
 import { graphql, useStaticQuery } from "gatsby";
+import { Markdown } from "@components";
 
 const Hero = () => {
   const { head, text } = useStaticQuery(graphql`

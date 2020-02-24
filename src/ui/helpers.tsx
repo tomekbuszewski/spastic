@@ -1,12 +1,9 @@
 /* eslint-disable react/display-name */
 import { theme } from "@ui/theme";
 import { css } from "styled-components";
-import MarkdownComponent from "react-markdown";
-import { scroller, Events } from "react-scroll";
+import { Events, scroller } from "react-scroll";
 
 import { SECTIONS } from "@config/sections";
-import { Heading, ListItem, Paragraph } from "@ui/Atoms";
-import { List } from "@ui/Molecules";
 import * as React from "react";
 
 export const gridElement = () => css`
@@ -73,23 +70,3 @@ export const gridHelper = () => (props: IGridHelper) => {
 
   return result;
 };
-export const Markdown = (props: any) => (
-  <MarkdownComponent
-    escapeHtml={false}
-    {...props}
-    renderers={{
-      // link: (innerProps: any) => { console.log(props, innerProps); return <a {...innerProps} {...props} />},
-      linkReference: (innerProps: any) => (
-        <a
-          href={innerProps.href}
-          onClick={() => scrollTo(innerProps.href.replace("#", ""))}
-          {...innerProps}
-        />
-      ),
-      paragraph: (innerProps: any) => <Paragraph {...innerProps} {...props} />,
-      heading: (innerProps: any) => <Heading {...innerProps} {...props} />,
-      list: (innerProps: any) => <List {...innerProps} {...props} />,
-      listItem: (innerProps: any) => <ListItem {...innerProps} />,
-    }}
-  />
-);
