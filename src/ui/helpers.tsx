@@ -79,7 +79,13 @@ export const Markdown = (props: any) => (
     {...props}
     renderers={{
       // link: (innerProps: any) => { console.log(props, innerProps); return <a {...innerProps} {...props} />},
-      linkReference: (innerProps: any) => <a href={innerProps.href} onClick={() => scrollTo(innerProps.href.replace("#", ""))} {...innerProps} />,
+      linkReference: (innerProps: any) => (
+        <a
+          href={innerProps.href}
+          onClick={() => scrollTo(innerProps.href.replace("#", ""))}
+          {...innerProps}
+        />
+      ),
       paragraph: (innerProps: any) => <Paragraph {...innerProps} {...props} />,
       heading: (innerProps: any) => <Heading {...innerProps} {...props} />,
       list: (innerProps: any) => <List {...innerProps} {...props} />,

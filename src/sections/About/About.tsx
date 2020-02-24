@@ -50,7 +50,7 @@ const About = () => {
         />
         <Markdown padded source={list.body} />
         <MoreLink to="/about" component={AniLink}>
-          A bit more info please<u>.</u>
+          A bit more info please<strong>.</strong>
         </MoreLink>
       </Grid>
     </Section>
