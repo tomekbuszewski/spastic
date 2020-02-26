@@ -13,7 +13,7 @@ import {
   Paragraph,
   PARAGRAPH_VARIANTS,
 } from "@ui/Atoms";
-import { gridElement, withTransitions } from "@ui/helpers";
+import { gridElement, gridHelper, withTransitions } from "@ui/helpers";
 import { theme } from "@ui";
 
 export interface IBlogEntry {
@@ -44,6 +44,7 @@ const BlogEntry = styled((props: Props) => (
 ))`
   list-style: none;
   ${gridElement};
+  ${gridHelper};
   margin-bottom: 6rem;
   transform: translateY(1rem);
   ${withTransitions(["transform"], theme.animations.long)};

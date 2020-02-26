@@ -1,17 +1,30 @@
 import * as React from "react";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
-import { theme } from "@ui";
+import { navigate } from "gatsby";
 
 export const LinkWrapper = (props: {
-  to?: string;
+  to: string;
   children: React.ReactNode;
-  direction?: string;
 }) => (
-  <AniLink
-    cover
-    direction={props.direction || "left"}
-    duration={1}
-    bg={theme.colors.brand}
+  <a
+    href={props.to}
+    onClick={e => {
+      e.preventDefault();
+
+      if (document) {
+        const body = document.querySelector("body");
+        if (body) {
+          body.classList.remove("loaded");
+          body.classList.add("loading");
+          setTimeout(() => {
+            navigate(props.to!);
+          }, 250);
+        }
+      } else {
+        navigate(props.to!);
+      }
+    }}
     {...props}
-  />
+  >
+    {props.children}
+  </a>
 );

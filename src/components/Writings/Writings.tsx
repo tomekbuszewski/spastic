@@ -25,6 +25,8 @@ const Writings = props => {
       >
         {entries.map(({ entry }) => (
           <BlogEntry
+            tablet={[1, 3]}
+            desktop={[2, 4]}
             key={entry.id}
             {...entry.entry}
             slug={slugify(
@@ -33,25 +35,31 @@ const Writings = props => {
             )}
           />
         ))}
-      </Grid>
-      <Grid as="nav" gridColumnsMobile="repeat(2, 1fr)">
-        {currentPage !== 1 && (
-          <LinkWrapper
-            to={`/writings/${currentPage - 1 === 1 ? "" : currentPage - 1}`}
-            direction="right"
-          >
-            <PaginationButton mobile={[1, 2]}>
-              ← <span>Newer</span>
-            </PaginationButton>
-          </LinkWrapper>
-        )}
-        {currentPage !== numberOfPages && (
-          <LinkWrapper to={`/writings/${currentPage + 1}`}>
-            <PaginationButton mobile={[2, 3]} right>
-              <span>Older</span> →
-            </PaginationButton>
-          </LinkWrapper>
-        )}
+        <Grid
+          as="nav"
+          gridColumnsMobile="repeat(2, 1fr)"
+          mobile={[1, 2]}
+          tablet={[1, 3]}
+          desktop={[2, 4]}
+        >
+          {currentPage !== 1 && (
+            <LinkWrapper
+              to={`/writings/${currentPage - 1 === 1 ? "" : currentPage - 1}`}
+              direction="right"
+            >
+              <PaginationButton>
+                ← <span>Newer</span>
+              </PaginationButton>
+            </LinkWrapper>
+          )}
+          {currentPage !== numberOfPages && (
+            <LinkWrapper to={`/writings/${currentPage + 1}`}>
+              <PaginationButton right>
+                <span>Older</span> →
+              </PaginationButton>
+            </LinkWrapper>
+          )}
+        </Grid>
       </Grid>
     </Layout>
   );

@@ -59,7 +59,6 @@ module.exports = {
         },
       },
     },
-    "gatsby-plugin-transition-link",
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
