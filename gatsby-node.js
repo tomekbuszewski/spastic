@@ -95,4 +95,19 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+  const postsPerPage = 8;
+  const numberOfPages = Math.ceil(posts.length / postsPerPage);
+  Array.from({ length: numberOfPages }).forEach((_, i) => {
+    actions.createPage({
+      path: i === 0 ? "/writings" : `/writings/${i + 1}`,
+      component: resolve(__dirname, "src", "components", "Writings", "Writings.tsx"),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numberOfPages,
+        currentPage: i + 1,
+      },
+    });
+  });
 };
