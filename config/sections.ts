@@ -4,4 +4,5 @@ export enum SECTIONS {
   EXPERIENCE = "exp",
   WRITINGS = "writings",
   CONTACT = "contact",
+  ARTICLE = "article",
 }

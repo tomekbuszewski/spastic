@@ -14,6 +14,7 @@ import {
   withTransitions,
 } from "@ui/helpers";
 import { ColorContext } from "@ui/Atoms/Section/Section";
+import { Heading } from "@ui/Atoms";
 
 export enum PARAGRAPH_VARIANTS {
   SMALL = "small",
@@ -79,6 +80,15 @@ const Paragraph = styled.p<Props>`
     }
   }
 
+  code {
+    font-size: 0.8em;
+    font-family: ${theme.fonts.faces.secondary};
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+
   a:hover {
     color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
     background-size: 0.5rem 3rem;
@@ -125,7 +135,11 @@ const Paragraph = styled.p<Props>`
       font-family: ${theme.fonts.faces.serif};
       font-size: ${theme.fonts.sizes.smallDesktop};
       font-weight: 400;
-      line-height: 1.5;
+      line-height: 1.85;
+
+      &:first-of-type {
+        font-size: ${theme.fonts.sizes.medium};
+      }
 
       strong {
         color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
@@ -149,13 +163,15 @@ const Paragraph = styled.p<Props>`
         font-size: ${theme.fonts.sizes.mediumDesktop};
         line-height: 1.6;
       `};
+  }
 
+  ${theme.breakpoints.desktop} {
     ${({ variant }) =>
-      variant === PARAGRAPH_VARIANTS.TEXT_FIRST &&
+      variant === PARAGRAPH_VARIANTS.TEXT &&
       css`
-        font-size: ${theme.fonts.sizes.mediumDesktop};
-        font-weight: 400;
-        line-height: 1.6;
+        grid-column-start: 3;
+        grid-column-end: 7;
+        align-self: flex-start;
       `};
   }
 `;

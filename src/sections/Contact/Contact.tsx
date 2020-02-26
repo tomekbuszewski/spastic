@@ -2,16 +2,8 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import { SECTIONS } from "@config/sections";
-import {
-  Grid,
-  GridElement,
-  Heading,
-  HEADING_SIZES,
-  Paragraph,
-  PARAGRAPH_VARIANTS,
-  Section,
-} from "@ui/Atoms";
-import { Markdown } from "@ui/helpers";
+import { Grid, GridElement, Section } from "@ui/Atoms";
+import { Markdown } from "@components";
 
 const Contact = () => {
   const { email, social } = useStaticQuery(graphql`

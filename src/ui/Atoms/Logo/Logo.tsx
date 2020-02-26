@@ -22,12 +22,15 @@ interface Props {
 const Logo = styled((props: Props) => {
   const Component = props.asMain ? "h1" : "div";
   const Link = props.isFrontPage ? "a" : LinkWrapper;
-  const linkProps = props.isFrontPage ? {
-    href: "/",
-    onClick: props.onClick,
-  } : {
-    to: "/",
-  };
+  const linkProps = props.isFrontPage
+    ? {
+        href: "/",
+        onClick: props.onClick,
+      }
+    : {
+        to: "/",
+        direction: "right",
+      };
 
   return (
     <Component className={props.className}>

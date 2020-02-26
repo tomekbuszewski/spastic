@@ -31,7 +31,7 @@ const Writings = () => {
               pubdate(formatString: "MMMM Do, YYYY")
               summary
               title
-              link
+              slug
             }
           }
         }
@@ -52,7 +52,7 @@ const Writings = () => {
           gridColumnsTablet="repeat(2, 1fr)"
           gridColumnsDesktop="repeat(4, 1fr)"
         >
-          {entries.map(({ entry }: IBlogNode) => (
+          {[...entries].slice(0, 8).map(({ entry }: IBlogNode) => (
             <BlogEntry key={entry.id} {...entry.entry} />
           ))}
         </Grid>

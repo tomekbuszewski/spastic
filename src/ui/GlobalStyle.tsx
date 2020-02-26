@@ -50,6 +50,22 @@ export const GlobalStyle = createGlobalStyle`
     --section-${SECTIONS.CONTACT}-text: #B497A7;
     --section-${SECTIONS.CONTACT}-extra: #984672;
     --section-${SECTIONS.CONTACT}-highlight: #DBBECE;
+    --section-${SECTIONS.ARTICLE}-background: #FAF7ED;
+    --section-${SECTIONS.ARTICLE}-heading: #FAF7ED;
+    --section-${SECTIONS.ARTICLE}-heading-no-photo: #373326;
+    --section-${SECTIONS.ARTICLE}-heading-photo: #FAF7ED;
+    --section-${SECTIONS.ARTICLE}-lead: #373326;
+    --section-${SECTIONS.ARTICLE}-text: #938F83;
+    --section-${SECTIONS.ARTICLE}-highlight: #E4DFD1;
+    
+    --code-bg: #F3F3F3;
+    --code-text: #40424B;
+    --code-func: #2CA154;
+    --code-keyword: #0AA3E1;
+    --code-number: #D33CC7;
+    --code-param: #CBAD39;
+    --code-bracket: #858DDF;
+    --code-tag: rgba(0, 0, 0, 0.1);
   }
   
   @media (prefers-color-scheme: dark) {
@@ -79,6 +95,22 @@ export const GlobalStyle = createGlobalStyle`
       --section-${SECTIONS.CONTACT}-text: #4e2129;
       --section-${SECTIONS.CONTACT}-extra: #b14f87;
       --section-${SECTIONS.CONTACT}-highlight: #402336;
+      --section-${SECTIONS.ARTICLE}-background: #FAF7ED;
+      --section-${SECTIONS.ARTICLE}-heading: #211d1a;
+      --section-${SECTIONS.ARTICLE}-heading-no-photo: #E4DFD1;
+      --section-${SECTIONS.ARTICLE}-heading-photo: #E4DFD1;
+      --section-${SECTIONS.ARTICLE}-lead: #E4DFD1;
+      --section-${SECTIONS.ARTICLE}-text: #938F83;
+      --section-${SECTIONS.ARTICLE}-highlight: #E4DFD1;
+    
+      --code-bg: #2E2A2E;
+      --code-text: #FBFBF9;
+      --code-func: #50DFEA;
+      --code-keyword: #FF5187;
+      --code-number: #9BDF67;
+      --code-param: #FF9255;
+      --code-bracket: #939293;
+      --code-tag: rgba(255, 255, 255, 0.1);
     }
   }
   

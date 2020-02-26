@@ -47,7 +47,7 @@ const MoreLink = styled((props: Props) => {
       margin-top: 8rem;
     }
   }
-  
+
   ${theme.breakpoints.desktop} {
     text-align: inherit;
   }

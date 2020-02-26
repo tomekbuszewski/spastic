@@ -12,7 +12,7 @@ const MenuItem = styled(props => (
   <li className={props.className}>
     <button type="button" onClick={props.onClick}>
       {props.children}
-      <span>→</span>
+      <span>↓</span>
     </button>
   </li>
 ))`
@@ -40,7 +40,7 @@ const MenuItem = styled(props => (
       outline: 0;
     }
   }
-  
+
   span {
     ${withTransitions(["opacity", "transform"])};
     opacity: 0;
@@ -48,7 +48,7 @@ const MenuItem = styled(props => (
     transform: translateY(1rem);
     margin-left: 1rem;
   }
-  
+
   &:hover {
     span {
       opacity: 0.5;
@@ -58,7 +58,7 @@ const MenuItem = styled(props => (
 
   ${theme.breakpoints.tablet} {
     ${gridElement}
-    
+
     button {
       text-align: left;
     }

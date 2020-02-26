@@ -7,3 +7,5 @@ export * from "./Menu";
 export * from "./List";
 export * from "./WorkItem";
 export * from "./BlogEntry";
+export * from "./ArticleHeader";
+export * from "./ArticleBody";
