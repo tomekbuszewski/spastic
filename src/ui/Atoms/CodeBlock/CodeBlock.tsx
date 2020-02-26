@@ -32,6 +32,10 @@ const CodeBlock = styled((props: any) => (
   .comment {
     color: var(--code-comment);
     font-style: italic;
+
+    * {
+      color: inherit;
+    }
   }
 
   .string {
@@ -59,7 +63,8 @@ const CodeBlock = styled((props: any) => (
     color: var(--code-text);
   }
 
-  .space {
+  .space,
+  .tab {
     position: relative;
     color: var(--code-whitespace);
 
@@ -74,6 +79,10 @@ const CodeBlock = styled((props: any) => (
     }
   }
 
+  .tab:after {
+    content: "→";
+  }
+
   ${theme.breakpoints.tablet} {
     font-size: ${theme.fonts.sizes.smallDesktop};
     padding: 2rem;
@@ -83,7 +92,6 @@ const CodeBlock = styled((props: any) => (
   }
 
   ${theme.breakpoints.desktop} {
-    overflow: hidden;
     padding: 4rem;
     grid-column-start: 2;
     grid-column-end: 8;
@@ -123,6 +131,10 @@ const CodeBlock = styled((props: any) => (
 
       &.language-twig:after {
         content: "twig";
+      }
+
+      &.language-java:after {
+        content: "java";
       }
     }
   }

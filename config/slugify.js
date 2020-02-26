@@ -1,1 +1,3 @@
-module.exports = { lower: true, remove: /[',?]/ };
+module.exports = {
+  remove: /[',?–]/, lower: true,
+};
