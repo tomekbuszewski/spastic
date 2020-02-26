@@ -24,7 +24,7 @@ const Section = styled((props: Props) => {
     <ColorContext.Provider value={props.name}>
       <Component className={props.className} {...props} id={props.name} />
     </ColorContext.Provider>
-  )
+  );
 })`
   padding: 9rem 0;
   margin: 1rem;

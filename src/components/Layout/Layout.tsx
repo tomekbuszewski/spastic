@@ -10,19 +10,21 @@ interface Props {
   isFrontPage: boolean;
 }
 
-const Layout = (props: Props) => (
-  <React.Fragment>
-    <PageHeader isFrontPage={props.isFrontPage} />
-    <SEO />
-    <main>
-      <GlobalStyle />
-      {props.children}
-    </main>
-    <Overlay />
-    <PageFooter>
-      All rights reserved. This site probably harvests your cookies.
-    </PageFooter>
-  </React.Fragment>
-);
+const Layout = (props: Props) => {
+  return (
+    <React.Fragment>
+      <PageHeader isFrontPage={props.isFrontPage} />
+      <SEO />
+      <main>
+        <GlobalStyle />
+        {props.children}
+      </main>
+      <Overlay />
+      <PageFooter>
+        All rights reserved. This site probably harvests your cookies.
+      </PageFooter>
+    </React.Fragment>
+  );
+};
 
 export { Layout };

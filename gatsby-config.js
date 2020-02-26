@@ -74,6 +74,17 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
+    {
+      resolve: "gatsby-plugin-prefetch-google-fonts",
+      options: {
+        fonts: [
+          {
+            family: "Domine",
+            variants: ["400", "800"],
+          }
+        ]
+      },
+    },
     "gatsby-transformer-remark",
   ],
 };

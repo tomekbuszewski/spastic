@@ -14,6 +14,7 @@ export enum HEADING_SIZES {
   SMALL = "small",
   NORMAL = "normal",
   LARGE = "large",
+  ARTICLE = "article",
 }
 
 interface Props extends IGridHelper {
@@ -42,10 +43,20 @@ const Heading = styled.h2<Props>`
     `};
 
   ${props =>
-    props.size === HEADING_SIZES.NORMAL &&
+    (props.size === HEADING_SIZES.NORMAL ||
+      props.size === HEADING_SIZES.ARTICLE) &&
     css`
       font-size: ${theme.fonts.sizes.large};
       letter-spacing: -0.015em;
+    `};
+
+  ${props =>
+    props.size === HEADING_SIZES.ARTICLE &&
+    css`
+      font-size: ${theme.fonts.sizes.large};
+      line-height: 1.2;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
     `};
 
   ${props =>
@@ -86,6 +97,15 @@ const Heading = styled.h2<Props>`
       css`
         font-size: ${theme.fonts.sizes.largeDesktop};
         margin-bottom: 9rem;
+      `};
+
+    ${props =>
+      props.size === HEADING_SIZES.ARTICLE &&
+      css`
+        font-size: ${theme.fonts.sizes.large};
+        margin: 2rem 0 2rem;
+        grid-column-start: 3;
+        grid-column-end: 7;
       `};
 
     ${props =>

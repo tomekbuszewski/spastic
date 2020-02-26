@@ -2,11 +2,7 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import { SECTIONS } from "@config/sections";
-import {
-  Grid,
-  GridElement,
-  Section,
-} from "@ui/Atoms";
+import { Grid, GridElement, Section } from "@ui/Atoms";
 import { Markdown } from "@components";
 
 const Contact = () => {

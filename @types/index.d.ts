@@ -4,3 +4,5 @@ declare module "*.svg" {
 }
 
 declare module "gatsby-plugin-transition-link/AniLink";
+declare module "react-lowlight";
+declare module "highlight.js/lib/languages/*";

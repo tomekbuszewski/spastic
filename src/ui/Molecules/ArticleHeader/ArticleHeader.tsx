@@ -18,7 +18,7 @@ import { SECTIONS } from "@config/sections";
 
 interface Props {
   title: string;
-  pubdate: string;
+  pubdate?: string;
   className?: string;
   photo?: string | boolean;
 }
@@ -29,15 +29,18 @@ const ArticleHeader = styled((props: Props) => (
       <Heading size={HEADING_SIZES.LARGE} tablet={[1, 4]}>
         {props.title}
       </Heading>
-      <Paragraph variant={PARAGRAPH_VARIANTS.BOLD} tablet={[1, 5]}>
-        Posted on {props.pubdate}
-      </Paragraph>
+      {props.pubdate && (
+        <Paragraph variant={PARAGRAPH_VARIANTS.BOLD} tablet={[1, 5]}>
+          Posted on {props.pubdate}
+        </Paragraph>
+      )}
     </Grid>
   </Section>
 ))`
   background: var(--section-article-heading);
   padding-bottom: 9rem;
-      
+  margin-top: 0;
+
   ${Heading}, ${Paragraph} {
     color: var(--section-article-heading-no-photo);
   }
@@ -54,11 +57,11 @@ const ArticleHeader = styled((props: Props) => (
         position: relative;
         z-index: 10;
       }
-      
+
       ${Heading}, ${Paragraph} {
         color: var(--section-article-heading-photo);
       }
-      
+
       &:after {
         position: absolute;
         bottom: 0;
