@@ -19,6 +19,7 @@ import { theme } from "@ui";
 export interface IBlogEntry {
   title: string;
   pubdate: string;
+  slugPubdate: string;
   summary: string;
   slug: string;
 }

@@ -1,5 +1,8 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import slugify from "slugify";
+
+import slugifyCfg from "../../../config/slugify";
 
 import { SECTIONS } from "@config/sections";
 import { Grid, Heading, HEADING_SIZES, Section } from "@ui/Atoms";
@@ -29,9 +32,9 @@ const Writings = () => {
           entry: node {
             entry: frontmatter {
               pubdate(formatString: "MMMM Do, YYYY")
+              slugPubdate: pubdate(formatString: "YYYY-MM-DD")
               summary
               title
-              slug
             }
           }
         }
@@ -53,7 +56,14 @@ const Writings = () => {
           gridColumnsDesktop="repeat(4, 1fr)"
         >
           {[...entries].slice(0, 8).map(({ entry }: IBlogNode) => (
-            <BlogEntry key={entry.id} {...entry.entry} />
+            <BlogEntry
+              key={entry.id}
+              {...entry.entry}
+              slug={slugify(
+                `/writings/${entry.entry.slugPubdate}-${entry.entry.title}`,
+                slugifyCfg
+              )}
+            />
           ))}
         </Grid>
         {totalCount > 8 && (

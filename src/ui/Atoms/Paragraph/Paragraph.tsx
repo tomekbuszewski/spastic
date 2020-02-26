@@ -81,7 +81,7 @@ const Paragraph = styled.p<Props>`
   }
 
   code {
-    font-size: 0.8em;
+    font-size: 0.9em;
     font-family: ${theme.fonts.faces.secondary};
     background: var(--code-bg);
     color: var(--code-text);
@@ -142,7 +142,7 @@ const Paragraph = styled.p<Props>`
       }
 
       strong {
-        color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
+        color: ${() => `var(--section-${React.useContext(ColorContext)}-text)`};
         font-weight: 900;
       }
     `};

@@ -6,7 +6,7 @@ summary: Let's see what Redux – the state manager for React – is all abou
 ---
 # What is Redux, really? – Part 2
 
-[Last time](https://dev.to/tomekbuszewski/what-is-redux-really-part-1-54ea) I talked about state management in general. Now let's see what Redux – the state manager for React – is all about.
+[Last time](/writings/2019-11-18-what-is-redux-really-–-part-1) I talked about state management in general. Now let's see what Redux – the state manager for React – is all about.
 
 ## Recap
 
@@ -59,7 +59,7 @@ const setShipped = id => {
 
 Now, running `setShipped(123)` will create an action that we want:
 
-```javascript:
+```javascript
 { type: SET_ORDER_SHIPPED, payload: 123 }
 ```
 
