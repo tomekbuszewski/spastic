@@ -3,10 +3,10 @@ title: Uses
 ---
 I work on macOS only, having:
 
-- iMac „27 Late 2013, mostly for design and lightweight coding;
-- MacBook Pro „15 Late 2017, for Dockers, working around the town and all that jazz.
+- iMac "27 Late 2013, mostly for design and lightweight coding;
+- MacBook Pro "15 Late 2017, for Dockers, working around the town and all that jazz.
 
-That said, I don’t have any external displays and a simple Magic Mouse and Magic Keyboard for the iMac. Having said „jazz” before, I listen to music on:
+That said, I don’t have any external displays and a simple Magic Mouse and Magic Keyboard for the iMac. And having said „jazz” before, I listen to music on:
 
 - Sony WH1000XM3, when I am at the laptop or commuting;
 - Focal Elegia hooked with JDS Atom and Topping D10, when on iMac.

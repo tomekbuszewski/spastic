@@ -22,12 +22,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
     // Writings
     if (fileNode.relativePath.includes("writings")) {
-      const slug = createFilePath({ node, getNode });
+      const slug = slugify(createFilePath({ node, getNode }), slugifyCfg);
 
       actions.createNodeField({
         node,
         name: "slug",
-        value: slugify(slug, slugifyCfg),
+        value: slug,
       });
     }
   }

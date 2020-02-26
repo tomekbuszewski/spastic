@@ -4,6 +4,7 @@ import slugify from "slugify";
 
 import slugifyCfg from "../../../config/slugify";
 
+import { LinkWrapper } from "@components";
 import { SECTIONS } from "@config/sections";
 import { Grid, Heading, HEADING_SIZES, Section } from "@ui/Atoms";
 import { BlogEntry, MoreLink } from "@ui/Molecules";
@@ -67,7 +68,7 @@ const Writings = () => {
           ))}
         </Grid>
         {totalCount > 8 && (
-          <MoreLink to={""}>
+          <MoreLink to="/writings/2" component={LinkWrapper}>
             More entries<strong>.</strong>
           </MoreLink>
         )}

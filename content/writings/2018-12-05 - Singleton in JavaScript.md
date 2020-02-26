@@ -7,15 +7,6 @@ summary: A quick look on singleton pattern and its implementation in JS
 tags: javascript, design-patterns, coding, js
 ---
 
-Hello,
-Yesterday I wrote my first technical article ever! It is about singleton design pattern in JavaScript. I put it on Reddit and got some negative feedback about the pattern itself. **This post is strictly informative**, I don't say "use singletons" or "don't use singletons". I'm just saying "this is how you can implement it". It's up to you to decide whether you like it or not, whether is suits your application or solves your problems.
-
-Also, as this is my first article ever created (not counting some stuff 10 years ago about jQuery click binding), I would really appreciate feedback, both about technical terms (I do not pose as an expert, I may be wrong in many places) and language.
-
----
-
-# Singleton in JavaScript
-
 Singleton is one of the better-known patters in programming. While, by some, seen as an anti-pattern, it is worth knowing something about it.
 
 Creating such class isn't really hard, but has some caveats. Firstly, its constructor has to return the instance. Secondly, such class cannot be extended nor modified by any ancestor. Generally speaking, extending will only link to the initial instance.

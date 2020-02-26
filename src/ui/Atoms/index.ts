@@ -10,3 +10,4 @@ export * from "./NavHolder";
 export * from "./GridElement";
 export * from "./CodeBlock";
 export * from "./Blockquote";
+export * from "./PaginationButton";

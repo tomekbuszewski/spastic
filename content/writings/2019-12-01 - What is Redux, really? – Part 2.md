@@ -4,9 +4,7 @@ pubdate: 2019-12-01
 slug: what-is-redux-part-2 
 summary: Let's see what Redux – the state manager for React – is all about.
 ---
-# What is Redux, really? – Part 2
-
-[Last time](/writings/2019-11-18-what-is-redux-really-–-part-1) I talked about state management in general. Now let's see what Redux – the state manager for React – is all about.
+[Last time](/writings/2019-11-18-what-is-redux-really-part-1) I talked about state management in general. Now let's see what Redux – the state manager for React – is all about.
 
 ## Recap
 
