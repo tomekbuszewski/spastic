@@ -7,14 +7,12 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import { gridElement, gridHelper, IGridHelper } from "@ui/helpers";
 import { ColorContext } from "@ui/Atoms/Section/Section";
-import { theme } from "@ui";
 
 interface Props extends IGridHelper {
   children?: React.ReactNode;
   className?: string;
   numbered?: boolean;
   padded?: boolean;
-  inArticle?: boolean;
 }
 
 const List = styled((props: Props) => {
@@ -36,27 +34,12 @@ const List = styled((props: Props) => {
     }
   }
 
-  ${props =>
-    props.inArticle &&
-    css`
-      font-family: ${theme.fonts.faces.serif};
-    `};
-
   li {
     position: relative;
 
     &:before {
       opacity: 0.5;
     }
-  }
-
-  ${theme.breakpoints.desktop} {
-    ${props =>
-      props.inArticle &&
-      css`
-        grid-column-start: 3;
-        grid-column-end: 8;
-      `};
   }
 
   ${props =>

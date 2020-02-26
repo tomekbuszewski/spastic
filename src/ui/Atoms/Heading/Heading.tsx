@@ -80,6 +80,14 @@ const Heading = styled.h2<Props>`
     text-decoration: none;
   }
 
+  code {
+    font-family: ${theme.fonts.faces.secondary};
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+
   ${theme.breakpoints.tablet} {
     margin-top: 0;
     ${props => props.right && "text-align: right"};

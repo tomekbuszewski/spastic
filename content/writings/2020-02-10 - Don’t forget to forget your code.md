@@ -2,6 +2,7 @@
 title: Don’t forget to forget your code
 pubdate: 2020-02-10
 slug: don-t-forget-to-forget-your-code 
+photo: https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80
 summary: How often do you find yourself coming back to the code you’ve written a few months ago?
 ---
 

@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   :root {
-    --overlay: rgba(45, 35, 46, 0.1);
+    --overlay: rgba(45, 35, 46, 0.05);
     --body: #FDFDFD;
     --text: #4B4B4B;
     --section-${SECTIONS.HERO}-background: #F1C40F;
@@ -59,13 +59,15 @@ export const GlobalStyle = createGlobalStyle`
     --section-${SECTIONS.ARTICLE}-highlight: #E4DFD1;
     
     --code-bg: #F3F3F3;
-    --code-text: #40424B;
-    --code-func: #2CA154;
-    --code-keyword: #0AA3E1;
-    --code-number: #D33CC7;
-    --code-param: #CBAD39;
-    --code-bracket: #858DDF;
+    --code-text: rgb(95, 95, 95);
+    --code-func: rgb(23, 129, 181);
+    --code-keyword: rgb(204, 85, 149);
+    --code-number: rgb(252, 99, 21);
+    --code-param: rgb(183, 141, 18);
+    --code-bracket: rgb(43, 49, 44);
     --code-tag: rgba(0, 0, 0, 0.1);
+    --code-whitespace: rgba(0, 0, 0, 0.2);
+    --code-comment: rgb(144, 164, 174);
   }
   
   @media (prefers-color-scheme: dark) {
@@ -101,7 +103,7 @@ export const GlobalStyle = createGlobalStyle`
       --section-${SECTIONS.ARTICLE}-heading-photo: #E4DFD1;
       --section-${SECTIONS.ARTICLE}-lead: #E4DFD1;
       --section-${SECTIONS.ARTICLE}-text: #938F83;
-      --section-${SECTIONS.ARTICLE}-highlight: #E4DFD1;
+      --section-${SECTIONS.ARTICLE}-highlight: #382b1c;
     
       --code-bg: #2E2A2E;
       --code-text: #FBFBF9;
@@ -111,6 +113,8 @@ export const GlobalStyle = createGlobalStyle`
       --code-param: #FF9255;
       --code-bracket: #939293;
       --code-tag: rgba(255, 255, 255, 0.1);
+      --code-whitespace: rgba(251, 251, 249, 0.2);
+      --code-comment: rgb(103, 111, 125);
     }
   }
   

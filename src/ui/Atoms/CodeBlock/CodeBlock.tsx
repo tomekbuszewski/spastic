@@ -5,65 +5,52 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import Lowlight from "react-lowlight";
-
 import { theme } from "@ui";
 
-import js from "./syntax/js";
-import ts from "./syntax/ts";
-import html from "highlight.js/lib/languages/htmlbars";
-import css from "highlight.js/lib/languages/css";
-import scss from "highlight.js/lib/languages/scss";
-import python from "highlight.js/lib/languages/python";
-import yaml from "highlight.js/lib/languages/yaml";
-import twig from "highlight.js/lib/languages/twig";
-import java from "highlight.js/lib/languages/java";
-import json from "highlight.js/lib/languages/json";
-
-Lowlight.registerLanguage("js", js);
-Lowlight.registerLanguage("ts", ts);
-Lowlight.registerLanguage("css", css);
-Lowlight.registerLanguage("scss", scss);
-Lowlight.registerLanguage("typescript", ts);
-Lowlight.registerLanguage("html", html);
-Lowlight.registerLanguage("python", python);
-Lowlight.registerLanguage("java", java);
-Lowlight.registerLanguage("yaml", yaml);
-Lowlight.registerLanguage("twig", twig);
-Lowlight.registerLanguage("json", json);
-
-const CodeBlock = styled((props: any) => <Lowlight {...props} />)`
+const CodeBlock = styled((props: any) => (
+  <pre className={`${props.className} language-${props.language}`}>
+    <code>{props.value}</code>
+  </pre>
+))`
   padding: 1rem;
   font-family: ${theme.fonts.faces.secondary};
   font-size: ${theme.fonts.sizes.small};
+  line-height: 1.65;
   border-radius: 0.5rem;
   margin-left: 1rem;
   margin-right: 1rem;
 
   background: var(--code-bg);
-  color: var(--code-bracket);
+  color: var(--code-text);
 
-  .hljs-keyword {
+  .keyword {
     color: var(--code-keyword);
     font-style: italic;
     font-weight: bold;
   }
 
-  .hljs-title {
+  .comment {
+    color: var(--code-comment);
+    font-style: italic;
+  }
+
+  .string {
+    color: var(--code-text);
+  }
+
+  .class-name,
+  .function,
+  .constant {
     color: var(--code-func);
     font-weight: bold;
   }
 
-  .hljs-params {
+  .punctuation,
+  .operator {
     color: var(--code-param);
   }
 
-  .hljs-number {
-    color: var(--code-number);
-  }
-
-  .hljs-built_in,
-  .hljs-attr {
+  .builtin {
     color: var(--code-number);
     font-weight: bold;
   }
@@ -72,7 +59,23 @@ const CodeBlock = styled((props: any) => <Lowlight {...props} />)`
     color: var(--code-text);
   }
 
+  .space {
+    position: relative;
+    color: var(--code-whitespace);
+
+    &:after {
+      font-size: 0.75em;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      display: block;
+      content: "·";
+    }
+  }
+
   ${theme.breakpoints.tablet} {
+    font-size: ${theme.fonts.sizes.smallDesktop};
     padding: 2rem;
     margin-bottom: 3rem;
     margin-left: 1.5rem;
@@ -93,7 +96,7 @@ const CodeBlock = styled((props: any) => <Lowlight {...props} />)`
       &:after {
         display: inline-block;
         position: absolute;
-        top: -4.5rem;
+        top: -4.75rem;
         left: -4.5rem;
         background: var(--code-tag);
         padding: 1rem 1rem 0.5rem 1.5rem;
@@ -104,16 +107,22 @@ const CodeBlock = styled((props: any) => <Lowlight {...props} />)`
         font-family: ${theme.fonts.faces.normal};
       }
 
-      &.js:after {
+      &.language-js:after,
+      &.language-javascript:after {
         content: "javascript";
       }
 
-      &.ts:after {
+      &.language-ts:after,
+      &.language-typescript:after {
         content: "typescript";
       }
 
-      &.jsx:after {
+      &.language-jsx:after {
         content: "jsx";
+      }
+
+      &.language-twig:after {
+        content: "twig";
       }
     }
   }

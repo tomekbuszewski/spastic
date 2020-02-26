@@ -76,7 +76,7 @@ const PageHeader = styled((props: Props) => {
   height: 6rem;
   display: grid;
   align-items: center;
-  position: sticky;
+  //position: sticky;
   top: 0;
   z-index: 200;
   padding-left: 1rem;
