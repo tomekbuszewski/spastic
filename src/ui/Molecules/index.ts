@@ -9,3 +9,4 @@ export * from "./WorkItem";
 export * from "./BlogEntry";
 export * from "./ArticleHeader";
 export * from "./ArticleBody";
+export * from "./Table";

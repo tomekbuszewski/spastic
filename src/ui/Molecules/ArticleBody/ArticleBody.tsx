@@ -56,6 +56,10 @@ const ArticleBody = styled((props: Props) => {
       grid-column-start: 3;
       grid-column-end: 8;
       margin-bottom: 3rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 `;

@@ -22,6 +22,7 @@ const NavButton = styled.button<Props>`
   margin-left: auto;
   position: relative;
   z-index: 120;
+  text-indent: -9999rem;
 
   &:before,
   &:after {

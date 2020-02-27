@@ -6,8 +6,21 @@ import { Layout, LinkWrapper } from "@components";
 import { Grid, PaginationButton } from "@ui/Atoms";
 import { BlogEntry, ArticleHeader } from "@ui/Molecules";
 import slugifyCfg from "@config/slugify";
+import { IBlogNode } from "../../sections/Writings/Writings";
 
-const Writings = props => {
+interface Props {
+  pageContext: {
+    numberOfPages: number;
+    currentPage: number;
+  };
+  data: {
+    data: {
+      entries: IBlogNode[];
+    };
+  };
+}
+
+const Writings = (props: Props) => {
   const {
     pageContext: { numberOfPages, currentPage },
     data: {
@@ -31,7 +44,7 @@ const Writings = props => {
             {...entry.entry}
             slug={slugify(
               `/writings/${entry.entry.slugPubdate}-${entry.entry.title}`,
-              slugifyCfg
+              slugifyCfg,
             )}
           />
         ))}
@@ -45,7 +58,6 @@ const Writings = props => {
           {currentPage !== 1 && (
             <LinkWrapper
               to={`/writings/${currentPage - 1 === 1 ? "" : currentPage - 1}`}
-              direction="right"
             >
               <PaginationButton>
                 ← <span>Newer</span>

@@ -89,6 +89,10 @@ const Paragraph = styled.p<Props>`
     border-radius: 0.25rem;
   }
 
+  img {
+    max-width: 100%;
+  }
+
   a:hover {
     color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
     background-size: 0.5rem 3rem;

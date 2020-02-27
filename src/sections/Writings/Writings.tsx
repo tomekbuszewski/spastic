@@ -11,7 +11,7 @@ import { BlogEntry, MoreLink } from "@ui/Molecules";
 
 import { IBlogEntry } from "@ui/Molecules/BlogEntry/BlogEntry";
 
-interface IBlogNode {
+export interface IBlogNode {
   entry: {
     id: string;
     entry: IBlogEntry;
@@ -62,7 +62,7 @@ const Writings = () => {
               {...entry.entry}
               slug={slugify(
                 `/writings/${entry.entry.slugPubdate}-${entry.entry.title}`,
-                slugifyCfg
+                slugifyCfg,
               )}
             />
           ))}

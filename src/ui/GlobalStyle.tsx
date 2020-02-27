@@ -26,6 +26,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
+    ${withTransitions("transform")};
+    
     &:after {
       ${withTransitions("transform")};
       transform: scaleX(0);
@@ -40,13 +42,17 @@ export const GlobalStyle = createGlobalStyle`
       content: "";
     }
     
-    &.loading:after {
-      transform: none;
+    &.loading {
+      &:after {
+        transform: none;
+      }
     }
     
-    &.loaded:after {
-      transform: scaleX(0);
-      transform-origin: left center;
+    &.loaded {
+      &:after {
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
     }
   }
   
