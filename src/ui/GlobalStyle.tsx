@@ -10,6 +10,7 @@ import ManropeMedium from "@ui/fonts/Manrope-Medium.woff2";
 // @ts-ignore
 import ManropeExtraBold from "@ui/fonts/Manrope-ExtraBold.woff2";
 import { SECTIONS } from "@config/sections";
+import { withTransitions } from "@ui/helpers";
 
 const rebootOptions = {
   bodyBg: "var(--body)",
@@ -22,6 +23,37 @@ const rebootOptions = {
 export const GlobalStyle = createGlobalStyle`
   html {
     font-size: ${BASE_SIZE}px;
+  }
+  
+  body {
+    ${withTransitions("transform")};
+    
+    &:after {
+      ${withTransitions("transform")};
+      transform: scaleX(0);
+      transform-origin: right center;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background: ${() => `var(--section-${SECTIONS.HERO}-background)`};
+      z-index: 998;
+      content: "";
+    }
+    
+    &.loading {
+      &:after {
+        transform: none;
+      }
+    }
+    
+    &.loaded {
+      &:after {
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+    }
   }
   
   :root {

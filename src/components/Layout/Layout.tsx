@@ -8,13 +8,14 @@ import SEO from "../seo";
 interface Props {
   children: React.ReactNode;
   isFrontPage: boolean;
+  title?: string;
 }
 
 const Layout = (props: Props) => {
   return (
     <React.Fragment>
       <PageHeader isFrontPage={props.isFrontPage} />
-      <SEO />
+      <SEO title={props.title} />
       <main>
         <GlobalStyle />
         {props.children}

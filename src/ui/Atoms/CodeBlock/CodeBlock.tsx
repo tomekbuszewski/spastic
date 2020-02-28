@@ -136,6 +136,14 @@ const CodeBlock = styled((props: any) => (
       &.language-java:after {
         content: "java";
       }
+
+      &.language-scss:after {
+        content: "scss";
+      }
+
+      &.language-css:after {
+        content: "css";
+      }
     }
   }
 `;

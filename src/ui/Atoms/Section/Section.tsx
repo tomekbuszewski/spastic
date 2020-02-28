@@ -9,7 +9,7 @@ import { theme } from "@ui/theme";
 import { SECTIONS } from "@config/sections";
 
 interface Props {
-  as?: string;
+  as?: any;
   className?: string;
   children?: React.ReactNode;
   name: SECTIONS;

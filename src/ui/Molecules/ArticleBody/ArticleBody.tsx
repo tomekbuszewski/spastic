@@ -22,7 +22,6 @@ const ArticleBody = styled((props: Props) => {
       gridColumnsMobile="1fr"
       gridColumnsDesktop="repeat(8, 1fr)"
       className={props.className}
-      as="article"
     >
       <Markdown
         source={props.source}
@@ -56,6 +55,10 @@ const ArticleBody = styled((props: Props) => {
       grid-column-start: 3;
       grid-column-end: 8;
       margin-bottom: 3rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 `;

@@ -20,7 +20,7 @@ const Page = (props: Props) => {
   });
 
   return (
-    <Layout isFrontPage={false}>
+    <Layout isFrontPage={false} title={props.pageContext.title}>
       <ArticleHeader
         title={props.pageContext.title}
         photo={props.pageContext.photo || false}

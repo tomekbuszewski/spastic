@@ -15,7 +15,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content`,
       },
     },
     {
@@ -59,7 +59,6 @@ module.exports = {
         },
       },
     },
-    "gatsby-plugin-transition-link",
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {

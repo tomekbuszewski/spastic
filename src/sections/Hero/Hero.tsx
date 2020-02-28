@@ -35,7 +35,7 @@ const Hero = () => {
         <Markdown
           variant={PARAGRAPH_VARIANTS.BOLD}
           source={text.body}
-          desktop={[1, 2]}
+          desktop={[1, 3]}
           mobile={[1, 4]}
         />
       </Grid>

@@ -7,6 +7,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { navigate } from "gatsby";
 
+import { linkWrapperFunc } from "@components";
 import { Grid, Logo, NavButton } from "@ui/Atoms";
 import { Menu } from "@ui/Molecules";
 
@@ -46,7 +47,7 @@ const PageHeader = styled((props: Props) => {
       if (props.isFrontPage) {
         item.onClick();
       } else {
-        navigate(`#${item.section}`);
+        linkWrapperFunc(`#${item.section}`);
       }
 
       setActive(false);
@@ -67,7 +68,9 @@ const PageHeader = styled((props: Props) => {
         <NavButton
           active={isActive}
           onClick={() => setActive(active => !active)}
-        />
+        >
+          Toggle Menu
+        </NavButton>
         <Menu items={enhancedItems} active={isActive} />
       </Grid>
     </header>

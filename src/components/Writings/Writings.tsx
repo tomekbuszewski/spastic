@@ -6,8 +6,21 @@ import { Layout, LinkWrapper } from "@components";
 import { Grid, PaginationButton } from "@ui/Atoms";
 import { BlogEntry, ArticleHeader } from "@ui/Molecules";
 import slugifyCfg from "@config/slugify";
+import { IBlogNode } from "../../sections/Writings/Writings";
 
-const Writings = props => {
+interface Props {
+  pageContext: {
+    numberOfPages: number;
+    currentPage: number;
+  };
+  data: {
+    data: {
+      entries: IBlogNode[];
+    };
+  };
+}
+
+const Writings = (props: Props) => {
   const {
     pageContext: { numberOfPages, currentPage },
     data: {
@@ -25,33 +38,37 @@ const Writings = props => {
       >
         {entries.map(({ entry }) => (
           <BlogEntry
+            tablet={[1, 3]}
+            desktop={[2, 4]}
             key={entry.id}
             {...entry.entry}
-            slug={slugify(
-              `/writings/${entry.entry.slugPubdate}-${entry.entry.title}`,
-              slugifyCfg
-            )}
+            slug={entry.fields.slug}
           />
         ))}
-      </Grid>
-      <Grid as="nav" gridColumnsMobile="repeat(2, 1fr)">
-        {currentPage !== 1 && (
-          <LinkWrapper
-            to={`/writings/${currentPage - 1 === 1 ? "" : currentPage - 1}`}
-            direction="right"
-          >
-            <PaginationButton mobile={[1, 2]}>
-              ← <span>Newer</span>
-            </PaginationButton>
-          </LinkWrapper>
-        )}
-        {currentPage !== numberOfPages && (
-          <LinkWrapper to={`/writings/${currentPage + 1}`}>
-            <PaginationButton mobile={[2, 3]} right>
-              <span>Older</span> →
-            </PaginationButton>
-          </LinkWrapper>
-        )}
+        <Grid
+          as="nav"
+          gridColumnsMobile="repeat(2, 1fr)"
+          mobile={[1, 2]}
+          tablet={[1, 3]}
+          desktop={[2, 4]}
+        >
+          {currentPage !== 1 && (
+            <LinkWrapper
+              to={`/writings/${currentPage - 1 === 1 ? "" : currentPage - 1}`}
+            >
+              <PaginationButton>
+                ← <span>Newer</span>
+              </PaginationButton>
+            </LinkWrapper>
+          )}
+          {currentPage !== numberOfPages && (
+            <LinkWrapper to={`/writings/${currentPage + 1}`}>
+              <PaginationButton right>
+                <span>Older</span> →
+              </PaginationButton>
+            </LinkWrapper>
+          )}
+        </Grid>
       </Grid>
     </Layout>
   );
@@ -68,6 +85,9 @@ export const writingsQuery = graphql`
     ) {
       entries: edges {
         entry: node {
+          fields {
+            slug
+          }
           entry: frontmatter {
             pubdate(formatString: "MMMM Do, YYYY")
             slugPubdate: pubdate(formatString: "YYYY-MM-DD")

@@ -13,7 +13,7 @@ import {
   Paragraph,
   PARAGRAPH_VARIANTS,
 } from "@ui/Atoms";
-import { gridElement, withTransitions } from "@ui/helpers";
+import { gridElement, gridHelper, withTransitions } from "@ui/helpers";
 import { theme } from "@ui";
 
 export interface IBlogEntry {
@@ -29,21 +29,25 @@ interface Props extends IBlogEntry {
   children?: React.ReactNode;
 }
 
-const BlogEntry = styled((props: Props) => (
-  <li className={props.className}>
-    <LinkWrapper to={props.slug}>
-      <Heading size={HEADING_SIZES.SMALL}>
-        {props.title}
+const BlogEntry = styled((props: Props) => {
+  console.log(props);
+  return (
+    <li className={props.className}>
+      <LinkWrapper to={props.slug}>
+        <Heading size={HEADING_SIZES.SMALL}>
+          {props.title}
 
-        <time>{props.pubdate}</time>
-      </Heading>
-      <Markdown variant={PARAGRAPH_VARIANTS.NORMAL} source={props.summary} />
-      <Paragraph variant={PARAGRAPH_VARIANTS.SMALL}>Read more →</Paragraph>
-    </LinkWrapper>
-  </li>
-))`
+          <time>{props.pubdate}</time>
+        </Heading>
+        <Markdown variant={PARAGRAPH_VARIANTS.NORMAL} source={props.summary} />
+        <Paragraph variant={PARAGRAPH_VARIANTS.SMALL}>Read more →</Paragraph>
+      </LinkWrapper>
+    </li>
+  )
+})`
   list-style: none;
   ${gridElement};
+  ${gridHelper};
   margin-bottom: 6rem;
   transform: translateY(1rem);
   ${withTransitions(["transform"], theme.animations.long)};
