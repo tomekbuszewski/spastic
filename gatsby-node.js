@@ -86,7 +86,6 @@ exports.createPages = async ({ graphql, actions }) => {
                       shadow: "#192550"
                       opacity: 50
                     }
-                    toFormat: WEBP
                     quality: 90
                     webpQuality: 90
                   ) {
@@ -95,6 +94,8 @@ exports.createPages = async ({ graphql, actions }) => {
                     height
                     src
                     srcSet
+                    srcWebp
+                    srcSetWebp
                   }
                 }
               }
