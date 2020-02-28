@@ -22,7 +22,6 @@ const ArticleBody = styled((props: Props) => {
       gridColumnsMobile="1fr"
       gridColumnsDesktop="repeat(8, 1fr)"
       className={props.className}
-      as="article"
     >
       <Markdown
         source={props.source}

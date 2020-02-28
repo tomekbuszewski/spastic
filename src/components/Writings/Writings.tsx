@@ -42,10 +42,7 @@ const Writings = (props: Props) => {
             desktop={[2, 4]}
             key={entry.id}
             {...entry.entry}
-            slug={slugify(
-              `/writings/${entry.entry.slugPubdate}-${entry.entry.title}`,
-              slugifyCfg,
-            )}
+            slug={entry.fields.slug}
           />
         ))}
         <Grid
@@ -88,6 +85,9 @@ export const writingsQuery = graphql`
     ) {
       entries: edges {
         entry: node {
+          fields {
+            slug
+          }
           entry: frontmatter {
             pubdate(formatString: "MMMM Do, YYYY")
             slugPubdate: pubdate(formatString: "YYYY-MM-DD")

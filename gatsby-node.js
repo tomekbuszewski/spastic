@@ -49,10 +49,16 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+
             title: frontmatter {
               title
-              slug
-              photo
+              featuredImage {
+                childImageSharp {
+                  resize(width: 1920) {
+                    src
+                  }
+                }
+              }
             }
             body: rawMarkdownBody
           }
@@ -71,6 +77,27 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               photo
               pubdate(formatString: "MMMM Do, YYYY")
+              featuredImage {
+                childImageSharp {
+                  fixed(
+                    width: 1920
+                    duotone: {
+                      highlight: "#0ec4f1"
+                      shadow: "#192550"
+                      opacity: 50
+                    }
+                    toFormat: WEBP
+                    quality: 90
+                    webpQuality: 90
+                  ) {
+                    base64
+                    width
+                    height
+                    src
+                    srcSet
+                  }
+                }
+              }
             }
             body: rawMarkdownBody
           }
@@ -80,9 +107,10 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   [...posts, ...pages].forEach(({ node }) => {
-    const { title, pubdate, photo } = node.title;
+    const { title, pubdate, featuredImage } = node.title;
     const { slug } = node.fields;
     const body = node.body;
+    const photo = featuredImage && featuredImage.childImageSharp.fixed;
 
     actions.createPage({
       path: slug,
@@ -101,7 +129,13 @@ exports.createPages = async ({ graphql, actions }) => {
   Array.from({ length: numberOfPages }).forEach((_, i) => {
     actions.createPage({
       path: i === 0 ? "/writings" : `/writings/${i + 1}`,
-      component: resolve(__dirname, "src", "components", "Writings", "Writings.tsx"),
+      component: resolve(
+        __dirname,
+        "src",
+        "components",
+        "Writings",
+        "Writings.tsx",
+      ),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,

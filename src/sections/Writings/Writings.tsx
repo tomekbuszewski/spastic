@@ -1,8 +1,5 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import slugify from "slugify";
-
-import slugifyCfg from "../../../config/slugify";
 
 import { LinkWrapper } from "@components";
 import { SECTIONS } from "@config/sections";
@@ -15,6 +12,9 @@ export interface IBlogNode {
   entry: {
     id: string;
     entry: IBlogEntry;
+    fields: {
+      slug: string;
+    };
   };
 }
 
@@ -31,6 +31,9 @@ const Writings = () => {
         totalCount
         entries: edges {
           entry: node {
+            fields {
+              slug
+            }
             entry: frontmatter {
               pubdate(formatString: "MMMM Do, YYYY")
               slugPubdate: pubdate(formatString: "YYYY-MM-DD")
@@ -60,10 +63,7 @@ const Writings = () => {
             <BlogEntry
               key={entry.id}
               {...entry.entry}
-              slug={slugify(
-                `/writings/${entry.entry.slugPubdate}-${entry.entry.title}`,
-                slugifyCfg,
-              )}
+              slug={entry.fields.slug}
             />
           ))}
         </Grid>

@@ -1,12 +1,12 @@
+const newDate = new Date()
+  .toISOString()
+  .replace(/T/, " ")
+  .replace(/\..+/, "");
+
 const newFileInfo = {
   userName: require("os").userInfo().username,
-  created: new Date()
-    .toISOString()
-    .replace(/T/, " ")
-    .replace(/\..+/, ""),
+  created: newDate,
 };
-
-const checkForFile = filepath => require("fs").existsSync(filepath);
 
 module.exports = plop => {
   plop.setGenerator("ui", {
@@ -52,6 +52,34 @@ module.exports = plop => {
         type: "append",
         path: "./src/ui/{{pascalCase type}}/index.ts",
         template: 'export * from "./{{pascalCase name}}";',
+      },
+    ],
+  });
+  plop.setGenerator("blogpost", {
+    description: "Generate a blog post",
+    prompts: [
+      {
+        type: "input",
+        name: "title",
+        message: "Entry title",
+      },
+      {
+        type: "input",
+        name: "summary",
+        message: "Article summary",
+      },
+      {
+        type: "input",
+        name: "photo",
+        message: "This article contains a header photo?",
+      }
+    ],
+    actions: [
+      {
+        type: "add",
+        path: `./content/writings/${newDate.split(" ")[0]} - {{title}}/index.md`,
+        templateFile: "./config/plop-templates/article.md.hbs",
+        data: { pubdate: newDate.split(" ")[0] },
       },
     ],
   });

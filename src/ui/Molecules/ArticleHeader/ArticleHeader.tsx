@@ -5,6 +5,7 @@
 
 import * as React from "react";
 import styled, { css } from "styled-components";
+import Img from "gatsby-image";
 
 import {
   Grid,
@@ -20,11 +21,26 @@ interface Props {
   title: string;
   pubdate?: string;
   className?: string;
-  photo?: string | boolean;
+  photo?: any | false;
 }
 
 const ArticleHeader = styled((props: Props) => (
   <Section as="header" name={SECTIONS.ARTICLE} className={props.className}>
+    {props.photo && (
+      <Img
+        loading="lazy"
+        fixed={props.photo}
+        title={props.title}
+        alt={props.title}
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "100vw",
+        }}
+      />
+    )}
     <Grid gridColumnsTablet="repeat(4, 1fr)" padded>
       <Heading size={HEADING_SIZES.LARGE} tablet={[1, 4]}>
         {props.title}
@@ -48,10 +64,17 @@ const ArticleHeader = styled((props: Props) => (
   ${props =>
     props.photo &&
     css`
-      background-image: url(${props.photo as string});
-      background-size: cover;
-      background-position: center bottom;
       position: relative;
+      overflow: hidden;
+
+      //img {
+      //  width: 100vw;
+      //  position: absolute;
+      //  bottom: 0;
+      //  left: 50%;
+      //  transform: translateX(-50%);
+      //  pointer-events: none;
+      //}
 
       & > ${Grid} {
         position: relative;
