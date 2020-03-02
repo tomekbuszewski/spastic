@@ -5,6 +5,7 @@
 
 import * as React from "react";
 import styled from "styled-components";
+import Img from "gatsby-image";
 
 import { LinkWrapper, Markdown } from "@components";
 import {
@@ -22,6 +23,8 @@ export interface IBlogEntry {
   slugPubdate: string;
   summary: string;
   slug: string;
+  featuredImage: null | any;
+  photo?: null | any;
 }
 
 interface Props extends IBlogEntry {
@@ -30,10 +33,20 @@ interface Props extends IBlogEntry {
 }
 
 const BlogEntry = styled((props: Props) => {
-  console.log(props);
   return (
     <li className={props.className}>
       <LinkWrapper to={props.slug}>
+        {props.photo && (
+          <Img
+            loading="lazy"
+            fixed={props.photo}
+            title={props.title}
+            alt={props.title}
+            style={{
+              position: "absolute",
+            }}
+          />
+        )}
         <Heading size={HEADING_SIZES.SMALL}>
           {props.title}
 
@@ -43,17 +56,77 @@ const BlogEntry = styled((props: Props) => {
         <Paragraph variant={PARAGRAPH_VARIANTS.SMALL}>Read more →</Paragraph>
       </LinkWrapper>
     </li>
-  )
+  );
 })`
   list-style: none;
   ${gridElement};
   ${gridHelper};
+  position: relative;
   margin-bottom: 6rem;
   transform: translateY(1rem);
   ${withTransitions(["transform"], theme.animations.long)};
 
   * {
     margin: 0;
+  }
+
+  .gatsby-image-wrapper {
+    ${withTransitions(["transform", "opacity"], theme.animations.long)};
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: -200%;
+    transform: translateY(-4rem);
+    right: -500%;
+    display: none;
+    z-index: auto;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to left,
+        hsla(46, 57%, 95%, 0) 0%,
+        hsla(46, 57%, 95%, 0.013) 8.1%,
+        hsla(46, 57%, 95%, 0.049) 15.5%,
+        hsla(46, 57%, 95%, 0.104) 22.5%,
+        hsla(46, 57%, 95%, 0.175) 29%,
+        hsla(46, 57%, 95%, 0.259) 35.3%,
+        hsla(46, 57%, 95%, 0.352) 41.2%,
+        hsla(46, 57%, 95%, 0.45) 47.1%,
+        hsla(46, 57%, 95%, 0.55) 52.9%,
+        hsla(46, 57%, 95%, 0.648) 58.8%,
+        hsla(46, 57%, 95%, 0.741) 64.7%,
+        hsla(46, 57%, 95%, 0.825) 71%,
+        hsla(46, 57%, 95%, 0.896) 77.5%,
+        hsla(46, 57%, 95%, 0.951) 84.5%,
+        hsla(46, 57%, 95%, 0.987) 91.9%,
+        hsl(0, 0%, 92%) 100%
+      );
+    }
+  }
+
+  &:nth-of-type(2n) {
+    .gatsby-image-wrapper {
+      right: -400%;
+    }
+  }
+
+  &:nth-of-type(3n) {
+    .gatsby-image-wrapper {
+      right: -500%;
+    }
+  }
+
+  &:nth-of-type(4n) {
+    .gatsby-image-wrapper {
+      //left: -450%;
+    }
   }
 
   time {
@@ -80,9 +153,21 @@ const BlogEntry = styled((props: Props) => {
   &:hover {
     transform: none;
 
+    .gatsby-image-wrapper {
+      opacity: 0.2;
+      transform: none;
+      z-index: auto;
+    }
+
     p:last-of-type {
       transform: none;
       opacity: 1;
+    }
+  }
+
+  ${theme.breakpoints.tablet} {
+    .gatsby-image-wrapper {
+      display: block;
     }
   }
 `;

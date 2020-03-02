@@ -28,7 +28,7 @@ const MoreLink = styled((props: Props) => {
       className={props.className}
     >
       <Component to={props.to || ""} {...props.hrefProps}>
-        <span>{props.children}</span>
+        {props.children}
       </Component>
     </Paragraph>
   );

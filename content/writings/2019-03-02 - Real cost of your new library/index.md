@@ -3,6 +3,7 @@ title: Real cost of your new library
 pubdate: 2019-03-02
 summary: Creating application nowadays consists mostly of implementation. We are using tools. But are those tools, albeit open-sourced, really free?
 slug: real-cost-of-your-new-library 
+featuredImage: header.jpg
 ---
 Creating application nowadays consists mostly of implementation. We are using tools. But are those tools, albeit open-sourced, really free?
 

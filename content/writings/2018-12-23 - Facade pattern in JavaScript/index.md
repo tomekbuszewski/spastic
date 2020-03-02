@@ -5,6 +5,7 @@ title: Facade pattern in JavaScript
 published: true
 summary: When building an application, we often face problems with external APIs. One has simple methods, other has them very complicated. Unifying them under one common interface is one of uses of the facade pattern. 
 tags: designpatterns, javascript
+featuredImage: header.jpg
 ---
 
 When building an application, we often face problems with external APIs. One has simple methods, other has them very complicated. Unifying them under one common interface is one of uses of the facade pattern. 

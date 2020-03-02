@@ -33,7 +33,7 @@ export const scrollTo = (section: SECTIONS) =>
 export const withTransitions = (
   prop: string | string[],
   time: string = theme.animations.med,
-  easing = theme.animations.easing
+  easing = theme.animations.easing,
 ) => {
   if (Array.isArray(prop)) {
     return `transition: ${prop

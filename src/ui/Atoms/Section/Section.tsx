@@ -29,6 +29,9 @@ const Section = styled((props: Props) => {
   padding: 9rem 0;
   margin: 1rem;
 
+  overflow: hidden;
+  position: relative;
+
   background: ${props => `var(--section-${props.name}-background)`};
   color: ${props => `var(--section-${props.name}-lead)`};
 

@@ -39,6 +39,28 @@ const Writings = () => {
               slugPubdate: pubdate(formatString: "YYYY-MM-DD")
               summary
               title
+              featuredImage {
+                childImageSharp {
+                  fixed(
+                    width: 1920
+                    duotone: {
+                      highlight: "#0ec4f1"
+                      shadow: "#192550"
+                      opacity: 50
+                    }
+                    quality: 90
+                    webpQuality: 90
+                  ) {
+                    base64
+                    width
+                    height
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                  }
+                }
+              }
             }
           }
         }
@@ -48,8 +70,12 @@ const Writings = () => {
 
   return (
     <Section name={SECTIONS.WRITINGS}>
-      <Grid gridColumnsMobile="1fr" as="article">
-        <Heading right tablet={[4, 5]} padded size={HEADING_SIZES.NORMAL}>
+      <Grid
+        gridColumnsMobile="1fr"
+        gridColumnsTablet="repeat(4, 1fr)"
+        as="article"
+      >
+        <Heading tablet={[4, 5]} padded size={HEADING_SIZES.NORMAL}>
           Writings<strong>.</strong>
         </Heading>
         <Grid
@@ -64,6 +90,10 @@ const Writings = () => {
               key={entry.id}
               {...entry.entry}
               slug={entry.fields.slug}
+              photo={
+                entry.entry.featuredImage &&
+                entry.entry.featuredImage.childImageSharp.fixed
+              }
             />
           ))}
         </Grid>

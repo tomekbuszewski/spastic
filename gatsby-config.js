@@ -80,10 +80,10 @@ module.exports = {
           {
             family: "Domine",
             variants: ["400", "800"],
-          }
-        ]
+          },
+        ],
       },
     },
-    "gatsby-transformer-remark",
+    "gatsby-transformer-remark"
   ],
 };
