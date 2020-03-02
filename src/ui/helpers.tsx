@@ -1,10 +1,7 @@
 /* eslint-disable react/display-name */
 import { theme } from "@ui/theme";
 import { css } from "styled-components";
-import { Events, scroller } from "react-scroll";
-
-import { SECTIONS } from "@config/sections";
-import * as React from "react";
+import React from "react";
 
 export const gridElement = () => css`
   padding-left: 1rem;
@@ -16,19 +13,22 @@ export const gridElement = () => css`
   }
 `;
 
-Events.scrollEvent.register("begin", to => {
-  if (typeof window !== "undefined") {
-    window.location.hash = to;
-  }
-});
+export const canSmoothScroll =
+  "scrollBehavior" in document.documentElement.style;
 
-export const scrollTo = (section: SECTIONS) =>
-  scroller.scrollTo(section, {
-    duration: parseFloat(theme.animations.long) * 2,
-    delay: 0,
-    offset: typeof window !== undefined && window.innerWidth >= 1024 ? -80 : 0,
-    smooth: "easeInOutQuart",
-  });
+export const scrollTo = (sectionId: string, e?: React.MouseEvent) => {
+  if (!canSmoothScroll) {
+    if (e) {
+      e.preventDefault();
+    }
+
+    const section = sectionId[0] === "#" ? sectionId : `#${sectionId}`;
+    const element = document.querySelector(section);
+
+    element && element.scrollIntoView({ behavior: "smooth" });
+    window.location.hash = section;
+  }
+};
 
 export const withTransitions = (
   prop: string | string[],

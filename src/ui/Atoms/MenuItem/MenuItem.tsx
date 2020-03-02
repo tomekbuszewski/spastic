@@ -10,10 +10,10 @@ import { gridElement, withTransitions } from "@ui/helpers";
 
 const MenuItem = styled(props => (
   <li className={props.className}>
-    <button type="button" onClick={props.onClick}>
+    <a onClick={props.onClick} href={props.href}>
       {props.children}
       <span>↓</span>
-    </button>
+    </a>
   </li>
 ))`
   background: none;
@@ -27,7 +27,8 @@ const MenuItem = styled(props => (
 
   color: var(--text);
 
-  button {
+  a {
+    display: block;
     background: none;
     border: 0;
     padding: 0;
@@ -38,6 +39,10 @@ const MenuItem = styled(props => (
     &:active,
     &:focus {
       outline: 0;
+    }
+
+    &:hover {
+      color: inherit;
     }
   }
 
@@ -58,8 +63,9 @@ const MenuItem = styled(props => (
 
   ${theme.breakpoints.tablet} {
     ${gridElement}
+    text-align: left;
 
-    button {
+    a {
       text-align: left;
     }
   }

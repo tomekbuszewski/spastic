@@ -23,6 +23,7 @@ const rebootOptions = {
 export const GlobalStyle = createGlobalStyle`
   html {
     font-size: ${BASE_SIZE}px;
+    scroll-behavior: smooth;
   }
   
   body {
@@ -106,7 +107,7 @@ export const GlobalStyle = createGlobalStyle`
     :root {
       --overlay: rgba(136,98,31,0.25);
       --body: #000;
-      --text: #666;
+      --text: #999;
       --section-${SECTIONS.HERO}-background: #2D232E;
       --section-${SECTIONS.HERO}-lead: #9E8212;
       --section-${SECTIONS.HERO}-text: #88621f;

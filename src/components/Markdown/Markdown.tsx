@@ -14,9 +14,13 @@ export const Markdown = (props: any) => (
       linkReference: (innerProps: any) => (
         <a
           href={innerProps.href}
-          onClick={() => scrollTo(innerProps.href.replace("#", ""))}
+          onClick={e => {
+            scrollTo(innerProps.href, e);
+          }}
           {...innerProps}
-        />
+        >
+          {innerProps.children}
+        </a>
       ),
       link: (innerProps: any) => <LinkWrapper {...innerProps} />,
       paragraph: (innerProps: any) => <Paragraph {...innerProps} {...props} />,

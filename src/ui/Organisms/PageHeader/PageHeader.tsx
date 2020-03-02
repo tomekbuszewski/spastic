@@ -23,10 +23,14 @@ const PageHeader = styled((props: Props) => {
   const [isActive, setActive] = React.useState<boolean>(false);
 
   const handleClick = (isFront: boolean, section: SECTIONS) => {
-    if (isFront) {
-      scrollTo(section);
-    } else {
-      linkWrapperFunc(`#${section}`);
+    const sectionId = `#${section}`;
+
+    if (typeof window !== "undefined") {
+      if (isFront) {
+        scrollTo(sectionId);
+      } else {
+        linkWrapperFunc(sectionId);
+      }
     }
 
     setActive(false);
@@ -36,16 +40,19 @@ const PageHeader = styled((props: Props) => {
     {
       children: "About and Work",
       section: SECTIONS.ABOUT,
+      href: `#${SECTIONS.ABOUT}`,
       onClick: () => handleClick(props.isFrontPage, SECTIONS.ABOUT),
     },
     {
       children: "Writings",
       section: SECTIONS.WRITINGS,
+      href: `#${SECTIONS.WRITINGS}`,
       onClick: () => handleClick(props.isFrontPage, SECTIONS.WRITINGS),
     },
     {
       children: "Contact",
       section: SECTIONS.CONTACT,
+      href: `#${SECTIONS.CONTACT}`,
       onClick: () => handleClick(props.isFrontPage, SECTIONS.CONTACT),
     },
   ];

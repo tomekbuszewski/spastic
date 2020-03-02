@@ -38,10 +38,12 @@ interface Props extends IBlogEntry, IGridHelper {
 }
 
 const BlogEntry = styled((props: Props) => {
+  const [isTouched, setTouched] = React.useState(false);
+
   return (
-    <li className={props.className}>
+    <li className={props.className} onMouseEnter={() => setTouched(true)}>
       <LinkWrapper to={props.slug}>
-        {props.photo && (
+        {props.photo && isTouched && (
           <Img
             loading="lazy"
             fixed={props.photo}
@@ -111,8 +113,30 @@ const BlogEntry = styled((props: Props) => {
         hsla(46, 57%, 95%, 0.896) 77.5%,
         hsla(46, 57%, 95%, 0.951) 84.5%,
         hsla(46, 57%, 95%, 0.987) 91.9%,
-        hsl(0, 0%, 92%) 100%
+        hsl(46, 57%, 95%) 100%
       );
+
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(
+          to left,
+          hsla(26, 12%, 12%, 0) 0%,
+          hsla(26, 12%, 12%, 0.013) 8.1%,
+          hsla(26, 12%, 12%, 0.049) 15.5%,
+          hsla(26, 12%, 12%, 0.104) 22.5%,
+          hsla(26, 12%, 12%, 0.175) 29%,
+          hsla(26, 12%, 12%, 0.259) 35.3%,
+          hsla(26, 12%, 12%, 0.352) 41.2%,
+          hsla(26, 12%, 12%, 0.45) 47.1%,
+          hsla(26, 12%, 12%, 0.55) 52.9%,
+          hsla(26, 12%, 12%, 0.648) 58.8%,
+          hsla(26, 12%, 12%, 0.741) 64.7%,
+          hsla(26, 12%, 12%, 0.825) 71%,
+          hsla(26, 12%, 12%, 0.896) 77.5%,
+          hsla(26, 12%, 12%, 0.951) 84.5%,
+          hsla(26, 12%, 12%, 0.987) 91.9%,
+          hsl(26, 12%, 12%) 100%
+        );
+      }
     }
   }
 
