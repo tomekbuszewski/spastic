@@ -25,7 +25,11 @@ interface Props {
 }
 
 const ArticleHeader = styled((props: Props) => (
-  <Section as="header" name={SECTIONS.ARTICLE} className={props.className}>
+  <Section
+    as={("header" as unknown) as undefined} // just wtf
+    name={SECTIONS.ARTICLE}
+    className={props.className}
+  >
     {props.photo && (
       <Img
         loading="lazy"
