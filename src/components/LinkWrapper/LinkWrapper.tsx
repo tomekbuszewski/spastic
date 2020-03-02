@@ -21,11 +21,11 @@ export const linkWrapperFunc = (link: string) => {
 };
 
 export const LinkWrapper = (props: {
-  to: string;
+  to?: string;
   href?: string;
   children: React.ReactNode;
 }) => {
-  const link = props.to || props.href;
+  const link = props.to || props.href || "";
 
   return (
     <a

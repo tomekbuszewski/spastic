@@ -14,7 +14,12 @@ import {
   Paragraph,
   PARAGRAPH_VARIANTS,
 } from "@ui/Atoms";
-import { gridElement, gridHelper, withTransitions } from "@ui/helpers";
+import {
+  gridElement,
+  gridHelper,
+  IGridHelper,
+  withTransitions,
+} from "@ui/helpers";
 import { theme } from "@ui";
 
 export interface IBlogEntry {
@@ -27,7 +32,7 @@ export interface IBlogEntry {
   photo?: null | any;
 }
 
-interface Props extends IBlogEntry {
+interface Props extends IBlogEntry, IGridHelper {
   className?: string;
   children?: React.ReactNode;
 }

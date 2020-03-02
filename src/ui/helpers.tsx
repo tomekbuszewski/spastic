@@ -53,7 +53,7 @@ export interface IGridHelper {
 const generateGrid = (input: [number, number]) =>
   `grid-column-start: ${input[0]}; grid-column-end: ${input[1]};`;
 
-export const gridHelper = () => (props: IGridHelper) => {
+export const gridHelper = () => (props: IGridHelper & any) => {
   let result = "";
 
   if (props.mobile) {

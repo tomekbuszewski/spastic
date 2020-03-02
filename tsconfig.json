@@ -24,6 +24,7 @@
     "noEmit": false,
     "sourceMap": true,
     "strict": true,
+    "skipLibCheck": true,
     "target": "esnext"
   },
   "include": [
@@ -31,5 +32,10 @@
     "demos",
     "@types"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "./node_modules/**/*",
+    "node_modules",
+    "**/*.stories.tsx",
+    "**/syntax/*"
+  ]
 }

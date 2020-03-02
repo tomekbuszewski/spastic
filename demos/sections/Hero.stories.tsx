@@ -19,7 +19,9 @@ import { Overlay } from "@ui/Molecules";
 storiesOf("Demos/Sections", module).add("Hero", () => (
   <React.Fragment>
     {boolean("With overlay", true) && <Overlay />}
-    {boolean("With header", true) && <PageHeader items={MENU_CHILDREN} />}
+    {boolean("With header", true) && (
+      <PageHeader isFrontPage={true} items={MENU_CHILDREN} />
+    )}
     <Section name={SECTIONS.HERO}>
       <Grid padded>
         <Heading size={HEADING_SIZES.LARGE}>

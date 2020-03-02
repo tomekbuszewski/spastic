@@ -54,7 +54,7 @@ const Header = () => {
     <HeaderWrapper as="header">
       <LinkWrapper to="/">
         <LogoHolder>
-          <Logo />
+          <Logo isFrontPage={true} />
         </LogoHolder>
       </LinkWrapper>
       <NavContainer>
