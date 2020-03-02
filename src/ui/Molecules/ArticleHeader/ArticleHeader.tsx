@@ -67,15 +67,6 @@ const ArticleHeader = styled((props: Props) => (
       position: relative;
       overflow: hidden;
 
-      //img {
-      //  width: 100vw;
-      //  position: absolute;
-      //  bottom: 0;
-      //  left: 50%;
-      //  transform: translateX(-50%);
-      //  pointer-events: none;
-      //}
-
       & > ${Grid} {
         position: relative;
         z-index: 10;

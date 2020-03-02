@@ -638,10 +638,20 @@ type SitePageContext {
     currentPage: Int
     limit: Int
     numberOfPages: Int
-    photo: String
+    photo: SitePageContextPhoto
     pubdate: String
     skip: Int
     title: String
+}
+
+type SitePageContextPhoto {
+    base64: String
+    height: Int
+    src: String
+    srcSet: String
+    srcSetWebp: String
+    srcWebp: String
+    width: Int
 }
 
 type SitePageEdge {
@@ -1721,7 +1731,13 @@ enum SitePageFieldsEnum {
     context___currentPage
     context___limit
     context___numberOfPages
-    context___photo
+    context___photo___base64
+    context___photo___height
+    context___photo___src
+    context___photo___srcSet
+    context___photo___srcSetWebp
+    context___photo___srcWebp
+    context___photo___width
     context___pubdate
     context___skip
     context___title
@@ -2348,10 +2364,20 @@ input SitePageContextFilterInput {
     currentPage: IntQueryOperatorInput
     limit: IntQueryOperatorInput
     numberOfPages: IntQueryOperatorInput
-    photo: StringQueryOperatorInput
+    photo: SitePageContextPhotoFilterInput
     pubdate: StringQueryOperatorInput
     skip: IntQueryOperatorInput
     title: StringQueryOperatorInput
+}
+
+input SitePageContextPhotoFilterInput {
+    base64: StringQueryOperatorInput
+    height: IntQueryOperatorInput
+    src: StringQueryOperatorInput
+    srcSet: StringQueryOperatorInput
+    srcSetWebp: StringQueryOperatorInput
+    srcWebp: StringQueryOperatorInput
+    width: IntQueryOperatorInput
 }
 
 input SitePageFilterInput {

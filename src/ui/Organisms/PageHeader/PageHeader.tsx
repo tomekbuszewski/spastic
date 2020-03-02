@@ -5,7 +5,6 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import { navigate } from "gatsby";
 
 import { linkWrapperFunc } from "@components";
 import { Grid, Logo, NavButton } from "@ui/Atoms";
@@ -16,43 +15,40 @@ import { scrollTo } from "@ui/helpers";
 import { SECTIONS } from "@config/sections";
 
 interface Props {
-  items?: any[];
   className?: string;
   isFrontPage: boolean;
 }
 
-const items = [
-  {
-    children: "About and Work",
-    section: SECTIONS.ABOUT,
-    onClick: () => scrollTo(SECTIONS.ABOUT),
-  },
-  {
-    children: "Writings",
-    section: SECTIONS.WRITINGS,
-    onClick: () => scrollTo(SECTIONS.WRITINGS),
-  },
-  {
-    children: "Contact",
-    section: SECTIONS.CONTACT,
-    onClick: () => scrollTo(SECTIONS.CONTACT),
-  },
-];
-
 const PageHeader = styled((props: Props) => {
   const [isActive, setActive] = React.useState<boolean>(false);
-  const enhancedItems = (props.items ? props.items : []).map(item => ({
-    ...item,
-    onClick: () => {
-      if (props.isFrontPage) {
-        item.onClick();
-      } else {
-        linkWrapperFunc(`#${item.section}`);
-      }
 
-      setActive(false);
+  const handleClick = (isFront: boolean, section: SECTIONS) => {
+    if (isFront) {
+      scrollTo(section);
+    } else {
+      linkWrapperFunc(`#${section}`);
+    }
+
+    setActive(false);
+  };
+
+  const items = [
+    {
+      children: "About and Work",
+      section: SECTIONS.ABOUT,
+      onClick: () => handleClick(props.isFrontPage, SECTIONS.ABOUT),
     },
-  }));
+    {
+      children: "Writings",
+      section: SECTIONS.WRITINGS,
+      onClick: () => handleClick(props.isFrontPage, SECTIONS.WRITINGS),
+    },
+    {
+      children: "Contact",
+      section: SECTIONS.CONTACT,
+      onClick: () => handleClick(props.isFrontPage, SECTIONS.CONTACT),
+    },
+  ];
 
   return (
     <header className={props.className}>
@@ -71,7 +67,7 @@ const PageHeader = styled((props: Props) => {
         >
           Toggle Menu
         </NavButton>
-        <Menu items={enhancedItems} active={isActive} />
+        <Menu items={items} active={isActive} />
       </Grid>
     </header>
   );
@@ -98,9 +94,5 @@ const PageHeader = styled((props: Props) => {
     padding-right: 0;
   }
 `;
-
-PageHeader.defaultProps = {
-  items,
-};
 
 export { PageHeader };

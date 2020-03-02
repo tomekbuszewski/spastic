@@ -54,8 +54,23 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               featuredImage {
                 childImageSharp {
-                  resize(width: 1920) {
+                  fixed(
+                    width: 1920
+                    duotone: {
+                      highlight: "#0ec4f1"
+                      shadow: "#192550"
+                      opacity: 50
+                    }
+                    quality: 90
+                    webpQuality: 90
+                  ) {
+                    base64
+                    width
+                    height
                     src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
                   }
                 }
               }
@@ -75,7 +90,6 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             title: frontmatter {
               title
-              photo
               pubdate(formatString: "MMMM Do, YYYY")
               featuredImage {
                 childImageSharp {
