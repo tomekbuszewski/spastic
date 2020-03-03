@@ -52,6 +52,7 @@ const Layout = (props: Props) => {
       <PageHeader
         isFrontPage={props.isFrontPage}
         hidden={
+          isClient &&
           scrollDirection === SCROLL_DIRECTION.BOTTOM &&
           scrollFromTop >= maxScrolledPosition()
         }

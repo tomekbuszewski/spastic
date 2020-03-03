@@ -80,7 +80,7 @@ const PageHeader = styled((props: Props) => {
     </header>
   );
 })`
-  ${withTransitions(["transform", "background"])};
+  ${withTransitions(["transform", "background", "padding"])};
   height: 6rem;
   display: grid;
   align-items: center;
@@ -89,6 +89,7 @@ const PageHeader = styled((props: Props) => {
   z-index: 200;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-top: ${props => props.isFrontPage && "2rem"};
   background: ${props =>
     props.isFrontPage
       ? `var(--section-${SECTIONS.HERO}-background)`
@@ -98,7 +99,7 @@ const PageHeader = styled((props: Props) => {
 
   li {
     ${withTransitions(["line-height"])};
-    line-height: ${props => (props.isFrontPage ? "16rem" : "5rem")};
+    line-height: 5rem;
   }
 
   ${props =>
@@ -111,6 +112,7 @@ const PageHeader = styled((props: Props) => {
     props.scrolled &&
     props.isFrontPage &&
     css`
+      padding-top: 0;
       background: var(--body);
 
       li {
