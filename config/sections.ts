@@ -1,4 +1,5 @@
 export enum SECTIONS {
+  FOUR_OH_FOUR = "not-found",
   HERO = "hero",
   ABOUT = "about",
   EXPERIENCE = "exp",

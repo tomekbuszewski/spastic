@@ -13,8 +13,8 @@ import {
   IGridHelper,
   withTransitions,
 } from "@ui/helpers";
+import { Blockquote } from "@ui/Atoms";
 import { ColorContext } from "@ui/Atoms/Section/Section";
-import { Heading } from "@ui/Atoms";
 
 export enum PARAGRAPH_VARIANTS {
   SMALL = "small",
@@ -104,6 +104,12 @@ const Paragraph = styled.p<Props>`
 
   &:last-of-type {
     margin-bottom: 0;
+  }
+
+  & + ${Blockquote} {
+    &:last-of-type {
+      margin-bottom: 3rem;
+    }
   }
 
   ${({ variant }) =>

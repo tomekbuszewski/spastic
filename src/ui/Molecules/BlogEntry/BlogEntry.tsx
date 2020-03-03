@@ -5,7 +5,6 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
 
 import { LinkWrapper, Markdown } from "@components";
 import {
@@ -18,6 +17,7 @@ import {
   gridElement,
   gridHelper,
   IGridHelper,
+  isClient,
   withTransitions,
 } from "@ui/helpers";
 import { theme } from "@ui";
@@ -35,25 +35,20 @@ export interface IBlogEntry {
 interface Props extends IBlogEntry, IGridHelper {
   className?: string;
   children?: React.ReactNode;
+  onMouseEnter?: any;
+  onMouseLeave?: any;
+  onBlur?: any;
 }
 
 const BlogEntry = styled((props: Props) => {
-  const [isTouched, setTouched] = React.useState(false);
-
   return (
-    <li className={props.className} onMouseEnter={() => setTouched(true)}>
+    <li
+      className={props.className}
+      onMouseEnter={props.onMouseEnter}
+      onMouseLeave={props.onMouseLeave}
+      onBlur={props.onBlur}
+    >
       <LinkWrapper to={props.slug}>
-        {props.photo && isTouched && (
-          <Img
-            loading="lazy"
-            fixed={props.photo}
-            title={props.title}
-            alt={props.title}
-            style={{
-              position: "absolute",
-            }}
-          />
-        )}
         <Heading size={HEADING_SIZES.SMALL}>
           {props.title}
 
@@ -69,7 +64,7 @@ const BlogEntry = styled((props: Props) => {
   ${gridElement};
   ${gridHelper};
   position: relative;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   transform: translateY(1rem);
   ${withTransitions(["transform"], theme.animations.long)};
 
@@ -84,16 +79,18 @@ const BlogEntry = styled((props: Props) => {
     position: absolute;
     top: -200%;
     transform: translateY(-4rem);
-    right: -500%;
+    right: 0;
     display: none;
     z-index: auto;
+    width: 100vw;
+    height: 100vh;
 
     &:after {
       content: "";
       display: block;
       position: absolute;
       top: 0;
-      left: 0;
+      right: 0;
       width: 100%;
       height: 100%;
       background: linear-gradient(
@@ -140,21 +137,27 @@ const BlogEntry = styled((props: Props) => {
     }
   }
 
-  &:nth-of-type(2n) {
+  &:nth-of-type(1n) {
     .gatsby-image-wrapper {
       right: -400%;
     }
   }
 
+  &:nth-of-type(2n) {
+    .gatsby-image-wrapper {
+      right: -300%;
+    }
+  }
+
   &:nth-of-type(3n) {
     .gatsby-image-wrapper {
-      right: -500%;
+      right: -200%;
     }
   }
 
   &:nth-of-type(4n) {
     .gatsby-image-wrapper {
-      //left: -450%;
+      right: -100%;
     }
   }
 

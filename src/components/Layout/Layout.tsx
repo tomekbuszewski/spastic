@@ -5,6 +5,7 @@ import { Overlay } from "@ui/Molecules";
 import { PageFooter, PageHeader } from "@ui/Organisms";
 import SEO from "../seo";
 import { canSmoothScroll } from "@ui/helpers";
+import { SCROLL_DIRECTION, useScroll } from "@hooks";
 
 interface Props {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const Layout = (props: Props) => {
+  const { scrollFromTop, scrollDirection } = useScroll();
   React.useEffect(() => {
     if (!canSmoothScroll) {
       import("smoothscroll-polyfill")
@@ -25,7 +27,12 @@ const Layout = (props: Props) => {
 
   return (
     <React.Fragment>
-      <PageHeader isFrontPage={props.isFrontPage} />
+      <PageHeader
+        isFrontPage={props.isFrontPage}
+        hidden={
+          scrollDirection === SCROLL_DIRECTION.BOTTOM && scrollFromTop >= 150
+        }
+      />
       <SEO title={props.title} />
       <main>
         <GlobalStyle />

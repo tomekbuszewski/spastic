@@ -36,6 +36,11 @@ const Grid = styled(Base)`
   }
 
   ${theme.breakpoints.desktop} {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  ${theme.breakpoints.desktopLarge} {
     padding-left: 0;
     padding-right: 0;
   }

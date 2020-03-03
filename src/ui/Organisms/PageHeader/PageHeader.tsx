@@ -4,19 +4,20 @@
  */
 
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { linkWrapperFunc } from "@components";
 import { Grid, Logo, NavButton } from "@ui/Atoms";
 import { Menu } from "@ui/Molecules";
 
 import { theme } from "@ui";
-import { scrollTo } from "@ui/helpers";
+import { isClient, scrollTo, withTransitions } from "@ui/helpers";
 import { SECTIONS } from "@config/sections";
 
 interface Props {
   className?: string;
   isFrontPage: boolean;
+  hidden?: boolean;
 }
 
 const PageHeader = styled((props: Props) => {
@@ -25,15 +26,14 @@ const PageHeader = styled((props: Props) => {
   const handleClick = (isFront: boolean, section: SECTIONS) => {
     const sectionId = `#${section}`;
 
-    if (typeof window !== "undefined") {
+    if (isClient) {
       if (isFront) {
         scrollTo(sectionId);
       } else {
         linkWrapperFunc(sectionId);
       }
+      setActive(false);
     }
-
-    setActive(false);
   };
 
   const items = [
@@ -79,14 +79,21 @@ const PageHeader = styled((props: Props) => {
     </header>
   );
 })`
+  ${withTransitions("transform")};
   height: 6rem;
   display: grid;
   align-items: center;
-  //position: sticky;
+  position: sticky;
   top: 0;
   z-index: 200;
   padding-left: 1rem;
   padding-right: 1rem;
+
+  ${props =>
+    props.hidden &&
+    css`
+      transform: translateY(-100%);
+    `};
 
   background: var(--body);
 

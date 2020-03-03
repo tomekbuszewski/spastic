@@ -4,12 +4,15 @@
  */
 
 import * as React from "react";
-import styled from "styled-components";
+import styled, { StyledComponentBase } from "styled-components";
 import { theme } from "@ui";
 import { ColorContext } from "@ui/Atoms/Section/Section";
 import { Paragraph } from "@ui/Atoms";
 
-const Blockquote = styled.blockquote`
+type BlockquoteType = string &
+  StyledComponentBase<"blockquote", any, {}, never>;
+
+const Blockquote: BlockquoteType = styled.blockquote`
   opacity: 0.65;
   margin-bottom: 3rem;
   margin-left: 1rem;

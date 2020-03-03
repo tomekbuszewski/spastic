@@ -13,8 +13,10 @@ export const gridElement = () => css`
   }
 `;
 
+export const isClient = typeof window !== "undefined";
+
 export const canSmoothScroll =
-  "scrollBehavior" in document.documentElement.style;
+  isClient && "scrollBehavior" in document.documentElement.style;
 
 export const scrollTo = (sectionId: string, e?: React.MouseEvent) => {
   if (!canSmoothScroll) {
@@ -23,7 +25,7 @@ export const scrollTo = (sectionId: string, e?: React.MouseEvent) => {
     }
 
     const section = sectionId[0] === "#" ? sectionId : `#${sectionId}`;
-    const element = document.querySelector(section);
+    const element = document.getElementById(section);
 
     element && element.scrollIntoView({ behavior: "smooth" });
     window.location.hash = section;

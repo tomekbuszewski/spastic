@@ -24,6 +24,10 @@ export const GlobalStyle = createGlobalStyle`
   html {
     font-size: ${BASE_SIZE}px;
     scroll-behavior: smooth;
+    
+    &.loading {
+      scroll-behavior: initial;
+    }
   }
   
   body {
@@ -61,6 +65,10 @@ export const GlobalStyle = createGlobalStyle`
     --overlay: rgba(45, 35, 46, 0.05);
     --body: #FDFDFD;
     --text: #4B4B4B;
+    --section-${SECTIONS.FOUR_OH_FOUR}-background: #fff;
+    --section-${SECTIONS.FOUR_OH_FOUR}-lead: rgb(9%, 11%, 11%);
+    --section-${SECTIONS.FOUR_OH_FOUR}-text: rgb(97%, 0%, 4%);
+    --section-${SECTIONS.FOUR_OH_FOUR}-highlight: rgb(76.0%, 82.0%, 80.0%);
     --section-${SECTIONS.HERO}-background: #F1C40F;
     --section-${SECTIONS.HERO}-lead: #2D232E;
     --section-${SECTIONS.HERO}-text: #714701;
@@ -108,6 +116,10 @@ export const GlobalStyle = createGlobalStyle`
       --overlay: rgba(136,98,31,0.25);
       --body: #000;
       --text: #999;
+      --section-${SECTIONS.FOUR_OH_FOUR}-background: rgb(9%, 11%, 11%);
+      --section-${SECTIONS.FOUR_OH_FOUR}-lead: #fff;
+      --section-${SECTIONS.FOUR_OH_FOUR}-text: rgb(97%, 0%, 4%);
+      --section-${SECTIONS.FOUR_OH_FOUR}-highlight: rgb(53,57,56);
       --section-${SECTIONS.HERO}-background: #2D232E;
       --section-${SECTIONS.HERO}-lead: #9E8212;
       --section-${SECTIONS.HERO}-text: #88621f;
