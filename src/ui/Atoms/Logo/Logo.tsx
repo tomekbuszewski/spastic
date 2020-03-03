@@ -29,7 +29,6 @@ const Logo = styled((props: Props) => {
       }
     : {
         to: "/",
-        direction: "right",
       };
 
   return (

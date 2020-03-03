@@ -41,8 +41,7 @@ const Writings = () => {
               title
               featuredImage {
                 childImageSharp {
-                  fixed(
-                    width: 1920
+                  fluid(
                     duotone: {
                       highlight: "#0ec4f1"
                       shadow: "#192550"
@@ -51,13 +50,12 @@ const Writings = () => {
                     quality: 90
                     webpQuality: 90
                   ) {
-                    base64
-                    width
-                    height
+                    aspectRatio
                     src
                     srcSet
                     srcWebp
                     srcSetWebp
+                    sizes
                   }
                 }
               }
@@ -70,11 +68,7 @@ const Writings = () => {
 
   return (
     <Section name={SECTIONS.WRITINGS}>
-      <Grid
-        gridColumnsMobile="1fr"
-        gridColumnsTablet="repeat(4, 1fr)"
-        as="article"
-      >
+      <Grid gridColumnsMobile="1fr" gridColumnsTablet="repeat(4, 1fr)">
         <Heading tablet={[4, 5]} padded size={HEADING_SIZES.NORMAL}>
           Writings<strong>.</strong>
         </Heading>
@@ -85,17 +79,20 @@ const Writings = () => {
           gridColumnsTablet="repeat(2, 1fr)"
           gridColumnsDesktop="repeat(4, 1fr)"
         >
-          {[...entries].slice(0, 8).map(({ entry }: IBlogNode) => (
-            <BlogEntry
-              key={entry.id}
-              {...entry.entry}
-              slug={entry.fields.slug}
-              photo={
-                entry.entry.featuredImage &&
-                entry.entry.featuredImage.childImageSharp.fixed
-              }
-            />
-          ))}
+          {[...entries].slice(0, 8).map(({ entry }: IBlogNode) => {
+            const photo =
+              entry.entry.featuredImage &&
+              entry.entry.featuredImage.childImageSharp;
+
+            return (
+              <BlogEntry
+                key={entry.id}
+                {...entry.entry}
+                slug={entry.fields.slug}
+                photo={photo}
+              />
+            );
+          })}
         </Grid>
         {totalCount > 8 && (
           <MoreLink to="/writings/2" component={LinkWrapper}>

@@ -41,6 +41,7 @@ export const theme: ITheme = {
   breakpoints: {
     tablet: "@media (min-width: 768px)",
     desktop: "@media (min-width: 1024px)",
+    desktopLarge: "@media (min-width: 1200px)",
   },
   fonts: {
     sizes: {

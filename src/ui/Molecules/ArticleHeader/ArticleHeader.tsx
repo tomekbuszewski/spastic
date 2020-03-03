@@ -24,39 +24,42 @@ interface Props {
   photo?: any | false;
 }
 
-const ArticleHeader = styled((props: Props) => (
-  <Section
-    as={("header" as unknown) as undefined} // just wtf
-    name={SECTIONS.ARTICLE}
-    className={props.className}
-  >
-    {props.photo && (
-      <Img
-        loading="lazy"
-        fixed={props.photo}
-        title={props.title}
-        alt={props.title}
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "100vw",
-        }}
-      />
-    )}
-    <Grid gridColumnsTablet="repeat(4, 1fr)" padded>
-      <Heading size={HEADING_SIZES.LARGE} tablet={[1, 4]}>
-        {props.title}
-      </Heading>
-      {props.pubdate && (
-        <Paragraph variant={PARAGRAPH_VARIANTS.BOLD} tablet={[1, 5]}>
-          Posted on {props.pubdate}
-        </Paragraph>
+const ArticleHeader = styled((props: Props) => {
+  return (
+    <Section
+      as={("header" as unknown) as undefined} // just wtf
+      name={SECTIONS.ARTICLE}
+      className={props.className}
+    >
+      {props.photo && (
+        <Img
+          fluid={props.photo}
+          loading="lazy"
+          title={props.title}
+          alt={props.title}
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "100vw",
+            minHeight: "55vh",
+          }}
+        />
       )}
-    </Grid>
-  </Section>
-))`
+      <Grid gridColumnsTablet="repeat(4, 1fr)" padded>
+        <Heading size={HEADING_SIZES.LARGE} tablet={[1, 4]}>
+          {props.title}
+        </Heading>
+        {props.pubdate && (
+          <Paragraph variant={PARAGRAPH_VARIANTS.BOLD} tablet={[1, 5]}>
+            Posted on {props.pubdate}
+          </Paragraph>
+        )}
+      </Grid>
+    </Section>
+  );
+})`
   background: var(--section-article-heading);
   padding-bottom: 9rem;
   margin-top: 0;

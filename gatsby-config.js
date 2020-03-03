@@ -1,6 +1,6 @@
 const { resolve } = require("path");
 
-module.exports = {
+const config = {
   siteMetadata: {
     title: "buszewski.com",
     description:
@@ -45,6 +45,7 @@ module.exports = {
           "@config": resolve(__dirname, "config"),
           "@ui": resolve(__dirname, "src", "ui"),
           "@helpers": resolve(__dirname, "src", "helpers"),
+          "@hooks": resolve(__dirname, "src", "hooks"),
           "@components": resolve(__dirname, "src", "components"),
           "@sections": resolve(__dirname, "src", "sections"),
           "@pages": resolve(__dirname, "src", "pages"),
@@ -84,6 +85,12 @@ module.exports = {
         ],
       },
     },
-    "gatsby-transformer-remark"
+    "gatsby-transformer-remark",
   ],
 };
+
+// if (process.env.NODE_ENV === "production") {
+//   config.plugins.push("gatsby-plugin-preact");
+// }
+
+module.exports = config;

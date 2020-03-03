@@ -5,7 +5,6 @@
 
 import * as React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
 
 import { LinkWrapper, Markdown } from "@components";
 import {
@@ -18,6 +17,7 @@ import {
   gridElement,
   gridHelper,
   IGridHelper,
+  isClient,
   withTransitions,
 } from "@ui/helpers";
 import { theme } from "@ui";
@@ -35,23 +35,20 @@ export interface IBlogEntry {
 interface Props extends IBlogEntry, IGridHelper {
   className?: string;
   children?: React.ReactNode;
+  onMouseEnter?: any;
+  onMouseLeave?: any;
+  onBlur?: any;
 }
 
 const BlogEntry = styled((props: Props) => {
   return (
-    <li className={props.className}>
+    <li
+      className={props.className}
+      onMouseEnter={props.onMouseEnter}
+      onMouseLeave={props.onMouseLeave}
+      onBlur={props.onBlur}
+    >
       <LinkWrapper to={props.slug}>
-        {props.photo && (
-          <Img
-            loading="lazy"
-            fixed={props.photo}
-            title={props.title}
-            alt={props.title}
-            style={{
-              position: "absolute",
-            }}
-          />
-        )}
         <Heading size={HEADING_SIZES.SMALL}>
           {props.title}
 
@@ -67,7 +64,7 @@ const BlogEntry = styled((props: Props) => {
   ${gridElement};
   ${gridHelper};
   position: relative;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   transform: translateY(1rem);
   ${withTransitions(["transform"], theme.animations.long)};
 
@@ -82,16 +79,18 @@ const BlogEntry = styled((props: Props) => {
     position: absolute;
     top: -200%;
     transform: translateY(-4rem);
-    right: -500%;
+    right: 0;
     display: none;
     z-index: auto;
+    width: 100vw;
+    height: 100vh;
 
     &:after {
       content: "";
       display: block;
       position: absolute;
       top: 0;
-      left: 0;
+      right: 0;
       width: 100%;
       height: 100%;
       background: linear-gradient(
@@ -111,26 +110,54 @@ const BlogEntry = styled((props: Props) => {
         hsla(46, 57%, 95%, 0.896) 77.5%,
         hsla(46, 57%, 95%, 0.951) 84.5%,
         hsla(46, 57%, 95%, 0.987) 91.9%,
-        hsl(0, 0%, 92%) 100%
+        hsl(46, 57%, 95%) 100%
       );
+
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(
+          to left,
+          hsla(26, 12%, 12%, 0) 0%,
+          hsla(26, 12%, 12%, 0.013) 8.1%,
+          hsla(26, 12%, 12%, 0.049) 15.5%,
+          hsla(26, 12%, 12%, 0.104) 22.5%,
+          hsla(26, 12%, 12%, 0.175) 29%,
+          hsla(26, 12%, 12%, 0.259) 35.3%,
+          hsla(26, 12%, 12%, 0.352) 41.2%,
+          hsla(26, 12%, 12%, 0.45) 47.1%,
+          hsla(26, 12%, 12%, 0.55) 52.9%,
+          hsla(26, 12%, 12%, 0.648) 58.8%,
+          hsla(26, 12%, 12%, 0.741) 64.7%,
+          hsla(26, 12%, 12%, 0.825) 71%,
+          hsla(26, 12%, 12%, 0.896) 77.5%,
+          hsla(26, 12%, 12%, 0.951) 84.5%,
+          hsla(26, 12%, 12%, 0.987) 91.9%,
+          hsl(26, 12%, 12%) 100%
+        );
+      }
     }
   }
 
-  &:nth-of-type(2n) {
+  &:nth-of-type(1n) {
     .gatsby-image-wrapper {
       right: -400%;
     }
   }
 
+  &:nth-of-type(2n) {
+    .gatsby-image-wrapper {
+      right: -300%;
+    }
+  }
+
   &:nth-of-type(3n) {
     .gatsby-image-wrapper {
-      right: -500%;
+      right: -200%;
     }
   }
 
   &:nth-of-type(4n) {
     .gatsby-image-wrapper {
-      //left: -450%;
+      right: -100%;
     }
   }
 

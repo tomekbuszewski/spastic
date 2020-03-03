@@ -8,6 +8,7 @@
       "@ui": ["src/ui"],
       "@helpers/*": ["src/helpers/*"],
       "@config": ["config"],
+      "@hooks": ["src/hooks"],
       "@config/*": ["config/*"],
       "@ui/*": ["src/ui/*"]
     },
