@@ -86,6 +86,7 @@ const config = {
       },
     },
     "gatsby-transformer-remark",
+    "gatsby-plugin-netlify"
   ],
 };
 
