@@ -23,9 +23,6 @@ const MenuItem = styled(props => (
   position: relative;
 
   font-size: ${theme.fonts.sizes.smallDesktop};
-  line-height: 5rem;
-
-  color: var(--text);
 
   a {
     display: block;
@@ -62,8 +59,8 @@ const MenuItem = styled(props => (
   }
 
   ${theme.breakpoints.tablet} {
-    ${gridElement}
     text-align: left;
+    ${gridElement}
 
     a {
       text-align: left;

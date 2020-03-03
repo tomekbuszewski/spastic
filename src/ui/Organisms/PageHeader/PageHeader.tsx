@@ -18,6 +18,7 @@ interface Props {
   className?: string;
   isFrontPage: boolean;
   hidden?: boolean;
+  scrolled?: boolean;
 }
 
 const PageHeader = styled((props: Props) => {
@@ -79,7 +80,7 @@ const PageHeader = styled((props: Props) => {
     </header>
   );
 })`
-  ${withTransitions("transform")};
+  ${withTransitions(["transform", "background"])};
   height: 6rem;
   display: grid;
   align-items: center;
@@ -88,6 +89,17 @@ const PageHeader = styled((props: Props) => {
   z-index: 200;
   padding-left: 1rem;
   padding-right: 1rem;
+  background: ${props =>
+    props.isFrontPage
+      ? `var(--section-${SECTIONS.HERO}-background)`
+      : "var(--body)"};
+  color: var(--text);
+  margin: ${props => props.isFrontPage && "1rem 1rem 0 1rem"};
+
+  li {
+    ${withTransitions(["line-height"])};
+    line-height: ${props => (props.isFrontPage ? "16rem" : "5rem")};
+  }
 
   ${props =>
     props.hidden &&
@@ -95,17 +107,28 @@ const PageHeader = styled((props: Props) => {
       transform: translateY(-100%);
     `};
 
-  background: var(--body);
+  ${props =>
+    props.scrolled &&
+    props.isFrontPage &&
+    css`
+      background: var(--body);
+
+      li {
+        line-height: 5rem;
+      }
+    `};
 
   ${theme.breakpoints.tablet} {
     padding-left: 2rem;
     padding-right: 2rem;
+    margin: ${props => props.isFrontPage && "2rem 2rem 0 2rem"};
   }
 
   ${theme.breakpoints.desktop} {
     height: 10rem;
     padding-left: 0;
     padding-right: 0;
+    margin: ${props => props.isFrontPage && "3rem 3rem 0 3rem"};
   }
 `;
 
