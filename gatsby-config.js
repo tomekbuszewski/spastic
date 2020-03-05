@@ -93,7 +93,11 @@ const config = {
       },
     },
     "gatsby-transformer-remark",
-    "gatsby-plugin-netlify"
+    "gatsby-plugin-netlify",
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      trackingId: "UA-7541047-2",
+    },
   ],
 };
 
