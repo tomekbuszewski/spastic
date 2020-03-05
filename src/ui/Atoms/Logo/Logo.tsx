@@ -68,15 +68,12 @@ const Logo = styled((props: Props) => {
   }
 
   ${theme.breakpoints.desktop} {
-    padding-left: ${props => (props.asMain ? "4.5rem" : "1.5rem")};
+    padding-left: 1.5rem;
+    height: 4rem;
 
     svg {
       height: 4rem;
     }
-  }
-
-  @media (min-width: 1190px) {
-    padding-left: 1.5rem;
   }
 `;
 
