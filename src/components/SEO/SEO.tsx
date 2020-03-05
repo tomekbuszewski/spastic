@@ -38,7 +38,7 @@ const Seo = (props: Props) => {
     },
     {
       property: "og:title",
-      content: props.title,
+      content: pageTitle,
     },
     {
       property: "og:description",
@@ -49,7 +49,11 @@ const Seo = (props: Props) => {
       content: props.type ? props.type : "website",
     },
     {
-      property: "og:photo",
+      property: "og:url",
+      content: site.siteMetadata.siteUrl,
+    },
+    {
+      property: "og:image",
       content: photo,
     },
     {
@@ -62,7 +66,7 @@ const Seo = (props: Props) => {
     },
     {
       name: "twitter:title",
-      content: props.title,
+      content: pageTitle,
     },
     {
       name: "twitter:description",
@@ -71,6 +75,10 @@ const Seo = (props: Props) => {
     {
       name: "twitter:image",
       content: photo,
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
     },
     {
       itemprop: "name",
