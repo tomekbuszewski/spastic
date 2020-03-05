@@ -96,7 +96,10 @@ const config = {
     "gatsby-plugin-netlify",
     {
       resolve: "gatsby-plugin-google-analytics",
-      trackingId: "UA-7541047-2",
+      options: {
+        trackingId: "UA-7541047-2",
+        head: true,
+      }
     },
   ],
 };
