@@ -2,7 +2,6 @@
 title: A note on naming colors
 pubdate: 2020-02-27
 summary: What to do, when we want to have meaningful color names?
-featuredImage: header.jpg
 ---
 
 Remember that text saying "in IT, naming thing is hard"? This is every harder when it comes to colors.

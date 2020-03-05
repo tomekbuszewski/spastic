@@ -2,7 +2,6 @@
 title: Immutable Records as object factories
 pubdate: 2019-10-24
 slug: immutable-records-as-object-factories 
-featuredImage: header.jpg
 summary: Objects in JavaScript are quite flexible. This means, they can be altered in many ways, sometimes accidentally. What to do, when you need to guarantee the consistency?
 ---
 Objects in JavaScript are quite flexible. This means, they can be altered in many ways, sometimes accidentally. What to do, when you need to guarantee the consistency?

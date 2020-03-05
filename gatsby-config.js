@@ -2,7 +2,7 @@ const { resolve } = require("path");
 
 const config = {
   siteMetadata: {
-    title: "buszewski.com",
+    title: "Buszewski.com",
     description:
       "Developer, consultant and lead with over 12 years of commercial experience",
     author: "Tomek Buszewski <tomek.buszewski@gmail.com>",
@@ -19,6 +19,13 @@ const config = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-styled-components",
       options: {
         displayName: process.env.NODE_ENV !== "production",
@@ -29,13 +36,13 @@ const config = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "gatsby-starter-default",
-        short_name: "starter",
+        name: "Buszewski.com",
+        short_name: "Buszewski.com",
         start_url: "/",
         background_color: "#FDFDFD",
         theme_color: "#F1C40F",
         display: "minimal-ui",
-        icon: "src/images/gatsby-icon.png", // This path is relative to the root of the site.
+        icon: "src/images/favicon.png", // This path is relative to the root of the site.
       },
     },
     {

@@ -3,7 +3,6 @@ title: Don’t forget to forget your code
 pubdate: 2020-02-10
 slug: don-t-forget-to-forget-your-code 
 summary: How often do you find yourself coming back to the code you’ve written a few months ago?
-featuredImage: header.jpg
 ---
 
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Layout } from "@components";
+import { Layout, Seo } from "@components";
 import {
   Grid,
   Heading,
@@ -14,6 +14,7 @@ import { LinkWrapper } from "@components";
 
 const NotFound = () => (
   <Layout isFrontPage={false}>
+    <Seo title={"No blood no mess"} />
     <Section name={SECTIONS.FOUR_OH_FOUR}>
       <Grid gridColumnsDesktop="repeat(4, 1fr)">
         <Heading size={HEADING_SIZES.LARGE} padded desktop={[1, 5]}>

@@ -3,8 +3,8 @@ import * as React from "react";
 import { GlobalStyle } from "@ui";
 import { Overlay } from "@ui/Molecules";
 import { PageFooter, PageHeader } from "@ui/Organisms";
-import SEO from "../seo";
 import { canSmoothScroll, isClient } from "@ui/helpers";
+import { Seo } from "@components";
 import { SCROLL_DIRECTION, useScroll } from "@hooks";
 
 interface Props {
@@ -58,7 +58,7 @@ const Layout = (props: Props) => {
         }
         scrolled={scrollFromTop > maxScrolledPosition()}
       />
-      <SEO title={props.title} />
+      <Seo title={props.title} />
       <main>
         <GlobalStyle />
         {props.children}
