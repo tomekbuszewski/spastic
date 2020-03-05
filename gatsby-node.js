@@ -90,6 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             title: frontmatter {
               title
+              summary
               pubdate(formatString: "MMMM Do, YYYY")
               featuredImage {
                 childImageSharp {
@@ -99,7 +100,6 @@ exports.createPages = async ({ graphql, actions }) => {
                       shadow: "#192550"
                       opacity: 50
                     }
-                    quality: 90
                     webpQuality: 90
                   ) {
                     aspectRatio
@@ -120,7 +120,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   [...posts, ...pages].forEach(({ node }) => {
-    const { title, pubdate, featuredImage } = node.title;
+    const { title, pubdate, featuredImage, summary } = node.title;
     const { slug } = node.fields;
     const body = node.body;
     const photo = featuredImage && featuredImage.childImageSharp.fluid;
@@ -130,6 +130,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: resolve(__dirname, "src", "components", "Page", "Page.tsx"),
       context: {
         title,
+        summary,
         body,
         pubdate,
         photo,

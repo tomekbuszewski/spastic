@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Layout } from "@components";
+import { Layout, Seo } from "@components";
 import { ArticleBody, ArticleHeader } from "@ui/Molecules";
 
 interface Props {
@@ -7,6 +7,7 @@ interface Props {
     title: string;
     body: string;
     pubdate?: string;
+    summary: string;
     photo?: string;
   };
 }
@@ -21,6 +22,7 @@ const Page = (props: Props) => {
 
   return (
     <Layout isFrontPage={false} title={props.pageContext.title}>
+      <Seo title={props.pageContext.title} description={props.pageContext.summary} type="article" />
       <ArticleHeader
         title={props.pageContext.title}
         photo={props.pageContext.photo || false}
