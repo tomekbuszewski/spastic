@@ -11,3 +11,4 @@ export * from "./GridElement";
 export * from "./CodeBlock";
 export * from "./Blockquote";
 export * from "./PaginationButton";
+export * from "./HorizontalLine";

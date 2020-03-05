@@ -25,6 +25,10 @@ const Seo = (props: Props) => {
     `,
   );
 
+  const photo = `${site.siteMetadata.siteUrl}/social-${Math.floor(
+    Math.random() * (3 - 1 + 1) + 1,
+  )}.jpg`;
+
   const metaDescription = props.description || site.siteMetadata.description;
   const pageTitle = props.title || site.siteMetadata.title;
   const config = [
@@ -45,6 +49,10 @@ const Seo = (props: Props) => {
       content: props.type ? props.type : "website",
     },
     {
+      property: "og:photo",
+      content: photo,
+    },
+    {
       name: "twitter:card",
       content: "summary",
     },
@@ -60,20 +68,36 @@ const Seo = (props: Props) => {
       name: "twitter:description",
       content: metaDescription,
     },
+    {
+      name: "twitter:image",
+      content: photo,
+    },
+    {
+      itemprop: "name",
+      content: props.title,
+    },
+    {
+      itemprop: "description",
+      content: metaDescription,
+    },
+    {
+      itemprop: "image",
+      content: photo,
+    }
   ];
 
   if (props.img) {
     config.push({
-      name: "og:photo",
+      property: "og:photo",
       content: props.img,
     });
-  } else {
+
     config.push({
-      name: "og:photo",
-      content: `${site.siteMetadata.siteUrl}/social-${Math.floor(Math.random() * (3 - 1 + 1) + 1)}.jpg`,
+      name: "twitter:image",
+      content: props.img,
     });
   }
-  
+
   return (
     <Helmet
       htmlAttributes={{
@@ -84,7 +108,7 @@ const Seo = (props: Props) => {
       titleTemplate={`%s · ${site.siteMetadata.title}`}
       meta={config}
     />
-  )
+  );
 };
 
 export { Seo };

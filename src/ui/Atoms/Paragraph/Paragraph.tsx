@@ -168,6 +168,13 @@ const Paragraph = styled.p<Props>`
 
   ${theme.breakpoints.tablet} {
     ${({ variant }) =>
+      variant === PARAGRAPH_VARIANTS.TEXT &&
+      css`
+        grid-column-start: 1;
+        grid-column-end: 5;
+        align-self: flex-start;
+      `};
+    ${({ variant }) =>
       variant === PARAGRAPH_VARIANTS.LARGE &&
       css`
         font-size: ${theme.fonts.sizes.mediumDesktop};

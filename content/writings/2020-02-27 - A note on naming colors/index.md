@@ -2,15 +2,16 @@
 title: A note on naming colors
 pubdate: 2020-02-27
 summary: What to do, when we want to have meaningful color names?
+featuredImage: header.jpg
 ---
 
-Remember that text saying "in IT, naming thing is hard"? This is every harder when it comes to colors.
+Remember that text saying "in IT, naming thing is hard"? This is even harder when it comes to colors.
 
-Most of the time, a color is already named. Red. Blue. [Rebecca Purple][1]. But those names bare no context. Anything can be _blue_. So, what to do, when we want to have meaningful color names?
+Most of the time, a color is already named. Red. Blue. [Rebecca Purple][1]. But those names bare no context. Anything can be _blue_. So, what to do, when we want to know, what we are dealing with?
 
 ## Even more abstraction
 
-One thing that I've used is to generate color names at random. Using [Name That Color][2], I was able to tell the difference between one [shade of teal][3] from [the other][4]. Even though they are visually different, in the code they are just different strings. Take a look at this:
+One thing that I've used is to generate color names at random. With [Name That Color][2], I was able to tell the difference between one [shade of teal][3] from [the other][4]. Even though they are visually different, in the code they are just different strings. Take a look at this:
 
 ```css
 :root {
@@ -25,7 +26,7 @@ Try to wait a bit. [Forget some stuff][5]. And suddenly, _what is that "java" co
 
 ## Use contextual names
 
-When you are getting your colors, they are for _something_. This is for the header text. That's for links. And this one's for the background. Why not name them as such?
+When you are getting your colors, they are for _something_. This is for the header text. That's for links. And that one's for the background. Why not name them as such?
 
 ```css
 :root {
@@ -35,7 +36,9 @@ When you are getting your colors, they are for _something_. This is for the head
 }
 ```
 
-This is the most readable thing you can do when naming colors. That way you won't have to care whether this color is "red" or "blue". It will be "background".
+This is the most readable thing you can do when naming colors. That way you won't have to care whether this color is "red" or "blue". It will be "background". 
+
+Seems obvious, but much too often I found people reinventing the wheel.
 
 ### Bonus: theming
 
@@ -59,7 +62,7 @@ During the design phase, colors are carefully picked. But sometimes a need arise
 
 There you have it. Simply overwriting values basing on some external factors is very simple using such notation.
 
-—
+---
 
 Naming things is hard. But using meaningful names will always be the way to go.
 
@@ -68,3 +71,7 @@ Naming things is hard. But using meaningful names will always be the way to go.
 [3]:	https://www.colourlovers.com/color/74E5EF/Flowering_Flow
 [4]:	https://www.colourlovers.com/color/24C7C0/buy_tramadol_online
 [5]:	/writings/2020-02-10-dont-forget-to-forget-your-code
+
+---
+
+Photo by Sharon McCutcheon on Unsplash

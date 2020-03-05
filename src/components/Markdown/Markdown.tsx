@@ -2,7 +2,14 @@ import * as React from "react";
 import MarkdownComponent from "react-markdown";
 
 import { LinkWrapper } from "@components/LinkWrapper";
-import { Heading, ListItem, Paragraph, CodeBlock, Blockquote } from "@ui/Atoms";
+import {
+  Heading,
+  ListItem,
+  Paragraph,
+  CodeBlock,
+  Blockquote,
+  HorizontalLine,
+} from "@ui/Atoms";
 import { List, Table } from "@ui/Molecules";
 import { scrollTo } from "@ui/helpers";
 
@@ -23,6 +30,7 @@ export const Markdown = (props: any) => (
         </a>
       ),
       link: (innerProps: any) => <LinkWrapper {...innerProps} />,
+      thematicBreak: (innerProps: any) => <HorizontalLine {...innerProps} />,
       paragraph: (innerProps: any) => <Paragraph {...innerProps} {...props} />,
       heading: (innerProps: any) => (
         <Heading {...innerProps} {...props} as={`h${innerProps.level}`} />

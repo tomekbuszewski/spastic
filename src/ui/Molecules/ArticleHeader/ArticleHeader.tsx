@@ -43,7 +43,7 @@ const ArticleHeader = styled((props: Props) => {
             left: "50%",
             transform: "translateX(-50%)",
             width: "100vw",
-            minHeight: "55vh",
+            minHeight: "75vh",
           }}
         />
       )}

@@ -53,26 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title: frontmatter {
               title
               featuredImage {
-                childImageSharp {
-                  fixed(
-                    width: 1920
-                    duotone: {
-                      highlight: "#0ec4f1"
-                      shadow: "#192550"
-                      opacity: 50
-                    }
-                    quality: 90
-                    webpQuality: 90
-                  ) {
-                    base64
-                    width
-                    height
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
-                  }
-                }
+                id
               }
             }
             body: rawMarkdownBody
@@ -93,23 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
               summary
               pubdate(formatString: "MMMM Do, YYYY")
               featuredImage {
-                childImageSharp {
-                  fluid(
-                    duotone: {
-                      highlight: "#0ec4f1"
-                      shadow: "#192550"
-                      opacity: 50
-                    }
-                    webpQuality: 90
-                  ) {
-                    aspectRatio
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
-                    sizes
-                  }
-                }
+                id
               }
             }
             body: rawMarkdownBody
@@ -123,7 +88,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { title, pubdate, featuredImage, summary } = node.title;
     const { slug } = node.fields;
     const body = node.body;
-    const photo = featuredImage && featuredImage.childImageSharp.fluid;
+    const photo = featuredImage && featuredImage.id;
 
     actions.createPage({
       path: slug,
