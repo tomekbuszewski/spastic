@@ -70,7 +70,7 @@ const Seo = (props: Props) => {
   } else {
     config.push({
       name: "og:photo",
-      content: `${site.siteMetadata.siteUrl}/social-${Math.floor(Math.random() * (3 - 1 + 1) + 1)}.jpg`,
+      content: `/social-${Math.floor(Math.random() * (3 - 1 + 1) + 1)}.jpg`,
     });
   }
   
