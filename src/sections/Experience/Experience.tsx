@@ -92,7 +92,7 @@ const Experience = () => {
           </Grid>
           <MoreLink
             right
-            hrefProps={{ download: true, href: "https://buszewski.com" }}
+            hrefProps={{ download: true, href: "/tomek-buszewski_cv.pdf" }}
           >
             Get my résumé as .pdf<strong>.</strong>
           </MoreLink>
