@@ -90,12 +90,25 @@ const PageHeader = styled((props: Props) => {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: ${props => props.isFrontPage && "2rem"};
-  background: ${props =>
-    props.isFrontPage
-      ? `var(--section-${SECTIONS.HERO}-background)`
-      : "var(--body)"};
   color: var(--text);
+  background: var(--body);
   margin: ${props => props.isFrontPage && "1rem 1rem 0 1rem"};
+
+  &:before {
+    ${withTransitions(["opacity", "transform"])};
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: block;
+    transform-origin: bottom;
+    background: ${props =>
+      props.isFrontPage
+        ? `var(--section-${SECTIONS.HERO}-background)`
+        : "var(--body)"};
+  }
 
   li {
     ${withTransitions(["line-height"])};
@@ -114,6 +127,10 @@ const PageHeader = styled((props: Props) => {
     css`
       padding-top: 0;
       background: var(--body);
+
+      &:before {
+        transform: scaleY(0);
+      }
 
       li {
         line-height: 5rem;

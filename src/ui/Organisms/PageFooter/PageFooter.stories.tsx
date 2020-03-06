@@ -12,7 +12,7 @@ storiesOf("Organisms/Page Footer", module).add("Normal", () => (
     <PageFooter>
       {text(
         "Example text",
-        "All rights reserved. This site probably harvests your cookies."
+        "All rights reserved. This site probably harvests your cookies.",
       )}
     </PageFooter>
   </React.Fragment>

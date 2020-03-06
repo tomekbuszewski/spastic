@@ -36,20 +36,27 @@ const Section = styled((props: Props) => {
   background: ${props => `var(--section-${props.name}-background)`};
   color: ${props => `var(--section-${props.name}-lead)`};
 
-  ${props => (props.name === SECTIONS.HERO || props.name === SECTIONS.FOUR_OH_FOUR) && "margin-top: 0"};
+  ${props =>
+    (props.name === SECTIONS.HERO || props.name === SECTIONS.FOUR_OH_FOUR) &&
+    "margin-top: 0"};
 
   ${theme.breakpoints.tablet} {
     margin: 2rem;
-    ${props => (props.name === SECTIONS.HERO || props.name === SECTIONS.FOUR_OH_FOUR) && "margin-top: 0"};
+    ${props =>
+      (props.name === SECTIONS.HERO || props.name === SECTIONS.FOUR_OH_FOUR) &&
+      "margin-top: 0"};
     padding: 10rem 0;
   }
 
   ${theme.breakpoints.desktop} {
     width: calc(100vw - 6rem);
     margin: 3rem;
-    ${props => (props.name === SECTIONS.HERO || props.name === SECTIONS.FOUR_OH_FOUR) && "margin-top: 0"};
+    ${props =>
+      (props.name === SECTIONS.HERO || props.name === SECTIONS.FOUR_OH_FOUR) &&
+      "margin-top: 0"};
     padding: 14rem 0;
-    ${props => props.name === SECTIONS.FOUR_OH_FOUR && "height: calc(100vh - 21rem)"};
+    ${props =>
+      props.name === SECTIONS.FOUR_OH_FOUR && "height: calc(100vh - 21rem)"};
   }
 `;
 
