@@ -18,18 +18,18 @@ export const Markdown = (props: any) => (
     escapeHtml={false}
     {...props}
     renderers={{
-      linkReference: (innerProps: any) => (
-        <a
-          href={innerProps.href}
-          onClick={e => {
-            scrollTo(innerProps.href, e);
-          }}
-          {...innerProps}
-        >
-          {innerProps.children}
-        </a>
-      ),
-      link: (innerProps: any) => <LinkWrapper {...innerProps} />,
+      // linkReference: (innerProps: any) => (
+      //   <a
+      //     href={innerProps.href}
+      //     onClick={e => {
+      //       scrollTo(innerProps.href, e);
+      //     }}
+      //     {...innerProps}
+      //   >
+      //     {innerProps.children}
+      //   </a>
+      // ),
+      // link: (innerProps: any) => <LinkWrapper {...innerProps} />,
       thematicBreak: (innerProps: any) => <HorizontalLine {...innerProps} />,
       paragraph: (innerProps: any) => <Paragraph {...innerProps} {...props} />,
       heading: (innerProps: any) => (

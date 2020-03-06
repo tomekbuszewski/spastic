@@ -93,6 +93,7 @@ const config = {
       },
     },
     "gatsby-transformer-remark",
+    "gatsby-plugin-catch-links",
     "gatsby-plugin-netlify",
     {
       resolve: "gatsby-plugin-google-analytics",
