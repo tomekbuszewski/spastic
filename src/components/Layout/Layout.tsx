@@ -46,6 +46,7 @@ const Layout = (props: Props) => {
         });
     }
   }, []);
+  const MainTag = props.isFrontPage ? "main" : "article";
 
   return (
     <React.Fragment>
@@ -59,10 +60,10 @@ const Layout = (props: Props) => {
         scrolled={scrollFromTop > maxScrolledPosition()}
       />
       <Seo title={props.title} />
-      <main>
+      <MainTag>
         <GlobalStyle />
         {props.children}
-      </main>
+      </MainTag>
       <Overlay />
       <PageFooter>
         All rights reserved. This site probably harvests your cookies.
