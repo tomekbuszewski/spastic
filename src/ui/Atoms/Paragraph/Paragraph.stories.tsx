@@ -7,7 +7,7 @@ import { SECTIONS } from "@config/sections";
 
 const sections = Object.keys(SECTIONS).map(s => String(s).toLowerCase());
 const variants = Object.keys(PARAGRAPH_VARIANTS).map(s =>
-  String(s).toLowerCase()
+  String(s).toLowerCase(),
 );
 
 storiesOf("Atoms/Paragraph", module).add("Basic", () => (

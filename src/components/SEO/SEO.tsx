@@ -91,7 +91,7 @@ const Seo = (props: Props) => {
     {
       itemprop: "image",
       content: photo,
-    }
+    },
   ];
 
   if (props.img) {

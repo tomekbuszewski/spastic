@@ -11,7 +11,7 @@ storiesOf("Molecules/BlogEntry", module).add("Normal", () => (
     pubdate={text("Publication date", "19th of February 2020")}
     summary={text(
       "Summary",
-      "I really like to cook. Yesterday, while doing panissa, I though how it would be like to do it in a synchronous way."
+      "I really like to cook. Yesterday, while doing panissa, I though how it would be like to do it in a synchronous way.",
     )}
   />
 ));

@@ -16,9 +16,9 @@ interface Props {
     file: {
       childImageSharp: {
         fluid: any;
-      }
-    }
-  }
+      };
+    };
+  };
 }
 
 const Page = (props: Props) => {
@@ -49,7 +49,16 @@ const query = graphql`
   query GetPhoto($photo: String) {
     file(id: { eq: $photo }) {
       childImageSharp {
-          fluid(webpQuality: 90, quality: 90, traceSVG: {turnPolicy: TURNPOLICY_MAJORITY, blackOnWhite: true, alphaMax: 1.5, color: "#000"}) {
+        fluid(
+          webpQuality: 90
+          quality: 90
+          traceSVG: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            blackOnWhite: true
+            alphaMax: 1.5
+            color: "#000"
+          }
+        ) {
           base64
           tracedSVG
           srcWebp
