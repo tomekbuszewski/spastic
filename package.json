@@ -2,7 +2,7 @@
   "name": "spastic",
   "private": true,
   "description": "",
-  "version": "0.1.0",
+  "version": "1.0.2",
   "author": "Tomek Buszewski <tomek.buszewski@gmail.com>",
   "dependencies": {
     "axios": "^0.19.2",
