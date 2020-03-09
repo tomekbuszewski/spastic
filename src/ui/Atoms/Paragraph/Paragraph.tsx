@@ -102,7 +102,7 @@ const Paragraph = styled.p<Props>`
     }
   }
 
-  &:last-of-type {
+  &:last-child {
     margin-bottom: 0;
   }
 

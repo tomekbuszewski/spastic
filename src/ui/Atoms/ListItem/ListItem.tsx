@@ -19,6 +19,10 @@ const ListItem = styled(Paragraph)<Props>`
   margin-bottom: 0.5rem;
   color: inherit;
 
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
   u {
     color: inherit;
   }
