@@ -1,46 +1,27 @@
 ---
 title: About me
 ---
-Hey there! My name is Tomek Buszewski and I’ve been „doing web” professionally for the past 12 years. 
+Hey there! My name is Tomek Buszewski and I’ve been "doing web" professionally for the past 12 years. 
 
-## Beginnings
+I've started to seriously work on web development after my 19th birthday, in 2008. Since then I am tackling various challenges: design, front-end or back-end development.
 
-Actually, I’ve started way earlier. In 2000 or 2001, I’ve found an article in _CD-Action_ about HTML, with some examples in it! And that is how I’ve made my first web page. It’s not around anymore,  but it was horrible, with red background, black, blue and white text. I was drawn to it, as I thought that „this is programming”. Next year, I got an A for doing such websites at computer classes at elementary school.
+For over six years I was working as a freelancer. From simple designs, HTML and CSS mockups to fully-fledged websites, powered by various backends.
 
-Fast-forward couple of years, I am in high school, doing PHP, MySQL and front-end of all sorts. It was the wildest time of my life. Staying late to code, creating CMS’, learning Kohana, trying to beat Zend and gasping at jQuery. I remember struggling to get up at 5:30 to go to school. Yes, getting up early was there from the beginning, how I loathe it. I don’t have to say I didn’t pass with flying colors. Rather I had to spread myself thin only to pass.
+Since 2014 I am living in Warsaw. and has worked, among others, for [Radio ZET][1], [Ars Thanea/Syzygy][2], [Rzeczpospolita][3], [Parkiet][4], [Vivus][5] and [TVN][6]. I've started as a front-end developer, then senior and team leader.
 
-## First-time earnings
+As a developer, I am very pragmatic and quality-focused. I prefer choosing what I know over what is trendy at the moment. For me, requirements comes first, technology second, never the other way around.
 
-I am 19 now, just graduated and have to earn money for a living. Fun fact, I tried to get a job as a carpenter in the town’s employment office, because the pay was good, but failed. 
+As a lead/manager, I know that developer experience is the way to achieve productivity. I don't believe in tons of meetings and  deliberation. It's better to develop a PoC rather than sitting and jabbering about something for two hours.
 
-Back then, I already had some portfolio of websites I’ve done. Some for fun, some for contests, some for friends. Some were even rebranded and sold! So, I thought, why not! Unfortunately, I don’t have any screenshots from back then. But it was really „in the vein” of the times, a single page with screenshots and brief description. It actually netted me a few customers. I was able to make a living doing websites!
+—
 
-This went on for a couple of years. I’ve been redoing my portfolio and getting more and more work. But struggled to get well money-wise. Sometimes clients refused to pay. I was rather cheap, so they knew I won’t sue. And exploited it. Sometimes, clients decided that they don’t want a website anymore. Sometimes I was just tired of changing something for the nth time. Plus, I was working with agencies a lot. And they could pay me after the client paid them. 
+You can find the technology I've worked on the [tech page][7]. If you want to know on what I am working, see [what I use][8].
 
-A lot of work has escaped me, as I was unable to meet with clients face to face. I was living in my hometown – Sanok – which is a real looker, but located in the south-eastern part of Poland. Getting to Warsaw by bus takes eight hours. I couldn’t afford going there couple of times per month, both time- and financial-wise.
-
-Being close to graduation (yes, I was studying as well), I was often visiting the careers office at the college. A note has grabbed my attention. A local agency was looking for a "webmaster". I sent my CV the minute I got home and got invited to an interview the next day! (Yes, Sanok was small, so all was going very fast. Now I am lucky if I get an invitation in the same week.) After a short talk I got the job! 
-
-By by-then standards, I was earning a lot. I could finally afford games and books! I was able to pay the bills without worrying that it may not be enough! Great times. Plus, I was still pulling my freelance work (in a smaller extent though). This was the high life I was aiming for all this time. But after a few months, things were starting to go awry. I did all the work that was behind the schedule in the first month. Those were simple WordPress-based pages. Then I was mostly doing graphic design – posters, banners, stickers. And then… nothing. People didn’t need websites in Sanok in 2012. We all knew this won’t last, and it didn’t. I left the place the following year and got back to just freelancing.
-
-## Big town!
-
-In 2014 year, thanks to [Mariusz Herma][1], I managed to live in Warsaw, after landing a job in [radiozet.pl][2]. Looking back, I think it was one of the best places I’ve been, with great people all around.
-
-In 2016, I’ve been hired in [Gremi Media][3] to supervise new front-end for [rp.pl][4] and eventually [parkiet.com][5]. After a few months, I made the team leader position of the latter project. We’ve decided that we’ll be making the new Parkiet in-house. All the frontend was done by [Ievgenii][6], Artur and me. We were really pulling all the stops and after all, did it. I was responsible for the stack and architecture. But in the end, we all did everything we could and no one cared whether he was the man for the job. If it required doing, someone did it.
-
-In 2018, I was in 4finance, responsible for [vivus.pl][7] at the beginning. After a month, I was promoted to a Core Web Team member and I was working on really high-level stuff. We were building frameworks for other teams to use. For example, on Monday I was working on our framework with the Core Team, and on Tuesday I was using it on vivus’ page. Few months have passed and our area manager has left. So I got this job! I was thrilled, as I always liked being a manager. I had two teams to care about – in Poland and in Lithuania. Those were great people, I really loved how we got along and how we were doing as a team of devs. 
-
-In 2019, I was approached by [Batmaid][8] to help them get their front-end together. After a few days I’ve decided that refactoring is a must and created some PoC that got accepted by the higher-ups. I was a lead front-end developer, responsible for everything related to this matter. Picking the entire stack and architecture. Creating the UI. Designing test and deployment pipelines. I am pretty proud of it, especially since it has proven to be very adaptable by the other developers.
-
-Now, it’s 2020 and I am starting my new job at [TVN][9]. I am here to build a new team based in Warsaw that’ll be working closely with the journalists. I am thrilled to see what’ll come out of it!
-
-[1]:	https://www.ziemianiczyja.pl/
-[2]:	https://radiozet.pl
-[3]:	https://gremimedia.pl/
-[4]:	https://www.rp.pl/
-[5]:	https://www.parkiet.com/
-[6]:	https://github.com/ievgen11
-[7]:	https://vivus.pl
-[8]:	https://batmaid.ch/en/
-[9]:	https://www.tvn.pl/
+[1]:	https://www.radiozet.pl/
+[2]:	https://www.syzygy.pl/warsaw/pl
+[3]:	https://www.rp.pl/
+[4]:	https://www.parkiet.com/
+[5]:	https://www.vivus.pl/
+[6]:	https://www.tvn.pl/
+[7]:	/tech
+[8]:	/uses
