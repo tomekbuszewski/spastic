@@ -20,7 +20,7 @@ const List = styled((props: Props) => {
 
   return <Component className={props.className}>{props.children}</Component>;
 })`
-  margin: 0;
+  margin: 0 0 3rem 0;
   padding: 0;
   list-style: none;
   ${props => props.padded && gridElement};
