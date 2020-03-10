@@ -42,6 +42,7 @@ const About = () => {
         </Heading>
         <Markdown
           mobile={[1, 12]}
+          desktop={[1,2]}
           padded
           source={description.body}
           variant={PARAGRAPH_VARIANTS.LARGE}
