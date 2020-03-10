@@ -140,14 +140,15 @@ const PageHeader = styled((props: Props) => {
   ${theme.breakpoints.tablet} {
     padding-left: 2rem;
     padding-right: 2rem;
-    margin: ${props => props.isFrontPage && "2rem 2rem 0 2rem"};
+    margin: ${props => props.isFrontPage && "2rem 2rem 0"};
   }
 
   ${theme.breakpoints.desktop} {
     height: 10rem;
     padding-left: 0;
     padding-right: 0;
-    margin: ${props => props.isFrontPage && "3rem 3rem 0 3rem"};
+    margin: ${props => props.isFrontPage && "3rem 3rem 0"};
+    width: calc(100vw - 6rem);
   }
 `;
 
