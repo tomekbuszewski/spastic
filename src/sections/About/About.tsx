@@ -31,7 +31,7 @@ const About = () => {
 
   return (
     <Section name={SECTIONS.ABOUT}>
-      <Grid gridColumnsMobile="1fr" gridColumnsTablet="1fr 1fr" as="article">
+      <Grid gridColumnsMobile="1fr" gridColumnsDesktop="1fr 1fr" as="article">
         <Heading
           padded
           full
@@ -42,7 +42,6 @@ const About = () => {
         </Heading>
         <Markdown
           mobile={[1, 12]}
-          tablet={[1, 2]}
           padded
           source={description.body}
           variant={PARAGRAPH_VARIANTS.LARGE}
