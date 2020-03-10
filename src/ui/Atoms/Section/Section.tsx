@@ -57,6 +57,8 @@ const Section = styled((props: Props) => {
     padding: 14rem 0;
     ${props =>
       props.name === SECTIONS.FOUR_OH_FOUR && "height: calc(100vh - 21rem)"};
+    ${props =>
+  props.name === SECTIONS.HERO && "height: calc(100vh - 16rem)"};
   }
 `;
 
