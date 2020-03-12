@@ -95,12 +95,91 @@ const config = {
     "gatsby-transformer-remark",
     "gatsby-plugin-catch-links",
     "gatsby-plugin-netlify",
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://buszewski.com",
+        sitemap: "https://buszewski.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-7541047-2",
         head: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-feed",
+      options: {
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.frontmatter.summary,
+                  date: edge.node.frontmatter.pubdate,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  enclosure: {
+                    url:
+                      edge.node.frontmatter.featuredImage &&
+                      site.siteMetadata.siteUrl +
+                        edge.node.frontmatter.featuredImage.childImageSharp
+                          .fluid.src,
+                    type: "image/jpeg",
+                  },
+                });
+              });
+            },
+            query: `
+{
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/writings/" } }
+        sort: { fields: frontmatter___pubdate, order: DESC }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              pubdate
+              summary
+              title
+              featuredImage {
+                childImageSharp {
+                  fluid(
+                    duotone: {
+                      highlight: "#0ec4f1"
+                      shadow: "#192550"
+                      opacity: 50
+                    }
+                    quality: 90
+                    webpQuality: 90
+                  ) {
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
+                  }
+                }
+              }
+            }
+          }
+        }
       }
+    }
+        `,
+            output: "/rss.xml",
+            title: "Buszewski.com",
+          },
+        ],
+      },
     },
   ],
 };
