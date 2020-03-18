@@ -204,6 +204,7 @@ const ArticleBody = styled((props: Props) => {
       border-radius: 1rem;
       display: block;
       margin: auto;
+      max-width: 100%;
     }
   }
 
