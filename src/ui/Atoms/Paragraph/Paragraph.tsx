@@ -34,7 +34,7 @@ interface Props extends IGridHelper {
   variant?: PARAGRAPH_VARIANTS;
 }
 
-const Paragraph = styled.p<Props>`
+export const ParagraphStyles = css<Props>`
   color: ${() => `var(--section-${React.useContext(ColorContext)}-lead)`};
   line-height: 1.75;
   font-weight: 500;
@@ -113,35 +113,35 @@ const Paragraph = styled.p<Props>`
   }
 
   ${({ variant }) =>
-    variant === PARAGRAPH_VARIANTS.SMALL &&
-    css`
+  variant === PARAGRAPH_VARIANTS.SMALL &&
+  css`
       font-size: ${theme.fonts.sizes.small};
     `};
 
   ${({ variant }) =>
-    variant === PARAGRAPH_VARIANTS.NORMAL &&
-    css`
+  variant === PARAGRAPH_VARIANTS.NORMAL &&
+  css`
       font-size: ${theme.fonts.sizes.smallDesktop};
     `};
 
   ${({ variant }) =>
-    variant === PARAGRAPH_VARIANTS.BOLD &&
-    css`
+  variant === PARAGRAPH_VARIANTS.BOLD &&
+  css`
       font-size: ${theme.fonts.sizes.smallDesktop};
       font-weight: 800;
     `};
 
   ${({ variant }) =>
-    variant === PARAGRAPH_VARIANTS.LARGE &&
-    css`
+  variant === PARAGRAPH_VARIANTS.LARGE &&
+  css`
       font-size: ${theme.fonts.sizes.medium};
       font-weight: 800;
       line-height: 1.6;
     `};
 
   ${({ variant }) =>
-    variant === PARAGRAPH_VARIANTS.TEXT &&
-    css`
+  variant === PARAGRAPH_VARIANTS.TEXT &&
+  css`
       font-family: ${theme.fonts.faces.serif};
       font-size: ${theme.fonts.sizes.smallDesktop};
       font-weight: 400;
@@ -158,8 +158,8 @@ const Paragraph = styled.p<Props>`
     `};
 
   ${({ variant }) =>
-    variant === PARAGRAPH_VARIANTS.TEXT_FIRST &&
-    css`
+  variant === PARAGRAPH_VARIANTS.TEXT_FIRST &&
+  css`
       font-family: ${theme.fonts.faces.serif};
       font-size: ${theme.fonts.sizes.medium};
       font-weight: 400;
@@ -168,15 +168,15 @@ const Paragraph = styled.p<Props>`
 
   ${theme.breakpoints.tablet} {
     ${({ variant }) =>
-      variant === PARAGRAPH_VARIANTS.TEXT &&
-      css`
+  variant === PARAGRAPH_VARIANTS.TEXT &&
+  css`
         grid-column-start: 1;
         grid-column-end: 5;
         align-self: flex-start;
       `};
     ${({ variant }) =>
-      variant === PARAGRAPH_VARIANTS.LARGE &&
-      css`
+  variant === PARAGRAPH_VARIANTS.LARGE &&
+  css`
         font-size: ${theme.fonts.sizes.mediumDesktop};
         line-height: 1.6;
       `};
@@ -184,14 +184,16 @@ const Paragraph = styled.p<Props>`
 
   ${theme.breakpoints.desktop} {
     ${({ variant }) =>
-      variant === PARAGRAPH_VARIANTS.TEXT &&
-      css`
+  variant === PARAGRAPH_VARIANTS.TEXT &&
+  css`
         grid-column-start: 3;
         grid-column-end: 7;
         align-self: flex-start;
       `};
   }
 `;
+
+const Paragraph = styled.p<Props>`${ParagraphStyles}`;
 
 Paragraph.defaultProps = {
   variant: PARAGRAPH_VARIANTS.NORMAL,

@@ -8,6 +8,7 @@ interface Props {
   pageContext: {
     title: string;
     body: string;
+    html: string;
     pubdate?: string;
     summary: string;
     photo?: string;
@@ -41,7 +42,7 @@ const Page = (props: Props) => {
         photo={props.pageContext.photo && props.data.file.childImageSharp.fluid}
         pubdate={props.pageContext.pubdate}
       />
-      <ArticleBody source={props.pageContext.body} />
+      <ArticleBody source={props.pageContext.html} />
     </Layout>
   );
 };

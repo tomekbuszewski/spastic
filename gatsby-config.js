@@ -92,7 +92,19 @@ const config = {
         ],
       },
     },
-    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     "gatsby-plugin-catch-links",
     "gatsby-plugin-netlify",
     "gatsby-plugin-sitemap",
