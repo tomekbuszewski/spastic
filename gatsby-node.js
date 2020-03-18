@@ -57,6 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
             body: rawMarkdownBody
+            html
           }
         }
       }
@@ -78,6 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
             body: rawMarkdownBody
+            html
           }
         }
       }
@@ -88,6 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { title, pubdate, featuredImage, summary } = node.title;
     const { slug } = node.fields;
     const body = node.body;
+    const html = node.html;
     const photo = featuredImage && featuredImage.id;
 
     actions.createPage({
@@ -99,6 +102,7 @@ exports.createPages = async ({ graphql, actions }) => {
         body,
         pubdate,
         photo,
+        html,
       },
     });
   });
