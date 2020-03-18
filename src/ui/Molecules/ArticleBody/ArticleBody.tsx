@@ -199,6 +199,12 @@ const ArticleBody = styled((props: Props) => {
 
   figure {
     margin-bottom: 3rem;
+    
+    img {
+      border-radius: 1rem;
+      display: block;
+      margin: auto;
+    }
   }
 
   h1,
