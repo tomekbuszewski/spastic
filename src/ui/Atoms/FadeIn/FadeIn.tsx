@@ -7,18 +7,22 @@ import { theme } from "@ui";
 const isObserverAvailable =
   typeof window !== "undefined" && "IntersectionObserver" in window;
 
+const isMobile = isObserverAvailable && window.innerWidth < 768;
+
+const observerOptions = {
+  rootMargin: isMobile ? "0px" : "25% 0px 0px 0px",
+  threshold: isMobile ? 0 : 0.125,
+};
+
 const observer = isObserverAvailable
-  ? new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(({ isIntersecting, target }) => {
-          if (isIntersecting) {
-            target.setAttribute("data-active", "true");
-            observer.unobserve(target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -25% 0px", threshold: 0.25 },
-    )
+  ? new IntersectionObserver((entries, observer) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (isIntersecting) {
+          target.setAttribute("data-active", "true");
+          observer.unobserve(target);
+        }
+      });
+    }, observerOptions)
   : { observe: () => false };
 
 const FadeIn = styled((props: any) => {
