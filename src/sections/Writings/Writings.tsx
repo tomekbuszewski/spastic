@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import { LinkWrapper } from "@components";
 import { SECTIONS } from "@config/sections";
-import { Grid, Heading, HEADING_SIZES, Section } from "@ui/Atoms";
+import { Grid, Heading, HEADING_SIZES, Section, FadeIn } from "@ui/Atoms";
 import { BlogEntry, MoreLink } from "@ui/Molecules";
 
 import { IBlogEntry } from "@ui/Molecules/BlogEntry/BlogEntry";
@@ -68,38 +68,40 @@ const Writings = () => {
 
   return (
     <Section name={SECTIONS.WRITINGS}>
-      <Grid gridColumnsMobile="1fr" gridColumnsTablet="repeat(4, 1fr)">
-        <Heading tablet={[4, 5]} padded size={HEADING_SIZES.NORMAL}>
-          Writings<strong>.</strong>
-        </Heading>
-        <Grid
-          as="ul"
-          mobile={[1, 5]}
-          gridColumnsMobile="1fr"
-          gridColumnsTablet="repeat(2, 1fr)"
-          gridColumnsDesktop="repeat(4, 1fr)"
-        >
-          {[...entries].slice(0, 8).map(({ entry }: IBlogNode) => {
-            const photo =
-              entry.entry.featuredImage &&
-              entry.entry.featuredImage.childImageSharp;
+      <FadeIn>
+        <Grid gridColumnsMobile="1fr" gridColumnsTablet="repeat(4, 1fr)">
+          <Heading tablet={[4, 5]} padded size={HEADING_SIZES.NORMAL}>
+            Writings<strong>.</strong>
+          </Heading>
+          <Grid
+            as="ul"
+            mobile={[1, 5]}
+            gridColumnsMobile="1fr"
+            gridColumnsTablet="repeat(2, 1fr)"
+            gridColumnsDesktop="repeat(4, 1fr)"
+          >
+            {[...entries].slice(0, 8).map(({ entry }: IBlogNode) => {
+              const photo =
+                entry.entry.featuredImage &&
+                entry.entry.featuredImage.childImageSharp;
 
-            return (
-              <BlogEntry
-                key={entry.id}
-                {...entry.entry}
-                slug={entry.fields.slug}
-                photo={photo}
-              />
-            );
-          })}
+              return (
+                <BlogEntry
+                  key={entry.id}
+                  {...entry.entry}
+                  slug={entry.fields.slug}
+                  photo={photo}
+                />
+              );
+            })}
+          </Grid>
+          {totalCount > 8 && (
+            <MoreLink to="/writings/2" component={LinkWrapper}>
+              More entries<strong>.</strong>
+            </MoreLink>
+          )}
         </Grid>
-        {totalCount > 8 && (
-          <MoreLink to="/writings/2" component={LinkWrapper}>
-            More entries<strong>.</strong>
-          </MoreLink>
-        )}
-      </Grid>
+      </FadeIn>
     </Section>
   );
 };
