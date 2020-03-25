@@ -1,11 +1,9 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import slugify from "slugify";
 
 import { Layout, LinkWrapper } from "@components";
 import { Grid, PaginationButton } from "@ui/Atoms";
 import { BlogEntry, ArticleHeader } from "@ui/Molecules";
-import slugifyCfg from "@config/slugify";
 import { IBlogNode } from "../../sections/Writings/Writings";
 
 interface Props {

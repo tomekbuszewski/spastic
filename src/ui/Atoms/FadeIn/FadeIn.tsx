@@ -8,14 +8,17 @@ const isObserverAvailable =
   typeof window !== "undefined" && "IntersectionObserver" in window;
 
 const observer = isObserverAvailable
-  ? new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.setAttribute("data-active", "true");
-          observer.unobserve(entry.target);
-        }
-      });
-    })
+  ? new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(({ isIntersecting, target }) => {
+          if (isIntersecting) {
+            target.setAttribute("data-active", "true");
+            observer.unobserve(target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -25% 0px", threshold: 0.25 },
+    )
   : { observe: () => false };
 
 const FadeIn = styled((props: any) => {
@@ -31,21 +34,21 @@ const FadeIn = styled((props: any) => {
   return React.Children.map(props.children, child =>
     React.cloneElement(child, {
       ...child.props,
-      className: `${child.props.className || ""} ${
-        props.className
-      }`.trim(),
+      className: `${child.props.className || ""} ${props.className}`.trim(),
       ref: container,
     }),
   );
 })`
   &.fade-in {
-    ${withTransitions(["transform", "opacity"], theme.animations.long)};
-    transition-delay: ${theme.animations.med};
+    ${withTransitions(["transform", "opacity"], theme.animations.veryLong)};
     opacity: 0;
     transform: translateY(12rem) skewY(2deg);
 
-    p,
-    li {
+    > *,
+    > * > p,
+    > * > li,
+    > * > * > p,
+    > * > * > li {
       opacity: 0;
       transform: translateY(6rem) skewY(2deg);
       ${withTransitions(["transform", "opacity"], theme.animations.long)};
@@ -66,8 +69,11 @@ const FadeIn = styled((props: any) => {
     opacity: 1;
     transform: none;
 
-    p,
-    li {
+    > *,
+    > * > p,
+    > * > li,
+    > * > * > p,
+    > * > * > li {
       opacity: 1;
       transform: none;
     }
