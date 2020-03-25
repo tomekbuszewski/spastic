@@ -27,6 +27,9 @@ const PageFooter = styled((props: Props) => (
   background: var(--body);
   padding-top: 2rem;
   padding-bottom: 3rem;
+  position: sticky;
+  z-index: 0;
+  bottom: 0;
 
   ${theme.breakpoints.tablet} {
     display: grid;
