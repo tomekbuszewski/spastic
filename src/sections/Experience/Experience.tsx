@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import { MoreLink, WorkItem } from "@ui/Molecules";
 import {
+  FadeIn,
   Grid,
   Heading,
   HEADING_SIZES,
@@ -48,8 +49,8 @@ const Experience = () => {
   const showLess = () => setVisible(vis => vis.map(i => i - 1));
 
   return (
-    <React.Fragment>
-      <Section name={SECTIONS.EXPERIENCE}>
+    <Section name={SECTIONS.EXPERIENCE}>
+      <FadeIn>
         <Grid
           gridColumnsMobile="1fr"
           gridColumnsTablet="repeat(4, 1fr)"
@@ -97,8 +98,8 @@ const Experience = () => {
             Get my résumé as .pdf<strong>.</strong>
           </MoreLink>
         </Grid>
-      </Section>
-    </React.Fragment>
+      </FadeIn>
+    </Section>
   );
 };
 

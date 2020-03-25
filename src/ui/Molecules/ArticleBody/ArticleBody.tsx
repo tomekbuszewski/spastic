@@ -199,7 +199,7 @@ const ArticleBody = styled((props: Props) => {
 
   figure {
     margin-bottom: 3rem;
-    
+
     img {
       border-radius: 1rem;
       display: block;
@@ -255,6 +255,42 @@ const ArticleBody = styled((props: Props) => {
 
     &:last-of-type {
       margin-bottom: 0;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      &:before {
+        opacity: 0.5;
+        width: 2rem;
+        content: "–";
+        display: inline-block;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: list-counter;
+
+    li {
+      counter-increment: my-awesome-counter;
+      padding-left: 2.5rem;
+
+      &:before {
+        font-size: 0.7em;
+        content: "0" counter(my-awesome-counter);
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: right;
+
+        position: absolute;
+        left: 0;
+        width: 1.5rem;
+      }
     }
   }
 

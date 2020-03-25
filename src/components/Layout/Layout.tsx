@@ -1,4 +1,5 @@
 import * as React from "react";
+import styled from "styled-components";
 
 import { GlobalStyle } from "@ui";
 import { Overlay } from "@ui/Molecules";
@@ -9,6 +10,7 @@ import { SCROLL_DIRECTION, useScroll } from "@hooks";
 
 interface Props {
   children: React.ReactNode;
+  className?: string;
   isFrontPage: boolean;
   title?: string;
 }
@@ -35,7 +37,7 @@ const maxScrolledPosition = () => {
   return result;
 };
 
-const Layout = (props: Props) => {
+const Layout = styled((props: Props) => {
   const { scrollFromTop, scrollDirection } = useScroll();
   React.useEffect(() => {
     if (!canSmoothScroll) {
@@ -60,7 +62,7 @@ const Layout = (props: Props) => {
         scrolled={scrollFromTop > maxScrolledPosition()}
       />
       <Seo title={props.title} />
-      <MainTag>
+      <MainTag className={props.className}>
         <GlobalStyle />
         {props.children}
       </MainTag>
@@ -70,6 +72,10 @@ const Layout = (props: Props) => {
       </PageFooter>
     </React.Fragment>
   );
-};
+})`
+  position: relative;
+  z-index: 1;
+  background: var(--body);
+`;
 
 export { Layout };

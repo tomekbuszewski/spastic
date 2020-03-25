@@ -2,6 +2,7 @@ export interface ITheme {
   animations: {
     easing: string;
     long: string;
+    veryLong: string;
     med: string;
     short: string;
   };
@@ -30,8 +31,9 @@ const rem = (input: number, base: number = BASE_SIZE): string => `${input / base
 
 export const theme: ITheme = {
   animations: {
-    easing: "cubic-bezier(.79,.03,.23,.94)",
+    easing: "cubic-bezier(.06,.37,.42,.99)",
     long: "500ms",
+    veryLong: "750ms",
     med: "300ms",
     short: "150ms",
   },
