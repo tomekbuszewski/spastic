@@ -226,6 +226,10 @@ const ArticleBody = styled((props: Props) => {
       text-decoration: none;
     }
   }
+  
+  h3 {
+    font-size: ${theme.fonts.sizes.medium};
+  }
 
   table {
     grid-column-start: 1;
@@ -248,6 +252,7 @@ const ArticleBody = styled((props: Props) => {
   li {
     margin-bottom: 0.5rem;
     color: inherit;
+    font-family: ${theme.fonts.faces.primary};
 
     &:first-of-type {
       font-size: initial;
@@ -415,6 +420,10 @@ const ArticleBody = styled((props: Props) => {
       margin: 2rem 0 2rem;
       grid-column-start: 3;
       grid-column-end: 7;
+    }
+    
+    h3 {
+      font-size: ${theme.fonts.sizes.mediumDesktop};
     }
 
     ul,
