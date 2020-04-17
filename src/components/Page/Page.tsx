@@ -1,8 +1,13 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+import loadable from "@loadable/component";
 
 import { Layout, Seo } from "@components";
-import { ArticleBody, ArticleHeader } from "@ui/Molecules";
+import { ArticleBody } from "@ui/Molecules";
+
+const ArticleHeader = loadable(() =>
+  import("../../ui/Molecules/ArticleHeader/ArticleHeader"),
+);
 
 interface Props {
   pageContext: {

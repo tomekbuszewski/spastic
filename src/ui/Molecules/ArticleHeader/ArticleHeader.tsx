@@ -115,3 +115,4 @@ const ArticleHeader = styled((props: Props) => {
 `;
 
 export { ArticleHeader };
+export default ArticleHeader;

@@ -82,14 +82,9 @@ const config = {
       },
     },
     {
-      resolve: "gatsby-plugin-prefetch-google-fonts",
+      resolve: "gatsby-plugin-google-fonts",
       options: {
-        fonts: [
-          {
-            family: "Domine",
-            variants: ["400", "800"],
-          },
-        ],
+        fonts: ["Manrope:500,800"],
       },
     },
     {
