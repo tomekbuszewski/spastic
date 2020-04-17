@@ -3,12 +3,6 @@ import reboot from "styled-reboot";
 
 import { theme, BASE_SIZE } from "@ui/theme";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-import ManropeMedium from "@ui/fonts/Manrope-Medium.woff2";
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-import ManropeExtraBold from "@ui/fonts/Manrope-ExtraBold.woff2";
 import { SECTIONS } from "@config/sections";
 import { withTransitions } from "@ui/helpers";
 
@@ -161,22 +155,6 @@ export const GlobalStyle = createGlobalStyle`
       --code-whitespace: rgba(251, 251, 249, 0.2);
       --code-comment: rgb(103, 111, 125);
     }
-  }
-  
-  @font-face {
-    font-family: ${theme.fonts.faces.normal};
-    font-style: normal;
-    font-weight: 500;
-    font-display: fallback;
-    src: local("Manrope Medium"), local("Manrope-Medium"), url(${ManropeMedium}) format("woff2");
-  }
-  
-  @font-face {
-    font-family: ${theme.fonts.faces.normal};
-    font-style: normal;
-    font-weight: 800;
-    font-display: fallback;
-    src: local("Manrope ExtraBold"), local("Manrope-ExtraBold"), url(${ManropeExtraBold}) format("woff2");
   }
 
   ${reboot(rebootOptions)};

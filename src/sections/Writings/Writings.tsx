@@ -107,3 +107,4 @@ const Writings = () => {
 };
 
 export { Writings };
+export default Writings;
