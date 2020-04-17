@@ -2,7 +2,7 @@
   "name": "spastic",
   "private": true,
   "description": "",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Tomek Buszewski <tomek.buszewski@gmail.com>",
   "dependencies": {
     "@loadable/component": "^5.12.0",
