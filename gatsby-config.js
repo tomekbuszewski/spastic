@@ -82,13 +82,6 @@ const config = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-fonts",
-      options: {
-        fonts: ["Manrope:500,800"],
-        display: "swap",
-      },
-    },
-    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
