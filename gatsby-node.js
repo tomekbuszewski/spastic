@@ -3,6 +3,8 @@ const { resolve } = require("path");
 const slugify = require("slugify");
 const { createFilePath } = require("gatsby-source-filesystem");
 
+const LoadablePlugin = require("@loadable/webpack-plugin");
+
 const slugifyCfg = require("./config/slugify");
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -126,5 +128,11 @@ exports.createPages = async ({ graphql, actions }) => {
         currentPage: i + 1,
       },
     });
+  });
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    plugins: [new LoadablePlugin()],
   });
 };
