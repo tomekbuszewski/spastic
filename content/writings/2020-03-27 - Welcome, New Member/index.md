@@ -7,7 +7,7 @@ photo: header.jpg
 
 In IT, it is very common to have new team members. And yet, welcoming them is hardly something we’re good at.
 
-## Before then even come
+## Before they even come
 
 There is a checklist I like to have _before_ the new person will come. Simple points that make sure they feel good.
 

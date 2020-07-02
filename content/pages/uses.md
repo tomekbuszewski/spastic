@@ -48,7 +48,7 @@ One thing I’d like to add, are gaming consoles. Even though my wife loves PC g
 - Xbox One X;
 - Switch.
 
-Disconnected and in the closed are: old PS3, Xbox 360 (both first, "fat" editions) and a PSOne Classic. I had to dispose my PS2 Slim, as it got damaged and stopped closing during transport. My PSX (the original, large model) was left at my mom’s house and had been thrown away as garbage.
+Disconnected and in the closet are: Wii and Wii U (sorry, still have things to play on you, pal!) old PS3, Xbox 360 (both first, "fat" editions) and a PSOne Classic. I had to dispose of my PS2 Slim, as it got damaged and stopped closing during transport. My PSX (the original, large model) was left at my mom’s house and had been thrown away as garbage (\*wipes tears\*).
 
 —
 
