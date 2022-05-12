@@ -2,4 +2,8 @@
 group: hero
 title: description
 ---
-and I am **a** web developer.
+I am **a** web developer.
+
+Curently **open to new challenges**. [Let’s talk][1]!
+
+[1]:	#contact
