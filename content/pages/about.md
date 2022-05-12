@@ -1,7 +1,7 @@
 ---
 title: About me
 ---
-Hey there! My name is Tomek Buszewski and I’ve been "doing web" professionally for the past 12 years. 
+Hey there! My name is Tomek Buszewski and I’ve been "doing web" professionally for the past 14 years. 
 
 I've started to seriously work on web development after my 19th birthday, in 2008. Since then I am tackling various challenges: design, front-end or back-end development.
 
